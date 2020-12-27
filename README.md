@@ -1,3 +1,31 @@
+# CodersCamp2020.CookBook
+
+Funkcjonalności
+
+        1. Menu z globalnym wyszukaniem receptury na danie -> Search Recipes
+        2. Strona główna z przykładowymi daniami, około 7, jakiś domyślny filter(np. pasta), możliwość zmiany filtra na coś innego (user imput) -> Search Recipes by Ingredients
+        3. Strona z randomowym daniem, przycisk na pobranie nowego oraz przycisk na pobieranie nowego dania cały czas interwał co 10s -> Get Random Recipes
+        4. Gra w ile wartości odżywczych jest w danym produkcie, możliwość błędu +- jakaś wartość -> Guess Nutrition by Dish Name lub Quick Answer
+        6. Lista zakupów, po wyjściu ze strony nie musi to być nigdzie zapisane, ewntualnie sesja, ciasteczka -> Search Grocery Products
+        7. Kalkulator na przeliczanie miar gramy na kilogramy i takie tam. -> Convert Amounts
+### Przykładowe uzycia api
+1. Search Recipes  
+a. https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2&apiKey=1193248e5d2944ddbd9797097eaae839&apiKey=YOUR_API_KEY
+b. 
+c. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 **UWAGA! Zaczynając pracę nad projektem — nie róbcie forka.
 Jedna osoba z zespołu (np. Mentor) powinna użyć przycisku `Use this template` i dodać innych członków zespołu jako Collaborators do tego repozytorium.**
 
