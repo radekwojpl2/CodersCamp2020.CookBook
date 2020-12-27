@@ -10,9 +10,9 @@ Funkcjonalności
         7. Kalkulator na przeliczanie miar gramy na kilogramy i takie tam. -> Convert Amounts
 ### Przykładowe uzycia api
 1. Search Recipes  
-a. https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2&apiKey=1193248e5d2944ddbd9797097eaae839&apiKey=YOUR_API_KEY
-b. 
-c. 
+a. https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2&apiKey=1193248e5d2944ddbd9797097eaae839&apiKey=YOUR_API_KEY  
+b.  
+c.  
 
 
 
