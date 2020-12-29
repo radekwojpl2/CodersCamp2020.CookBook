@@ -9,22 +9,39 @@ Funkcjonalności
         6. Lista zakupów, po wyjściu ze strony nie musi to być nigdzie zapisane, ewntualnie sesja, ciasteczka -> Search Grocery Products
         7. Kalkulator na przeliczanie miar gramy na kilogramy i takie tam. -> Convert Amounts
 ### Przykładowe uzycia api
-1. Search Recipes  
-a. https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=2&apiKey=1193248e5d2944ddbd9797097eaae839&apiKey=YOUR_API_KEY  
-b.  
-c.  
+1) Search Recipes  
+                a. https://api.spoonacular.com/recipes/complexSearch&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa). 
+                
+      b. W celu dodania parametru trzeba po 'complexSearc' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
+https://api.spoonacular.com/recipes/complexSearch?query=rice&apiKey=YOUR_API_KEY  <-- To zapytanie do API zwróci 10 obiektów, które w parametrze 'query' mają słowo 'rice'.
+
+   c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
+https://api.spoonacular.com/recipes/complexSearch?query=rice&cuisine=japanese&number=5&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 5 obiektów, które w parametrze 'query' mają słowo 'rice', w parametrze 'cuisine' słowo 'japanese', a w parametrze 'number' liczbę '5'.
+                
+   d. Cała dokumnetacja z wszytkimi parametrami znajduje się tutaj (jest ich mnóstwo) https://spoonacular.com/food-api/docs#Search-Recipes-Complex
 
 
+2) Search Recipes by Ingredients
+
+      a. https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+
+      b. W celu dodania parametru trzeba przed 'findByIngredients' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
+https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 10 obiektów, które w parametrze 'ingredients' mają słowo 'pumpkin'.
+
+   c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
+https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&number=3&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 3 obiekty, które w parametrze 'ingredients' mają słowo 'pumpkin', w parametrze, a w parametrze 'number' liczbę '3'.
+
+   d. Cała dokumnetacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients
 
 
+7) <- to jest 7 (github jakieś dziwne rzeczy robi) Convert Amounts
 
+      a. https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać parametry 'ingredientName', 'sourceAmount', 'sourceUnit' i 'targetUnit' (bez parametrów nie działa).
 
+      b. W celu dodania parametru trzeba przed 'apiKey' wpisać '?', a następnie nazwę danego parametru. Przed każdym kolejnym parametrem należy wpisać '&'. 
+https://api.spoonacular.com/recipes/convert?ingredientName=water&sourceAmount=3.5&sourceUnit=cups&targetUnit=liters&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci obiekt z przekonwertowaną jednostką.
 
-
-
-
-
-
+   c. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Convert-Amounts
 
 **UWAGA! Zaczynając pracę nad projektem — nie róbcie forka.
 Jedna osoba z zespołu (np. Mentor) powinna użyć przycisku `Use this template` i dodać innych członków zespołu jako Collaborators do tego repozytorium.**
