@@ -12,7 +12,7 @@ Funkcjonalności
 1) Search Recipes  
                 a. https://api.spoonacular.com/recipes/complexSearch&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa). 
                 
-      b. W celu dodania parametru trzeba po 'complexSearc' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
+      b. W celu dodania parametru trzeba po 'complexSearch' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 https://api.spoonacular.com/recipes/complexSearch?query=rice&apiKey=YOUR_API_KEY  <-- To zapytanie do API zwróci 10 obiektów, które w parametrze 'query' mają słowo 'rice'.
 
    c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
@@ -25,7 +25,7 @@ https://api.spoonacular.com/recipes/complexSearch?query=rice&cuisine=japanese&nu
 
       a. https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
-      b. W celu dodania parametru trzeba przed 'findByIngredients' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
+      b. W celu dodania parametru trzeba po 'findByIngredients' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 10 obiektów, które w parametrze 'ingredients' mają słowo 'pumpkin'.
 
    c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
@@ -38,7 +38,7 @@ https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&number
 
       a. https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać parametry 'ingredientName', 'sourceAmount', 'sourceUnit' i 'targetUnit' (bez parametrów nie działa).
 
-      b. W celu dodania parametru trzeba przed 'apiKey' wpisać '?', a następnie nazwę danego parametru. Przed każdym kolejnym parametrem należy wpisać '&'. 
+      b. W celu dodania parametru trzeba po 'convert' wpisać '?', a następnie nazwę danego parametru. Przed każdym kolejnym parametrem należy wpisać '&'. 
 https://api.spoonacular.com/recipes/convert?ingredientName=water&sourceAmount=3.5&sourceUnit=cups&targetUnit=liters&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci obiekt z przekonwertowaną jednostką.
 
    c. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Convert-Amounts
