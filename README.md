@@ -13,10 +13,10 @@ Funkcjonalności
                 a. https://api.spoonacular.com/recipes/complexSearch&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa). 
                 
       b. W celu dodania parametru trzeba po 'complexSearch' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
-https://api.spoonacular.com/recipes/complexSearch?query=rice&apiKey=YOUR_API_KEY  <-- To zapytanie do API zwróci 10 obiektów, które w parametrze 'query' mają słowo 'rice'.
+https://api.spoonacular.com/recipes/complexSearch?query=rice&apiKey=YOUR_API_KEY  <-- To zapytanie do API zwróci maksymalnie 10 obiektów, które w parametrze 'query' mają słowo 'rice'.
 
    c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
-https://api.spoonacular.com/recipes/complexSearch?query=rice&cuisine=japanese&number=5&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 5 obiektów, które w parametrze 'query' mają słowo 'rice', w parametrze 'cuisine' słowo 'japanese', a w parametrze 'number' liczbę '5'.
+https://api.spoonacular.com/recipes/complexSearch?query=rice&cuisine=japanese&number=5&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 5 obiektów, które w parametrze 'query' mają słowo 'rice', w parametrze 'cuisine' słowo 'japanese', a w parametrze 'number' liczbę '5'.
                 
    d. Cała dokumnetacja z wszytkimi parametrami znajduje się tutaj (jest ich mnóstwo) https://spoonacular.com/food-api/docs#Search-Recipes-Complex
 
@@ -26,10 +26,10 @@ https://api.spoonacular.com/recipes/complexSearch?query=rice&cuisine=japanese&nu
       a. https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
       b. W celu dodania parametru trzeba po 'findByIngredients' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
-https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 10 obiektów, które w parametrze 'ingredients' mają słowo 'pumpkin'.
+https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 10 obiektów, które w parametrze 'ingredients' mają słowo 'pumpkin'.
 
    c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
-https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&number=3&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 3 obiekty, które w parametrze 'ingredients' mają słowo 'pumpkin', w parametrze, a w parametrze 'number' liczbę '3'.
+https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&number=3&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 3 obiekty, które w parametrze 'ingredients' mają słowo 'pumpkin', w parametrze, a w parametrze 'number' liczbę '3'.
 
    d. Cała dokumnetacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients
 
