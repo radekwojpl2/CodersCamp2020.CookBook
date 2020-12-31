@@ -82,7 +82,7 @@ https://api.spoonacular.com/food/products/search?query=pizza&number=2&apiKey=YOU
 <-- To zapytanie do API zwróci 2 obiekty, które w parametrze ‘query’ mają wartość „pizza”, w parametrze 'number' wartość 2
 
    
-   d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Grocery-Productsr
+   d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Grocery-Products
    
    
 7) <- to jest 7 (github jakieś dziwne rzeczy robi) Convert Amounts
