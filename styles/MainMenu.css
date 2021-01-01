@@ -1,5 +1,5 @@
 .menu {
-    padding: 0;
+    padding: 1rem;
     display: flex;
     justify-content: space-between;
     position: relative;
@@ -9,12 +9,11 @@
     padding-left: 1rem;
 }
 
-.navigation__btn {
-   text-align: end;
-   padding-right: 1rem;
-}
+/* .navigationBtn {
 
-.navigation__menu {
+} */
+
+.navigationBox {
     position: absolute;
     width: 100%;
     top: 110%;
@@ -22,28 +21,22 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 0;
     transition: opacity 0.3s ease-in-out;
     opacity: 1
 }
 
-.navigation__menu--hidden {
-    opacity: 0;
-    z-index: -100;
-}
-
-.navigation__list {
+.navigationList {
     list-style-type: none;
     padding: 0;
     margin: 0;
     text-align: center;
 }
 
-.navigation__listItem {
+.navigationList li {
     padding: 0.5rem 0;
 }
 
-.navigation__search {
+.search {
     display: flex;
     justify-content: space-around;
     margin: 0.5rem 0;
