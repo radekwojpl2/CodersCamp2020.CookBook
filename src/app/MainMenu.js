@@ -23,7 +23,6 @@
 // </nav>
 // </menu> -->
 
-const BREAKING_POINT = 1000;
 
 //append multi children to element
 const appendChildrenToElement = (element, ...children) => {
@@ -33,23 +32,11 @@ const appendChildrenToElement = (element, ...children) => {
   return element
 }
 
-//create element and his childrens
-const createElementWithChildren = (element, ...children) => {
-  const mainElement = document.createElement(element);
-
-  for (let child in children) {
-    const childElement = document.createElement(children[child]);
-    mainElement.appendChild(childElement)
-  }
-
-  return element
-}
-
-
 export const MainMenu = () => {
 
     //create menu structure
     const menu = document.createElement('nav');
+    menu.classList.add('menu')
 
     const logo = document.createElement('div');
     logo.classList.add('logo');
@@ -57,27 +44,28 @@ export const MainMenu = () => {
 
     const menuBtn = document.createElement('button');
     menuBtn.innerText = 'Click';
-    menuBtn.classList.add('navigation__btn')
+    menuBtn.classList.add('navigationBtn')
+
+    const navBox = document.createElement('div');
+    navBox.classList.add('navigationBox')
 
     const navList = document.createElement('ul');
-    navList.classList.add('navigation__list')
+    navList.classList.add('navigationList')
     const listElements = ['Main Page', 'Random Receip', 'Nutrition game', 'Calculator', 'Shopping list' ];
     for (let listItem in listElements) {
       const listElement = document.createElement('li');
       listElement.innerText = listElements[listItem];
-      listElement.classList.add('navigation__listItem')
       navList.appendChild(listElement)
     }
 
     const search = document.createElement('form');
     search.classList.add('search')
     const searchInput = document.createElement('input');
-    searchInput.classList.add('search__input')
     const searchBtn = document.createElement('button');
-    searchBtn.classList.add('search__button')
-    appendChildrenToElement(search, searchInput, searchBtn)
+    appendChildrenToElement(search, searchInput, searchBtn);
 
-    appendChildrenToElement(menu, logo, menuBtn, navList, search)
+    appendChildrenToElement(navBox, navList, search)
+    appendChildrenToElement(menu, logo, menuBtn, navBox)
 
     //append menu to page 
     const placeToAppend = document.getElementById('swquiz-app');
