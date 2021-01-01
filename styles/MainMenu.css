@@ -25,6 +25,11 @@
     opacity: 1
 }
 
+.navigationBoxHidden {
+    opacity: 0;
+    z-index: -100;
+}
+
 .navigationList {
     list-style-type: none;
     padding: 0;

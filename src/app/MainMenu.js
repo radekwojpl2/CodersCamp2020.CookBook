@@ -34,22 +34,26 @@ const appendChildrenToElement = (element, ...children) => {
 
 export const MainMenu = () => {
 
-    //create menu structure
+    //CREATE MENU STRUCTURE
     const menu = document.createElement('nav');
     menu.classList.add('menu')
 
-    const logo = document.createElement('div');
+    //create logo
+    const logo = document.createElement('div'); 
     logo.classList.add('logo');
     logo.innerText = 'CookBook';
-
-    const menuBtn = document.createElement('button');
+    
+    //create toogle button
+    const menuBtn = document.createElement('button'); 
     menuBtn.innerText = 'Click';
     menuBtn.classList.add('navigationBtn')
 
-    const navBox = document.createElement('div');
-    navBox.classList.add('navigationBox')
+    //create box for navigation & search
+    const navBox = document.createElement('div'); 
+    navBox.classList.add('navigationBox', 'navigationBoxHidden')
 
-    const navList = document.createElement('ul');
+    //create navigation list with items
+    const navList = document.createElement('ul'); 
     navList.classList.add('navigationList')
     const listElements = ['Main Page', 'Random Receip', 'Nutrition game', 'Calculator', 'Shopping list' ];
     for (let listItem in listElements) {
@@ -58,7 +62,8 @@ export const MainMenu = () => {
       navList.appendChild(listElement)
     }
 
-    const search = document.createElement('form');
+    //create search
+    const search = document.createElement('form'); 
     search.classList.add('search')
     const searchInput = document.createElement('input');
     const searchBtn = document.createElement('button');
@@ -71,11 +76,11 @@ export const MainMenu = () => {
     const placeToAppend = document.getElementById('swquiz-app');
     document.body.insertBefore(menu, placeToAppend)
 
-    // //toogle menu
-    // const menuBtn = document.querySelector('.navigation__btn');
-    // const navigationMenu = document.querySelector('.navigation__menu')
+    //TOOGLE MENU
+    const toggleBtn = document.querySelector('.navigationBtn');
+    const navigationBox = document.querySelector('.navigationBox')
 
-    // menuBtn.addEventListener('click', e => {
-    //     navigationMenu.classList.toggle('navigation__menu--hidden');
-    // })
+    toggleBtn.addEventListener('click', e => {
+        navigationBox.classList.toggle('navigationBoxHidden');
+    })
 }
