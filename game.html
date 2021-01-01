@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calories game</title>
+    <link rel="stylesheet" href="./styles/Game.css">
+</head>
+<body>
+
+    <div class="wrapper">
+        <h1>How many calories are in your dish?</h1>
+        <section class="instruction"></section>
+        <button class="start">Start game</button>
+        <section class="question">
+            <h2 class="dish-name">Spaghetti Carbonara</h2>
+            <img src="" alt="" class="dish-img">
+            <form>
+                <input type="number" min="0" class="answer">
+                <button class="submit">Check answer</button>
+            </form>
+        </section>
+        <div class="score"></div>
+        <div class="timeline">
+            <div class="counter"></div>
+        </div>
+    </div>
+
+    <script src="./src/app/Game.js"></script>
+</body>
+</html>
