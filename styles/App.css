@@ -1,10 +1,4 @@
-@import './MainMenu.css';
-
 body {
-<<<<<<< HEAD
   font-family: 'Montserrat', sans-serif;
-=======
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
->>>>>>> remotes/origin/feature/main-menu
+  margin: 0;
 }

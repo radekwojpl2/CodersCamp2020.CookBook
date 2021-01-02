@@ -1,3 +1,5 @@
+@import './MainMenu.css';
+
 .dish-img {
   border: 1px solid black;
 }

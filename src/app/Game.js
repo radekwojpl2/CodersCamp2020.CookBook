@@ -1,3 +1,5 @@
+import {MainMenu} from './MainMenu.js';
+
 class Question {
     constructor() {
         this.currentQuestion;
@@ -64,6 +66,7 @@ class Stats {
 
 class Game {
     constructor() {
+        MainMenu()
         this.startBtn = document.querySelector(".start")
         this.questionSection = document.querySelector(".question")
         this.imgInput = document.querySelector(".dish-img")
