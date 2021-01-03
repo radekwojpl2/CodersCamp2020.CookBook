@@ -1,18 +1,13 @@
 .menu {
-    padding: 1rem;
+    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     position: relative;
 }
 
 .logo {
-    padding-left: 1rem;
     align-self: center;
 }
-
-/* .navigationBtn {
-
-} */
 
 .navigationBox {
     position: absolute;
@@ -49,6 +44,24 @@
     display: flex;
     justify-content: space-around;
     margin: 0.5rem 0;
+}
+
+.backdrop {
+    position: absolute;
+    background-color: black;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -100;
+}
+
+.modal {
+    width: calc(100% - 4rem);
+    height: max-content;
+    height: calc(100% - 9rem);
+    margin: 4rem 2rem;
+    background-color: #fff;
 }
 
 @media (min-width: 1000px) {
