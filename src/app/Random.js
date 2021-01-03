@@ -32,5 +32,10 @@ function getRandomRecipes() {
 
         });
 }
+function getRandomRecipesInterval() {
+    setInterval(getRandomRecipes, 10000);
+} 
 
-document.getElementById("random").onclick = getRandomRecipes;
+
+document.getElementById("random").onclick = getRandomRecipes; 
+document.getElementById("randomInterval").onclick = getRandomRecipesInterval; 
