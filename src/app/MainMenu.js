@@ -47,9 +47,18 @@ export const MainMenu = () => {
     appendChildrenToElement(navBox, navList, search)
     appendChildrenToElement(menu, logo, menuBtn, navBox)
 
-    //append menu to page 
+    //CREATE STRUCTURE FOR SEARCH OUTPUT
+    const backdrop = document.createElement('div');
+    backdrop.classList.add('backdrop');
+    const modal = document.createElement('div');
+    modal.classList.add('modal')
+
+    appendChildrenToElement(backdrop, modal)
+
+    //APPEND MENU AND SEARCH STRUCTURE TO PAGE
     const placeToAppend = document.getElementById('swquiz-app');
-    document.body.insertBefore(menu, placeToAppend)
+    document.body.insertBefore(menu, placeToAppend);
+    document.body.insertBefore(backdrop, placeToAppend)
 
     //TOOGLE MENU
     const toggleBtn = document.querySelector('.navigationBtn');
@@ -65,27 +74,12 @@ export const MainMenu = () => {
     const URL = `https://api.spoonacular.com/recipes/complexSearch?query=`
 
     const input = document.querySelector('form input');
-    const button = document.querySelector('form button');
+    const button = document.querySelector('form button');  
 
-    //function to get data
-    // const searchResults = async(searchValue) => {
-
-    //   try {
-    //     const response = await fetch(URL + searchValue + `&apiKey=${API_KEY}`);
-    //     if (!response.ok) {
-    //       throw new Error('Ups... Something went wrong!')
-    //     }
-    //     const receips = await response.json();
-    //     console.log(receips)
-    //   } catch  (error) {
-    //     console.log(error)
-    //   }
-
-    // }
-  
-
+    //send request and generate output 
     button.addEventListener( 'click' , e => {
       e.preventDefault();
+
       fetch(URL + input.value + `&apiKey=${API_KEY}`)
       .then(response => {
         if (!response.ok) {
