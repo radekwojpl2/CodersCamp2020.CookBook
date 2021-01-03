@@ -1,29 +1,3 @@
-
-// <!-- <menu class="menu">   
-// <div class="logo">CookBook</div>
-// <nav class="navigation">
-//     <div class="navigation__btn navigation__btn--hidden">
-//         <i class="fas fa-bars"></i>
-//     </div>
-//     <div class="navigation__menu navigation__menu--hidden">
-//         <ul class="navigation__list">
-//             <li class="navigation__listItem">Main page</li>
-//             <li class="navigation__listItem">Random recipe</li>
-//             <li class="navigation__listItem">Nutrition game</li>
-//             <li class="navigation__listItem">Calculator</li>
-//             <li class="navigation__listItem">Shopping list</li>
-//         </ul>
-//     </div>
-//     <div class="navigation__search">
-//             <input type="text" class="navigation__searchInput" placeholder="Search...">
-//             <button class="navigation__searchBtn">
-//                 <i class="fas fa-search"></i>
-//             </button>
-//     </div>
-// </nav>
-// </menu> -->
-
-
 //append multi children to element
 const appendChildrenToElement = (element, ...children) => {
   for (let child in children) {
@@ -67,6 +41,7 @@ export const MainMenu = () => {
     search.classList.add('search')
     const searchInput = document.createElement('input');
     const searchBtn = document.createElement('button');
+    searchBtn.innerText = 'Search'
     appendChildrenToElement(search, searchInput, searchBtn);
 
     appendChildrenToElement(navBox, navList, search)
@@ -83,4 +58,48 @@ export const MainMenu = () => {
     toggleBtn.addEventListener('click', e => {
         navigationBox.classList.toggle('navigationBoxHidden');
     })
+
+    //SEARCH
+    //data to connect with spoonacular
+    const API_KEY = 'a69c65ede3bb4ac3b262c5b425b4f835';
+    const URL = `https://api.spoonacular.com/recipes/complexSearch?query=`
+
+    const input = document.querySelector('form input');
+    const button = document.querySelector('form button');
+
+    //function to get data
+    // const searchResults = async(searchValue) => {
+
+    //   try {
+    //     const response = await fetch(URL + searchValue + `&apiKey=${API_KEY}`);
+    //     if (!response.ok) {
+    //       throw new Error('Ups... Something went wrong!')
+    //     }
+    //     const receips = await response.json();
+    //     console.log(receips)
+    //   } catch  (error) {
+    //     console.log(error)
+    //   }
+
+    // }
+  
+
+    button.addEventListener( 'click' , e => {
+      e.preventDefault();
+      fetch(URL + input.value + `&apiKey=${API_KEY}`)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Ups...  Something went wrong!')
+        } 
+        return response.json()
+      })
+      .then(receips => {
+        for (let receip in receips.results) {
+          console.log(receips.results[receip])
+        }
+      })
+      .catch(error => console.log(error))
+      input.value = ''
+      
+  })
 }
