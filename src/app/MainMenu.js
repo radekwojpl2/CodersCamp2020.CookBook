@@ -6,6 +6,20 @@ const appendChildrenToElement = (element, ...children) => {
   return element
 }
 
+//create box for one result of search
+const createResultBox = (data, parentElement) => {
+  const outputBox = document.createElement('article');
+  outputBox.id = data.id;
+  const outputPhoto = document.createElement('img');
+  outputPhoto.src = data.image;
+  const outputTitle = document.createElement('p');
+  outputTitle.innerText = data.title;
+
+  appendChildrenToElement(outputBox, outputPhoto, outputTitle);
+
+  parentElement.appendChild(outputBox)
+}
+
 export const MainMenu = () => {
 
     //CREATE MENU STRUCTURE
@@ -48,24 +62,32 @@ export const MainMenu = () => {
     appendChildrenToElement(menu, logo, menuBtn, navBox)
 
     //CREATE STRUCTURE FOR SEARCH OUTPUT
-    const backdrop = document.createElement('div');
-    backdrop.classList.add('backdrop');
-    const modal = document.createElement('div');
-    modal.classList.add('modal')
+    const backdropForSearch = document.createElement('div');
+    backdropForSearch.classList.add('backdrop');
+    const modalForSearch = document.createElement('div');
+    modalForSearch.classList.add('modal');
+    const closeModalButton = document.createElement('button');
+    closeModalButton.innerText = 'x';
 
-    appendChildrenToElement(backdrop, modal)
+    modalForSearch.appendChild(closeModalButton);
+    backdropForSearch.appendChild(modalForSearch);
 
     //APPEND MENU AND SEARCH STRUCTURE TO PAGE
     const placeToAppend = document.getElementById('swquiz-app');
     document.body.insertBefore(menu, placeToAppend);
-    document.body.insertBefore(backdrop, placeToAppend)
+    document.body.insertBefore(backdropForSearch, placeToAppend)
 
     //TOOGLE MENU
     const toggleBtn = document.querySelector('.navigationBtn');
     const navigationBox = document.querySelector('.navigationBox')
 
+    //change visibility of menu for mobile
+    const changeVisibilityForMenu = () => {
+      navigationBox.classList.toggle('navigationBoxHidden');
+    }
+
     toggleBtn.addEventListener('click', e => {
-        navigationBox.classList.toggle('navigationBoxHidden');
+        changeVisibilityForMenu()
     })
 
     //SEARCH
@@ -73,12 +95,23 @@ export const MainMenu = () => {
     const API_KEY = 'a69c65ede3bb4ac3b262c5b425b4f835';
     const URL = `https://api.spoonacular.com/recipes/complexSearch?query=`
 
+    //elements' of DOM to manipulate
     const input = document.querySelector('form input');
-    const button = document.querySelector('form button');  
+    const button = document.querySelector('form button'); 
+    const backdrop = document.querySelector('.backdrop');
+
+    //clear input value
+    const clearInput = () => {
+      input.value = ''
+    } 
 
     //send request and generate output 
     button.addEventListener( 'click' , e => {
       e.preventDefault();
+
+      //set backdrop visible
+      backdrop.style.opacity = 1;
+      backdrop.style.zIndex = 100;
 
       fetch(URL + input.value + `&apiKey=${API_KEY}`)
       .then(response => {
@@ -89,11 +122,12 @@ export const MainMenu = () => {
       })
       .then(receips => {
         for (let receip in receips.results) {
-          console.log(receips.results[receip])
+          createResultBox(receips.results[receip], backdrop.firstChild)
         }
       })
-      .catch(error => console.log(error))
-      input.value = ''
+      .catch(error => console.log(error));
       
+      changeVisibilityForMenu();
+      clearInput();  
   })
 }
