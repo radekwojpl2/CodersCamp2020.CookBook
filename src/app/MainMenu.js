@@ -68,8 +68,9 @@ export const MainMenu = () => {
     modalForSearch.classList.add('modal');
     const closeModalButton = document.createElement('button');
     closeModalButton.innerText = 'x';
+    const boxForResults = document.createElement('section')
 
-    modalForSearch.appendChild(closeModalButton);
+    appendChildrenToElement(modalForSearch, closeModalButton , boxForResults);
     backdropForSearch.appendChild(modalForSearch);
 
     //APPEND MENU AND SEARCH STRUCTURE TO PAGE
@@ -96,24 +97,34 @@ export const MainMenu = () => {
     const URL = `https://api.spoonacular.com/recipes/complexSearch?query=`
 
     //elements' of DOM to manipulate
-    const input = document.querySelector('form input');
-    const button = document.querySelector('form button'); 
+    const inputForSearch = document.querySelector('form input');
+    const buttonForSearch = document.querySelector('form button'); 
     const backdrop = document.querySelector('.backdrop');
+    const closeSearchResultBtn = backdrop.firstElementChild.firstElementChild;
+    const resultsSection = backdrop.firstElementChild.lastElementChild;
+
 
     //clear input value
     const clearInput = () => {
-      input.value = ''
+      inputForSearch.value = ''
     } 
 
     //send request and generate output 
-    button.addEventListener( 'click' , e => {
+    buttonForSearch.addEventListener( 'click' , e => {
       e.preventDefault();
 
       //set backdrop visible
       backdrop.style.opacity = 1;
       backdrop.style.zIndex = 100;
 
-      fetch(URL + input.value + `&apiKey=${API_KEY}`)
+      //create information about search value in modal
+      const searchInfo = `Results for search: ${inputForSearch.value}`
+      const searchTitle = document.createElement('h2');
+      searchTitle.innerText = searchInfo;
+      resultsSection.appendChild(searchTitle)
+      console.log(searchTitle)
+
+      fetch(URL + inputForSearch.value + `&apiKey=${API_KEY}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Ups...  Something went wrong!')
@@ -122,12 +133,26 @@ export const MainMenu = () => {
       })
       .then(receips => {
         for (let receip in receips.results) {
-          createResultBox(receips.results[receip], backdrop.firstChild)
+          createResultBox(receips.results[receip], resultsSection)
         }
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        //dodać wyświetlanie błędu do modalu
+        console.log(error)});
       
       changeVisibilityForMenu();
       clearInput();  
+  });
+
+  //close search results
+  closeSearchResultBtn.addEventListener( 'click', e => {
+    e.preventDefault();
+
+    //set backdrop hidden
+    backdrop.style.opacity = 0;
+    backdrop.style.zIndex = -100;
+
+    //clear search results
+    resultsSection.innerText = ''
   })
 }
