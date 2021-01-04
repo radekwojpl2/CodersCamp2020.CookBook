@@ -1,7 +1,19 @@
 @import './MainMenu.css';
 
+* {
+  box-sizing: border-box;
+}
+
 .dish-img {
-  border: 1px solid black;
+  border: 5px solid black;
+}
+
+.dish-img.true {
+  border: 5px solid green;
+}
+
+.dish-img.false {
+  border: 5px solid red;
 }
 
 .question {
