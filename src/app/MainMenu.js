@@ -123,8 +123,10 @@ export const MainMenu = () => {
       searchTitle.innerText = searchInfo;
       resultsSection.appendChild(searchTitle);
       
+      //prepare search text to send request
+      const textToSearch = inputForSearch.value.trim().replace('', '%20');
 
-      fetch(URL + inputForSearch.value.trim().replace('', '%20') + `&apiKey=${API_KEY}`)
+      fetch(URL + textToSearch + `&apiKey=${API_KEY}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Ups...  Something went wrong!')
