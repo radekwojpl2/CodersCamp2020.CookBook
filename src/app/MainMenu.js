@@ -121,10 +121,10 @@ export const MainMenu = () => {
       const searchInfo = `Results for search: ${inputForSearch.value}`
       const searchTitle = document.createElement('h2');
       searchTitle.innerText = searchInfo;
-      resultsSection.appendChild(searchTitle)
-      console.log(searchTitle)
+      resultsSection.appendChild(searchTitle);
+      
 
-      fetch(URL + inputForSearch.value + `&apiKey=${API_KEY}`)
+      fetch(URL + inputForSearch.value.trim().replace('', '%20') + `&apiKey=${API_KEY}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Ups...  Something went wrong!')
