@@ -40,6 +40,15 @@
     cursor: pointer;
 }
 
+.navigationList a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.navigationList a:hover {
+    color: blue
+}
+
 .search {
     display: flex;
     justify-content: space-around;
