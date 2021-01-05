@@ -103,28 +103,15 @@ export const MainMenu = () => {
     const closeSearchResultBtn = backdrop.firstElementChild.firstElementChild;
     const resultsSection = backdrop.firstElementChild.lastElementChild;
 
-
     //clear input value
     const clearInput = () => {
       inputForSearch.value = ''
     } 
 
-    //send request and generate output 
-    buttonForSearch.addEventListener( 'click' , e => {
-      e.preventDefault();
-
-      //set backdrop visible
-      backdrop.style.opacity = 1;
-      backdrop.style.zIndex = 100;
-
-      //create information about search value in modal
-      const searchInfo = `Results for search: ${inputForSearch.value}`
-      const searchTitle = document.createElement('h2');
-      searchTitle.innerText = searchInfo;
-      resultsSection.appendChild(searchTitle);
-      
+    //function to send request
+    const sendRequest = (value) => {
       //prepare search text to send request
-      const textToSearch = inputForSearch.value.trim().replace('', '%20');
+      const textToSearch = value.value.trim().replace('', '%20');
 
       fetch(URL + textToSearch + `&apiKey=${API_KEY}`)
       .then(response => {
@@ -141,9 +128,28 @@ export const MainMenu = () => {
       .catch(error => {
         //dodać wyświetlanie błędu do modalu
         console.log(error)});
-      
-      changeVisibilityForMenu();
-      clearInput();  
+    }
+
+
+    //send request and generate output 
+    buttonForSearch.addEventListener( 'click' , e => {
+      e.preventDefault();
+
+      if (inputForSearch.value !== '') {
+        //set backdrop visible
+        backdrop.style.opacity = 1;
+        backdrop.style.zIndex = 100;
+
+        //create information about search value in modal
+        const searchInfo = `Results for search: ${inputForSearch.value}`
+        const searchTitle = document.createElement('h2');
+        searchTitle.innerText = searchInfo;
+        resultsSection.appendChild(searchTitle);
+
+        sendRequest(inputForSearch)
+        changeVisibilityForMenu();
+        clearInput();  
+      } 
   });
 
   //close search results
