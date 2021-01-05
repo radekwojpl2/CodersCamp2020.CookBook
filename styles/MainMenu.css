@@ -194,6 +194,10 @@ form {
     }
 
     .modal section {
-        grid-template-rows: 4rem repeat(3, 30rem);
+        grid-template-rows: 4rem repeat(3, 25rem);
+    }
+
+    .modal article {
+        height: 25rem;
     }
 }
