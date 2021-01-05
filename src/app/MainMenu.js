@@ -71,7 +71,7 @@ export const MainMenu = () => {
     modalForSearch.classList.add('modal');
     const closeModalButton = document.createElement('button');
     closeModalButton.innerText = 'x';
-    const boxForResults = document.createElement('section')
+    const boxForResults = document.createElement('section');
 
     appendChildrenToElement(modalForSearch, closeModalButton , boxForResults);
     backdropForSearch.appendChild(modalForSearch);
@@ -112,17 +112,21 @@ export const MainMenu = () => {
       fetch(URL + textToSearch + `&apiKey=${API_KEY}`)
       .then(response => {
         if (!response.ok) {
-          throw new Error('Ups...  Something went wrong!')
+          throw new Error('Ups...  Something went wrong!');
         } 
         return response.json()
       })
-      .then(receips => {
-        for (let receip in receips.results) {
-          createResultBox(receips.results[receip], resultsSection)
+      .then(recipes => {
+        if (recipes.results.length === 0) {
+          const noResultsInfo = document.createElement('p');
+          noResultsInfo.innerText = `Sorry, there isn't any result for Your search`;
+          resultsSection.appendChild(noResultsInfo)
+        } else {
+          recipes.results.forEach(recipe => createResultBox(recipe, resultsSection))
         }
       })
       .catch(error => {
-        //dodać wyświetlanie błędu do modalu
+        resultsSection.innerHTML = `<p>${error}</p>`;
         console.log(error)});
     }
 
