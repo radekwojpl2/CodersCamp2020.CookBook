@@ -52,11 +52,14 @@ export const MainMenu = () => {
 
     //create search
     const search = document.createElement('form'); 
-    search.classList.add('search')
+    search.classList.add('search');
     const searchInput = document.createElement('input');
     const searchBtn = document.createElement('button');
-    searchBtn.innerText = 'Search'
-    appendChildrenToElement(search, searchInput, searchBtn);
+    searchBtn.innerText = 'Search';
+    const searchInfo = document.createElement('span');
+    searchInfo.innerText = 'Please, insert text!';
+    searchInfo.classList.add('tooltip')
+    appendChildrenToElement(search, searchInput, searchBtn, searchInfo);
 
     appendChildrenToElement(navBox, navList, search)
     appendChildrenToElement(menu, logo, menuBtn, navBox)
@@ -78,19 +81,6 @@ export const MainMenu = () => {
     document.body.insertBefore(menu, placeToAppend);
     document.body.insertBefore(backdropForSearch, placeToAppend)
 
-    //TOOGLE MENU
-    const toggleBtn = document.querySelector('.navigationBtn');
-    const navigationBox = document.querySelector('.navigationBox')
-
-    //change visibility of menu for mobile
-    const changeVisibilityForMenu = () => {
-      navigationBox.classList.toggle('navigationBoxHidden');
-    }
-
-    toggleBtn.addEventListener('click', e => {
-        changeVisibilityForMenu()
-    })
-
     //SEARCH
     //data to connect with spoonacular
     const API_KEY = 'a69c65ede3bb4ac3b262c5b425b4f835';
@@ -99,6 +89,7 @@ export const MainMenu = () => {
     //elements' of DOM to manipulate
     const inputForSearch = document.querySelector('form input');
     const buttonForSearch = document.querySelector('form button'); 
+    const infoForEmptySearch = document.querySelector('.tooltip');
     const backdrop = document.querySelector('.backdrop');
     const closeSearchResultBtn = backdrop.firstElementChild.firstElementChild;
     const resultsSection = backdrop.firstElementChild.lastElementChild;
@@ -107,6 +98,11 @@ export const MainMenu = () => {
     const clearInput = () => {
       inputForSearch.value = ''
     } 
+
+    //clear search info (about empty value)
+    const clearSearchInfo = () => {
+      infoForEmptySearch.classList.remove('active')
+    }
 
     //function to send request
     const sendRequest = (value) => {
@@ -130,12 +126,16 @@ export const MainMenu = () => {
         console.log(error)});
     }
 
+    inputForSearch.addEventListener('click', e => clearSearchInfo())
+
 
     //send request and generate output 
     buttonForSearch.addEventListener( 'click' , e => {
       e.preventDefault();
 
       if (inputForSearch.value !== '') {
+        clearSearchInfo();
+
         //set backdrop visible
         backdrop.style.opacity = 1;
         backdrop.style.zIndex = 100;
@@ -149,7 +149,9 @@ export const MainMenu = () => {
         sendRequest(inputForSearch)
         changeVisibilityForMenu();
         clearInput();  
-      } 
+      } else {
+        infoForEmptySearch.classList.add('active')
+      }
   });
 
   //close search results
@@ -162,5 +164,19 @@ export const MainMenu = () => {
 
     //clear search results
     resultsSection.innerText = ''
+  })
+
+  //TOOGLE MENU
+  const toggleBtn = document.querySelector('.navigationBtn');
+  const navigationBox = document.querySelector('.navigationBox')
+
+  //change visibility of menu for mobile
+  const changeVisibilityForMenu = () => {
+    navigationBox.classList.toggle('navigationBoxHidden');
+  }
+
+  toggleBtn.addEventListener('click', e => {
+      changeVisibilityForMenu();
+      clearSearchInfo();
   })
 }
