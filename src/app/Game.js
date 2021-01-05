@@ -16,8 +16,8 @@ class Question {
             .then ( data => {
                 const calories = data.calories.value
                 this.currentQuestion.calories = calories
-                this.currentQuestion.minCalories = calories - 0.05 * calories
-                this.currentQuestion.maxCalories = calories + 0.05 * calories
+                this.currentQuestion.minCalories = calories - 0.1 * calories
+                this.currentQuestion.maxCalories = calories + 0.1 * calories
                 console.log(this.currentQuestion)
             })
             .catch( error => console.log(error))
@@ -25,13 +25,19 @@ class Question {
     }
     
     checkAnswer(answer) {
-        console.log(this.currentQuestion.calories)
         if (this.currentQuestion.calories == "undefined") console.log('za szybko')
         answer = parseInt(answer)
         const minCalories = this.currentQuestion.minCalories
         const maxCalories = this.currentQuestion.maxCalories
         if (answer > minCalories && answer < maxCalories) return true
         else return false
+    }
+
+    getPoints(answer) {
+        const difference = Math.round(this.currentQuestion.calories - this.currentQuestion.minCalories)
+        const points = Math.abs(Math.round(Math.abs(answer - this.currentQuestion.calories) / difference * 100) - 100)
+        console.log(difference, points)
+        return points
     }
 }
 
@@ -56,20 +62,27 @@ class Timer {
     constructor(time) {
         this.time = time
         this.timeLeft = this.time
+        this.timer
     }
 
-    startTimer() {
+    startTimer(question) {
         document.querySelector(".timer").classList.add("active")
-        const timer = setInterval( () => {
+        this.timer = setInterval( () => {
             this.timeLeft -= 1
             if (this.timeLeft === 0) {
-                clearInterval(timer)
+                this.stopTimer()
+                game.getResult(question)
                 return true
             }
         }, 1000)
     }
     getTimeLeft() {
         return this.timeLeft
+    }
+
+    stopTimer() {
+        clearInterval(this.timer)
+        document.querySelector(".timer").classList.remove("active")
     }
 }
 
@@ -83,7 +96,7 @@ class Game {
             {"name":"Chicken pad thai","imgSrc":"/static/assets/img/chicken-pad-thai.jpg","apiTitle":"chicken+pad+thai"},
             {"name":"Chocolate brownie","imgSrc":"/static/assets/img/chocolate-brownie.jpg","apiTitle":"chocolate+brownie"},
             {"name":"Hamburger","imgSrc":"/static/assets/img/hamburger.jpg","apiTitle":"Hamburger"},
-            {"name":"Spaghetti aglio olio","imgSrc":"/static/assets/img/spaghetti-aglio-olio.jpg","apiTitle":"spaghetti+aglio+olio"},
+            {"name":"Spaghetti aglio et olio","imgSrc":"/static/assets/img/spaghetti-aglio-olio.jpg","apiTitle":"spaghetti+aglio+olio"},
             {"name":"Spaghetti bolognese","imgSrc":"/static/assets/img/spaghetti-bolognese.jpg","apiTitle":"spaghetti+bolognese"},
             {"name":"Strawberry shake","imgSrc":"/static/assets/img/strawberry-shake.jpg","apiTitle":"strawberry+shake"},
             {"name":"Vanilla ice cream","imgSrc":"/static/assets/img/vanilla-ice-cream.jpg","apiTitle":"vanilla+ice+cream"},
@@ -99,11 +112,14 @@ class Game {
         this.stats = new Stats(0)
         
         this.startBtn.addEventListener("click", this.startRound.bind(this), {once: true})
+
+        // this.sumUpRoundFunction
     }
 
     showQuestionSection() {
         this.questionSection.classList.add("active")
     }
+
     startRound() {
         this.reset()
         const question = new Question(this.questions)
@@ -112,25 +128,30 @@ class Game {
         const currentQuestion = question.getQuestion()
         this.imgInput.src = currentQuestion.imgSrc
         this.dishNameInput.textContent = currentQuestion.name
-        timer.startTimer()
+        timer.startTimer(question)
 
-        this.checkBtn.addEventListener("click", this.sumUpRound.bind(this, question, timer), {once: true})
-        
+        this.sumUpRoundFunction = this.sumUpRound.bind(this, question, timer)
+        this.checkBtn.addEventListener("click", this.sumUpRoundFunction, {once: true})  
     }
 
     sumUpRound(question, timer, e) {
         e.preventDefault();
-        document.querySelector(".timer").classList.remove("active")
+        timer.stopTimer();
         const result = question.checkAnswer(this.answerInput.value)
         const timeLeft = timer.getTimeLeft()
-        console.log(timeLeft)
+        this.getResult(question, result)
+    }
+
+    getResult(question, result) {
+        this.checkBtn.removeEventListener("click", this.sumUpRoundFunction)
         if (result) {
             this.correctAnswer.textContent = `Correct answer is: ${question.currentQuestion.calories}.`
             this.imgInput.classList.add("true")
-            this.stats.addPoints(timeLeft * 10)
-            
+            const points = question.getPoints(+this.answerInput.value)
+            console.log(points)
+            this.stats.addPoints(points)
             if (this.questions.length < 1) console.log("koniec gry")
-            else setTimeout(this.startRound.bind(this), timeLeft * 150 + 500)
+            else setTimeout(this.startRound.bind(this), points * 15 + 1000)
         } else {
             this.imgInput.classList.add("false")
             this.correctAnswer.textContent = `Correct answer is: ${question.currentQuestion.calories}.`
@@ -138,6 +159,7 @@ class Game {
             else setTimeout(this.startRound.bind(this), 1000)
         }
     }
+
     reset() {
         this.correctAnswer.textContent = "";
         this.answerInput.value = "";
