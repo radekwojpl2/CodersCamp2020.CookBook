@@ -10,7 +10,6 @@ class Question {
         const index = Math.floor(Math.random() * this.questions.length)
         this.currentQuestion = this.questions[index];
         this.questions.splice(index, 1);
-        console.log(this.questions);
         const data = fetch(`https://api.spoonacular.com/recipes/guessNutrition?title=${this.currentQuestion.apiTitle}&apiKey=08dba6e965974fdb9c6a8cc7b0f8f4f0`)
             .then( res => res.json() )
             .then ( data => {
@@ -18,7 +17,6 @@ class Question {
                 this.currentQuestion.calories = calories
                 this.currentQuestion.minCalories = calories - 0.1 * calories
                 this.currentQuestion.maxCalories = calories + 0.1 * calories
-                console.log(this.currentQuestion)
             })
             .catch( error => console.log(error))
         return this.currentQuestion
@@ -34,9 +32,9 @@ class Question {
     }
 
     getPoints(answer) {
-        const difference = Math.round(this.currentQuestion.calories - this.currentQuestion.minCalories)
-        const points = Math.abs(Math.round(Math.abs(answer - this.currentQuestion.calories) / difference * 100) - 100)
-        console.log(difference, points)
+        const differenceBetweenCaloriesAndMinCalories = Math.round(this.currentQuestion.calories - this.currentQuestion.minCalories)
+        const differenceBetweenAnswerAndCalories = Math.abs(answer - this.currentQuestion.calories)
+        const points = Math.abs(Math.round(differenceBetweenAnswerAndCalories / differenceBetweenCaloriesAndMinCalories * 100) - 100)
         return points
     }
 }
@@ -112,8 +110,6 @@ class Game {
         this.stats = new Stats(0)
         
         this.startBtn.addEventListener("click", this.startRound.bind(this), {once: true})
-
-        // this.sumUpRoundFunction
     }
 
     showQuestionSection() {
@@ -148,7 +144,6 @@ class Game {
             this.correctAnswer.textContent = `Correct answer is: ${question.currentQuestion.calories}.`
             this.imgInput.classList.add("true")
             const points = question.getPoints(+this.answerInput.value)
-            console.log(points)
             this.stats.addPoints(points)
             if (this.questions.length < 1) console.log("koniec gry")
             else setTimeout(this.startRound.bind(this), points * 15 + 1000)
@@ -166,6 +161,10 @@ class Game {
         this.imgInput.classList.remove("false");
         this.imgInput.classList.remove("true");
     }
+
+    // endGame() {
+    //     this.reset()
+    // }
 }
 
 const game = new Game() 
