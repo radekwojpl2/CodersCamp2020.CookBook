@@ -6,36 +6,16 @@ const MENU = {
             shoppingList: {name: 'Shopping List', link: ''}
           }
 
-
-export const MainMenu = (activePage) => {
-
-  //append multi children to element
-  const appendChildrenToElement = (element, ...children) => {
-    for (let child in children) {
-      element.appendChild(children[child])
-    }
-    return element
+//append children to element
+export const appendChildrenToElement = (element, ...children) => {
+  for (let child in children) {
+    element.appendChild(children[child])
   }
+  return element
+}
 
-  //CREATE MENU STRUCTURE
-  const menu = document.createElement('nav');
-  menu.classList.add('menu')
-
-  //create logo
-  const logo = document.createElement('div'); 
-  logo.classList.add('logo');
-  logo.innerText = 'CookBook';
-  
-  //create toogle button
-  const menuBtn = document.createElement('button'); 
-  menuBtn.innerText = 'Click';
-  menuBtn.classList.add('navigationBtn')
-
-  //create box for navigation & search
-  const navBox = document.createElement('div'); 
-  navBox.classList.add('navigationBox', 'navigationBoxHidden')
-
-  //create navigation list with items
+//create navigation for menu
+export const createNavigationList = (activePage) => {
   const navList = document.createElement('ul'); 
   navList.classList.add('navigationList')
   for (let listItem in MENU) {
@@ -45,32 +25,57 @@ export const MainMenu = (activePage) => {
       navList.appendChild(listElement)
     }
   }
+  return navList
+}
+
+//create DOM element with included classes
+export const createElementWithClasses = (element, ...classes) => {
+  const newDOMElement = document.createElement(element);
+  newDOMElement.classList.add(...classes);
+  return newDOMElement
+}
+
+//create DOM element with inner text
+export const createElementWithInnerText = (element, text, callback, ...classes) => {
+  let newDOMElement = document.createElement(element);
+  if (callback) {
+    newDOMElement = callback(element, ...classes);
+  }
+  newDOMElement.innerText = text;
+  return newDOMElement
+}
+
+export const MainMenu = (activePage) => {
+
+  //CREATE MENU STRUCTURE
+
+  const menu = createElementWithClasses('nav', 'menu')
+  const logo = createElementWithInnerText('div', 'CookBook', createElementWithClasses, 'logo')
+  //button to show and hide menu on mobile
+  const menuBtn = createElementWithInnerText('button', 'Click', createElementWithClasses, 'navigationBtn')
+  //create box for navigation & search
+  const navBox = createElementWithClasses('div', 'navigationBox', 'navigationBoxHidden')
+  //create navigation list with items
+  const navList = createNavigationList(activePage)
 
   //create search
-  const search = document.createElement('form'); 
-  search.classList.add('search');
-  const searchInput = document.createElement('input');
-  const searchBtn = document.createElement('button');
-  searchBtn.innerText = 'Search';
-  const searchInfo = document.createElement('span');
-  searchInfo.innerText = 'Please, insert text!';
-  searchInfo.classList.add('tooltip')
+  const search = createElementWithClasses('form', 'search')
+  const searchInput = createElementWithClasses('input');
+  const searchBtn = createElementWithInnerText('button', 'Search')
+  const searchInfo = createElementWithInnerText('span', 'Please, insert text!', createElementWithClasses, 'tooltip')
   appendChildrenToElement(search, searchInput, searchBtn, searchInfo);
 
   appendChildrenToElement(navBox, navList, search)
   appendChildrenToElement(menu, logo, menuBtn, navBox)
 
   //CREATE STRUCTURE FOR SEARCH OUTPUT
-  const backdropForSearch = document.createElement('div');
-  backdropForSearch.classList.add('backdrop');
-  const modalForSearch = document.createElement('div');
-  modalForSearch.classList.add('modal');
-  const closeModalButton = document.createElement('button');
-  closeModalButton.innerText = 'x';
+  const backdropForSearch = createElementWithClasses('div', 'backdrop');
+  const modalForSearch = createElementWithClasses('div', 'modal');
+  const closeModalButton = createElementWithInnerText('button', 'x');
   const boxForResults = document.createElement('section');
 
   appendChildrenToElement(modalForSearch, closeModalButton , boxForResults);
-  backdropForSearch.appendChild(modalForSearch);
+  appendChildrenToElement(backdropForSearch, modalForSearch);
 
   //APPEND MENU AND SEARCH STRUCTURE TO PAGE
   const placeToAppend = document.getElementById('swquiz-app');
@@ -110,7 +115,7 @@ export const MainMenu = (activePage) => {
     outputTitle.innerText = data.title;
 
     appendChildrenToElement(outputBox, outputPhoto, outputTitle);
-    parentElement.appendChild(outputBox)
+    appendChildrenToElement(parentElement, outputBox)
   }
 
   //function to send request
