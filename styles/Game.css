@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 h1,
 h2 {
   width: 100%;
@@ -120,6 +124,39 @@ h2 {
 
 .timer.active {
   animation: timer 15s linear both;
+}
+
+.game-over {
+  display: none;
+}
+.game-over.active {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-around;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 30%;
+  background-color: white;
+  box-shadow: 0 0 10px 5px grey;
+}
+
+.game-over h2,
+.game-over h3,
+a {
+  width: 100%;
+  padding: 1%;
+}
+
+a {
+  display: block;
+  text-align: center;
+}
+
+.play-again {
+  padding: 5px 10px;
 }
 
 @media (min-width: 1080px) {

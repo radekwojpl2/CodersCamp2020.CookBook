@@ -107,6 +107,8 @@ class Game {
         this.checkBtn = document.querySelector(".submit")
         this.answerInput = document.querySelector(".answer")
         this.correctAnswer = document.querySelector(".correct-answer")
+        this.gameOverBlock = document.querySelector(".game-over")
+        this.finalScore = document.querySelector(".game-over .score span")
 
         this.stats = new Stats(0)
         
@@ -119,16 +121,22 @@ class Game {
     }
 
     startRound() {
-        this.reset()
         const question = new Question(this.questions)
         const timer = new Timer(15)
         if (!this.gameSection.classList.contains("active")) this.showQuestionSection()
         const currentQuestion = question.getQuestion()
+        this.reset()
         this.imgInput.src = currentQuestion.imgSrc
         this.imgInput.alt = currentQuestion.name
         this.dishNameInput.textContent = currentQuestion.name
         timer.startTimer(question)
-
+        // setTimeout( () => {
+        //     this.reset()
+        //     this.imgInput.src = currentQuestion.imgSrc
+        //     this.imgInput.alt = currentQuestion.name
+        //     this.dishNameInput.textContent = currentQuestion.name
+        //     timer.startTimer(question)
+        // }, 500)
         this.sumUpRoundFunction = this.sumUpRound.bind(this, question, timer)
         this.checkBtn.addEventListener("click", this.sumUpRoundFunction, {once: true})  
     }
@@ -148,12 +156,12 @@ class Game {
             this.imgInput.classList.add("true")
             const points = question.getPoints(+this.answerInput.value)
             this.stats.addPoints(points)
-            if (this.questions.length < 1) console.log("koniec gry")
+            if (this.questions.length < 1) this.endGame()
             else setTimeout(this.startRound.bind(this), points * 15 + 1000)
         } else {
             this.imgInput.classList.add("false")
             this.correctAnswer.textContent = `Correct answer is: ${question.currentQuestion.calories}.`
-            if (this.questions.length < 1) console.log("koniec gry")
+            if (this.questions.length < 1) this.endGame()
             else setTimeout(this.startRound.bind(this), 1000)
         }
     }
@@ -165,9 +173,14 @@ class Game {
         this.imgInput.classList.remove("true");
     }
 
-    // endGame() {
-    //     this.reset()
-    // }
+    endGame() {
+        
+        setTimeout(() => {
+            this.reset()
+            this.gameOverBlock.classList.add("active")
+            this.finalScore.textContent = this.stats.points
+        }, 1000)
+    }
 }
 
 const game = new Game() 
