@@ -11,21 +11,33 @@
     </div>
     <div class="wrapper">
         <h1>How many calories are in your dish?</h1>
-        <section class="instruction"></section>
-        <button class="start">Start game</button>
-        <section class="question">
-            <h2 class="dish-name">Spaghetti Carbonara</h2>
-            <img src="" alt="" class="dish-img" width="556" height="370">
-            <form>
-                <input type="number" min="0" class="answer">
-                <button class="submit">Check answer</button>
-            </form>
+        <section class="instruction active">
+            <p class="instruction-p">1. In this game you have to guess how many calories are in given dish.</p>
+            <p class="instruction-p">2. You can go wrong by 10%.</p>
+            <p class="instruction-p">3. You have 15 seconds for each guess.</p>
+            <p class="instruction-p">4. Your points depend on how close were you to the actual answer.</p>
+
+            <button class="start">Start game</button>
         </section>
-        <div class="correct-answer"></div>
-        <div class="score">0</div>
-        <div class="timeline">
-            <div class="timer"></div>
-        </div>
+        
+        <section class="game">
+            <h2 class="dish-name">Spaghetti Carbonara</h2>
+            <div class="dish-img-container">
+                <img src="static/assets/img/banana-bread.jpg" alt="" class="dish-img" >
+            </div>
+            <div class="answer-section">
+                <form class="answer-form">
+                    <input type="number" min="0" class="answer">
+                    <button class="submit">Check answer</button>
+                </form>
+                <div class="correct-answer"></div>
+            </div>
+            <div class="score">Your points: <span>0</span></div>
+            <div class="timeline">
+                <div class="timer"></div>
+            </div>
+        </section>
+        
     </div>
 
     <script src="./src/app/Game.js" type="module"></script>

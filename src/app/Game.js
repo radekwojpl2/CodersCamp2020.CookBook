@@ -51,7 +51,7 @@ class Stats {
             if (i === newPoints - 1) clearInterval(addingPoints);
             i++;
             this.points++;
-            document.querySelector(".score").textContent = this.points;  
+            document.querySelector(".score span").textContent = this.points;  
         }, 15)
     }
 }
@@ -100,7 +100,8 @@ class Game {
             {"name":"Vanilla ice cream","imgSrc":"/static/assets/img/vanilla-ice-cream.jpg","apiTitle":"vanilla+ice+cream"},
         ]
         this.startBtn = document.querySelector(".start")
-        this.questionSection = document.querySelector(".question")
+        this.instructionSection = document.querySelector(".instruction")
+        this.gameSection = document.querySelector(".game")
         this.imgInput = document.querySelector(".dish-img")
         this.dishNameInput = document.querySelector(".dish-name")
         this.checkBtn = document.querySelector(".submit")
@@ -113,16 +114,18 @@ class Game {
     }
 
     showQuestionSection() {
-        this.questionSection.classList.add("active")
+        this.gameSection.classList.add("active")
+        this.instructionSection.classList.remove("active")
     }
 
     startRound() {
         this.reset()
         const question = new Question(this.questions)
         const timer = new Timer(15)
-        if (!this.questionSection.classList.contains("active")) this.showQuestionSection()
+        if (!this.gameSection.classList.contains("active")) this.showQuestionSection()
         const currentQuestion = question.getQuestion()
         this.imgInput.src = currentQuestion.imgSrc
+        this.imgInput.alt = currentQuestion.name
         this.dishNameInput.textContent = currentQuestion.name
         timer.startTimer(question)
 

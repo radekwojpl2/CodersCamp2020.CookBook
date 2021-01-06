@@ -1,10 +1,58 @@
 @import './MainMenu.css';
 
 * {
+  margin: 0;
   box-sizing: border-box;
 }
 
+h1,
+h2 {
+  width: 100%;
+  text-align: center;
+  padding: 5%;
+}
+
+.instruction {
+  display: none;
+}
+
+.instruction.active {
+  display: block;
+  padding: 5%;
+}
+
+.instruction-p {
+  line-height: 1.5;
+  margin: 2% 0;
+}
+
+.start {
+  display: block;
+  margin: 10% auto;
+  text-transform: uppercase;
+  padding: 5px 10px;
+}
+
+.game {
+  display: none;
+}
+
+.game.active {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-height: 70vh;
+  padding: 5vh 0;
+}
+
+.dish-img-container {
+  width: 100%;
+}
+
 .dish-img {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
   border: 5px solid white;
 }
 
@@ -16,12 +64,40 @@
   border: 5px solid red;
 }
 
-.question {
-  display: none;
+.answer-section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.question.active {
+.answer-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.answer {
+  width: 50%;
+}
+
+.answer,
+.submit {
   display: block;
+  margin: 5% 1%;
+}
+
+.correct-answer {
+  width: 100%;
+  text-align: center;
+}
+
+.score {
+  width: 50%;
+  margin: 0 auto;
+  padding: 5%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 .timeline {
@@ -39,6 +115,40 @@
 
 .timer.active {
   animation: timer 15s linear both;
+}
+
+@media (min-width: 1080px) {
+  h1,
+  h2 {
+    padding: 2.5%;
+  }
+  .instruction.active {
+    padding: 2.5% 30%;
+  }
+  .instruction-p {
+    margin: 4% 0;
+  }
+  .start {
+    margin: 15% auto;
+    padding: 10px 25px;
+  }
+  .game.active {
+    min-height: 60vh;
+    padding: 5px 0;
+  }
+  .dish-img-container {
+    width: 50%;
+  }
+  .dish-img {
+    width: 70%;
+  }
+  .answer-section {
+    width: 50%;
+  }
+  .score {
+    padding: 75px;
+    text-align: center;
+  }
 }
 
 @keyframes timer {
