@@ -159,7 +159,7 @@ class Game {
     }
 
     reset() {
-        this.correctAnswer.textContent = "";
+        this.correctAnswer.textContent = "...";
         this.answerInput.value = "";
         this.imgInput.classList.remove("false");
         this.imgInput.classList.remove("true");

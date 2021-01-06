@@ -37,6 +37,11 @@ h2 {
   display: none;
 }
 
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+
 .game.active {
   display: flex;
   flex-wrap: wrap;
@@ -53,15 +58,15 @@ h2 {
   display: block;
   margin: 0 auto;
   width: 90%;
-  border: 5px solid white;
+  border: 10px solid white;
 }
 
 .dish-img.true {
-  border: 5px solid green;
+  border: 10px solid green;
 }
 
 .dish-img.false {
-  border: 5px solid red;
+  border: 10px solid red;
 }
 
 .answer-section {
