@@ -16,8 +16,7 @@ export const appendChildrenToElement = (element, ...children) => {
 
 //create navigation for menu
 export const createNavigationList = (activePage) => {
-  const navList = document.createElement('ul'); 
-  navList.classList.add('navigationList')
+  const navList = createElementWithClasses('ul', 'navigationList'); 
   for (let listItem in MENU) {
     if (MENU[listItem].name !== activePage ) {
       const listElement = document.createElement('li');
@@ -32,6 +31,7 @@ export const createNavigationList = (activePage) => {
 export const createElementWithClasses = (element, ...classes) => {
   const newDOMElement = document.createElement(element);
   newDOMElement.classList.add(...classes);
+
   return newDOMElement
 }
 
@@ -42,6 +42,7 @@ export const createElementWithInnerText = (element, text, callback, ...classes) 
     newDOMElement = callback(element, ...classes);
   }
   newDOMElement.innerText = text;
+
   return newDOMElement
 }
 
