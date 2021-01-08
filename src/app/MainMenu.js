@@ -6,6 +6,10 @@ const MENU = {
             shoppingList: {name: 'Shopping List', link: ''}
           }
 
+//data to connect with spoonacular
+const API_KEY = 'a69c65ede3bb4ac3b262c5b425b4f835';
+const URL = `https://api.spoonacular.com/recipes/complexSearch?query=`
+
 //append children to element
 export const appendChildrenToElement = (element, ...children) => {
   for (let child in children) {
@@ -46,6 +50,45 @@ export const createElementWithInnerText = (element, text, callback, ...classes) 
   return newDOMElement
 }
 
+//create box for one result of search
+const createResultBox = (data, parentElement) => {
+  const outputBox = document.createElement('article');
+  outputBox.id = data.id;
+  const outputPhoto = document.createElement('img');
+  outputPhoto.src = data.image;
+  const outputTitle = document.createElement('p');
+  outputTitle.innerText = data.title;
+
+  appendChildrenToElement(outputBox, outputPhoto, outputTitle);
+  appendChildrenToElement(parentElement, outputBox)
+}
+
+//function to send request
+ export const sendRequest = (value, parentElement) => {
+  //prepare search text to send request
+  const textToSearch = value.value.trim().replace('', '%20');
+
+  fetch(URL + textToSearch + `&apiKey=${API_KEY}`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Ups...  Something went wrong!');
+    } 
+    return response.json()
+  })
+  .then(recipes => {
+    if (recipes.results.length === 0) {
+      const noResultsInfo = document.createElement('p');
+      noResultsInfo.innerText = `Sorry, there isn't any result for Your search`;
+      parentElement.appendChild(noResultsInfo)
+    } else {
+      recipes.results.forEach(recipe => createResultBox(recipe, parentElement))
+    }
+  })
+  .catch(error => {
+    resultsSection.innerHTML = `<p>${error}</p>`;
+    console.log(error)});
+}
+
 export const MainMenu = (activePage) => {
 
   //CREATE MENU STRUCTURE
@@ -84,9 +127,6 @@ export const MainMenu = (activePage) => {
   document.body.insertBefore(backdropForSearch, placeToAppend)
 
   //SEARCH
-  //data to connect with spoonacular
-  const API_KEY = 'a69c65ede3bb4ac3b262c5b425b4f835';
-  const URL = `https://api.spoonacular.com/recipes/complexSearch?query=`
 
   //elements' of DOM to manipulate
   const inputForSearch = document.querySelector('form input');
@@ -106,47 +146,7 @@ export const MainMenu = (activePage) => {
     infoForEmptySearch.classList.remove('active')
   }
 
-  //create box for one result of search
-  const createResultBox = (data, parentElement) => {
-    const outputBox = document.createElement('article');
-    outputBox.id = data.id;
-    const outputPhoto = document.createElement('img');
-    outputPhoto.src = data.image;
-    const outputTitle = document.createElement('p');
-    outputTitle.innerText = data.title;
-
-    appendChildrenToElement(outputBox, outputPhoto, outputTitle);
-    appendChildrenToElement(parentElement, outputBox)
-  }
-
-  //function to send request
-  const sendRequest = (value) => {
-    //prepare search text to send request
-    const textToSearch = value.value.trim().replace('', '%20');
-
-    fetch(URL + textToSearch + `&apiKey=${API_KEY}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Ups...  Something went wrong!');
-      } 
-      return response.json()
-    })
-    .then(recipes => {
-      if (recipes.results.length === 0) {
-        const noResultsInfo = document.createElement('p');
-        noResultsInfo.innerText = `Sorry, there isn't any result for Your search`;
-        resultsSection.appendChild(noResultsInfo)
-      } else {
-        recipes.results.forEach(recipe => createResultBox(recipe, resultsSection))
-      }
-    })
-    .catch(error => {
-      resultsSection.innerHTML = `<p>${error}</p>`;
-      console.log(error)});
-  }
-
   inputForSearch.addEventListener('click', e => clearSearchInfo())
-
 
   //send request and generate output 
   buttonForSearch.addEventListener( 'click' , e => {
@@ -165,7 +165,7 @@ export const MainMenu = (activePage) => {
     searchTitle.innerText = searchInfo;
     resultsSection.appendChild(searchTitle);
 
-    sendRequest(inputForSearch)
+    sendRequest(inputForSearch, resultsSection)
     changeVisibilityForMenu();
     clearInput();  
     } else {
