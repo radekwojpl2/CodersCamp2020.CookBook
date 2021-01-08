@@ -51,16 +51,18 @@ export const createElementWithInnerText = (element, text, callback, ...classes) 
 }
 
 //create box for one result of search
-const createResultBox = (data, parentElement) => {
-  const outputBox = document.createElement('article');
-  outputBox.id = data.id;
-  const outputPhoto = document.createElement('img');
-  outputPhoto.src = data.image;
-  const outputTitle = document.createElement('p');
-  outputTitle.innerText = data.title;
-
-  appendChildrenToElement(outputBox, outputPhoto, outputTitle);
-  appendChildrenToElement(parentElement, outputBox)
+export const createResultBox = (data, parentElement) => {
+  data.forEach( dataElement => {
+    const outputBox = document.createElement('article');
+    outputBox.id = dataElement.id;
+    const outputPhoto = document.createElement('img');
+    outputPhoto.src = dataElement.image;
+    const outputTitle = document.createElement('p');
+    outputTitle.innerText = dataElement.title;
+  
+    appendChildrenToElement(outputBox, outputPhoto, outputTitle);
+    appendChildrenToElement(parentElement, outputBox)
+  })
 }
 
 //function to send request
@@ -81,7 +83,7 @@ const createResultBox = (data, parentElement) => {
       noResultsInfo.innerText = `Sorry, there isn't any result for Your search`;
       parentElement.appendChild(noResultsInfo)
     } else {
-      recipes.results.forEach(recipe => createResultBox(recipe, parentElement))
+      createResultBox(recipes.results, parentElement)
     }
   })
   .catch(error => {
