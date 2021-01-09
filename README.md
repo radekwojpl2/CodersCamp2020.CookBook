@@ -10,7 +10,7 @@ Funkcjonalności
         7. Kalkulator na przeliczanie miar gramy na kilogramy i takie tam. -> Convert Amounts
 ### Przykładowe uzycia api
 1) Search Recipes  
-                a. https://api.spoonacular.com/recipes/complexSearch&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa). 
+                a. https://api.spoonacular.com/recipes/complexSearch?apiKey=YOUR_API_KEY 
                 
       b. W celu dodania parametru trzeba po 'complexSearch' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 https://api.spoonacular.com/recipes/complexSearch?query=rice&apiKey=YOUR_API_KEY  <-- To zapytanie do API zwróci maksymalnie 10 obiektów, które w parametrze 'query' mają słowo 'rice'.
@@ -23,7 +23,7 @@ https://api.spoonacular.com/recipes/complexSearch?query=rice&cuisine=japanese&nu
 
 2) Search Recipes by Ingredients
 
-      a. https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+      a. https://api.spoonacular.com/recipes/findByIngredients?apiKey=YOUR_API_KEY <-- Zwraca pusty obiekt
 
       b. W celu dodania parametru trzeba po 'findByIngredients' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 10 obiektów, które w parametrze 'ingredients' mają słowo 'pumpkin'.
@@ -36,7 +36,7 @@ https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&number
 
 3) Get Random Recipes
 
-      a. https://api.spoonacular.com/recipes/random&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+      a. https://api.spoonacular.com/recipes/random?apiKey=YOUR_API_KEY 
       
       b. W celu dodania parametru trzeba po ' random ' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='. 
 https://api.spoonacular.com/recipes/random?number=43&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 43 obiekty, które w parametrze 'number' posiada wartość 43.
@@ -52,7 +52,7 @@ https://api.spoonacular.com/recipes/random?number=2&tags=vegetarian&apiKey=YOUR_
    
 4) Guess Nutrition by Dish Name
 
-   a. https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+   a. https://api.spoonacular.com/recipes/guessNutrition?apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
       
    b. W celu dodania parametru trzeba po ' guessNutrition ' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.  https://api.spoonacular.com/recipes/guessNutrition?title=Spaghetti+Aglio+et+Olio&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 5 obiektów, które w parametrze 'title' posiada wartość ‘Spaghetti+Aglio+et+Olio’.
 
@@ -62,7 +62,7 @@ https://api.spoonacular.com/recipes/random?number=2&tags=vegetarian&apiKey=YOUR_
    
 5) Quick Answer
 
-   a. https://api.spoonacular.com/recipes/quickAnswer&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+   a. https://api.spoonacular.com/recipes/quickAnswer?piKey=YOUR_API_KEY <-- Zwraca pusty obiekt
       
    b. W celu dodania parametru trzeba po ' quickAnswer' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='. https://api.spoonacular.com/recipes/quickAnswer?q=How+much+vitamin+c+is+in+2+apples&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 3 obiekty, które w parametrze 'q’ posiada wartość ‘How+much+vitamin+c+is+in+2+apples’.
 
@@ -72,7 +72,7 @@ https://api.spoonacular.com/recipes/random?number=2&tags=vegetarian&apiKey=YOUR_
    
 6) Search Grocery Products
    
-   a. https://api.spoonacular.com/food/products/search&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+   a. https://api.spoonacular.com/food/products/search?apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
       
    b. W celu dodania parametru trzeba po 'search' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 https://api.spoonacular.com/food/products/search?query=pizza&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 8 obiektów, które w parametrze 'query’ posiada wartość ‘pizza’.
@@ -87,7 +87,7 @@ https://api.spoonacular.com/food/products/search?query=pizza&number=2&apiKey=YOU
    
 7) <- to jest 7 (github jakieś dziwne rzeczy robi) Convert Amounts
 
-      a. https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać parametry 'ingredientName', 'sourceAmount', 'sourceUnit' i 'targetUnit' (bez parametrów nie działa).
+      a. https://api.spoonacular.com/recipes/convert?apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać parametry 'ingredientName', 'sourceAmount', 'sourceUnit' i 'targetUnit' (bez parametrów nie działa).
 
       b. W celu dodania parametru trzeba po 'convert' wpisać '?', a następnie nazwę danego parametru. Przed każdym kolejnym parametrem należy wpisać '&'. 
 https://api.spoonacular.com/recipes/convert?ingredientName=water&sourceAmount=3.5&sourceUnit=cups&targetUnit=liters&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci obiekt z przekonwertowaną jednostką.
