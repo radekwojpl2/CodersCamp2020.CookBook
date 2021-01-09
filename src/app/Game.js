@@ -85,8 +85,7 @@ class Timer {
 }
 
 class Game {
-    constructor() {
-        MainMenu()
+    constructor() {    
         this.questions = [
             {"name":"Banana bread","imgSrc":"/static/assets/img/banana-bread.jpg","apiTitle":"banana+bread"},
             {"name":"Spaghetti carbonara","imgSrc":"/static/assets/img/carbonara.jpg","apiTitle":"spaghetti+carbonara"},
@@ -149,7 +148,7 @@ class Game {
             this.imgInput.classList.add("true")
             const points = question.getPoints(+this.answerInput.value)
             this.stats.addPoints(points)
-            if (this.questions.length < 1) this.endGame()
+            if (this.questions.length < 1) setTimeout(this.endGame.bind(this), points * 15)
             else setTimeout(this.startRound.bind(this), points * 15)
         } else {
             this.imgInput.classList.add("false")
@@ -175,4 +174,5 @@ class Game {
     }
 }
 
+MainMenu()
 const game = new Game() 
