@@ -10,16 +10,17 @@ class Question {
         const index = Math.floor(Math.random() * this.questions.length)
         this.currentQuestion = this.questions[index];
         this.questions.splice(index, 1);
-        const data = fetch(`https://api.spoonacular.com/recipes/guessNutrition?title=${this.currentQuestion.apiTitle}&apiKey=08dba6e965974fdb9c6a8cc7b0f8f4f0`)
+        return fetch(`https://api.spoonacular.com/recipes/guessNutrition?title=${this.currentQuestion.apiTitle}&apiKey=08dba6e965974fdb9c6a8cc7b0f8f4f0`)
             .then( res => res.json() )
             .then ( data => {
                 const calories = data.calories.value
                 this.currentQuestion.calories = calories
                 this.currentQuestion.minCalories = calories - 0.1 * calories
                 this.currentQuestion.maxCalories = calories + 0.1 * calories
+                return this.currentQuestion
             })
             .catch( error => {throw Error(error) })
-        return this.currentQuestion
+        
     }
     
     checkAnswer(answer) {
@@ -119,19 +120,16 @@ class Game {
         this.instructionSection.classList.remove("active")
     }
 
-    startRound() {
+    async startRound() {
         const question = new Question(this.questions)
         const timer = new Timer(15)
         if (!this.gameSection.classList.contains("active")) this.showQuestionSection()
-        const currentQuestion = question.getQuestion()
-        setTimeout( () => {
-            this.reset()
-            this.imgInput.src = currentQuestion.imgSrc
-            this.imgInput.alt = currentQuestion.name
-            this.dishNameInput.textContent = currentQuestion.name
-            timer.startTimer(question)
-        }, 1000 )
-        
+        const currentQuestion = await question.getQuestion()
+        this.reset()
+        this.imgInput.src = await currentQuestion.imgSrc
+        this.imgInput.alt = await currentQuestion.name
+        this.dishNameInput.textContent = await currentQuestion.name
+        timer.startTimer(await question)
         this.sumUpRoundFunction = this.sumUpRound.bind(this, question, timer)
         this.checkBtn.addEventListener("click", this.sumUpRoundFunction, {once: true})  
     }
