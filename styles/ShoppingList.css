@@ -1,0 +1,19 @@
+*{
+    margin:0 auto;
+    padding:0;
+}
+
+#ingredientsBox{
+    width:100%;
+    height:50vh;
+}
+.ingredientsBoxLeft, .ingredientsBoxRight{
+    text-align: center;
+    height:90%;
+    width:46%;
+    padding:1vh;
+    float: left;
+}
+#dishName{
+    margin: 1vh;
+}
