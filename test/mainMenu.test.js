@@ -1,4 +1,5 @@
 import {appendChildrenToElement, createElementWithClasses, createElementWithInnerText, createNavigationList, MainMenu} from '../src/app/MainMenu';
+import {MENU} from '../src/globalData.js';
 
 describe('Test for global functions in Main Menu ', () => {
     describe('appendChildrenToElement function', () => {
@@ -68,10 +69,10 @@ describe('Test for global functions in Main Menu ', () => {
         const mockCallback = jest.fn().mockReturnValueOnce(returnValueForMock);
 
         it('should return list without Main Page in menu', () => {
-            const navList = createNavigationList('Main Page');
+            const navList = createNavigationList(MENU.mainPage);
             expect(navList.children.length).toEqual(4);
             for (let child in navList.children) {
-                expect(child.innerText).not.toEqual('Main Page')
+                expect(child.innerText).not.toEqual(MENU.mainPage.name)
             }
         });
         it('should return list with 5 elements', () => {

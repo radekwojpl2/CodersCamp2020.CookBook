@@ -6,7 +6,7 @@ export const API = {
 }
 
 export const MENU = {
-    mainPage: {name: 'Main Page', link: '/test.html'},
+    mainPage: {name: 'Main Page', link: '/testPage.html'},
     randomRecipe: {name: 'Random Recipe', link: ''},
     nutritionGame: {name: 'Nutrition Game', link: ''},
     calculator: {name: 'Calculator', link: ''},
