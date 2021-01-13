@@ -189,8 +189,7 @@ export const MainMenu = (activePage) => {
 
   //redirect to recipe site
   resultsSection.addEventListener('click', e => {
-    console.log(e.target.id)
-    window.location.pathname =`/recipe.html?id=${e.target.id}`
+    window.location.replace(`/recipe.html?id=${e.target.id}`)
   })
 
   //TOOGLE MENU
