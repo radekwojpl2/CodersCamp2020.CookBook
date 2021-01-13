@@ -58,12 +58,13 @@ fetch(API.getRecipeInformation(param.id))
     img.setAttribute('src', recipe.image);
 
     //add instruction to prepare dish
-    instructionBox.innerText = recipe.instructions
+    instructionBox.innerHTML = recipe.instructions
 
     //add ingredients 
     for (let ingredient in recipe.extendedIngredients) {
         createElementAndAppendToParent('p', ingredientsBox ,recipe.extendedIngredients[ingredient].original)
     }
+
 })
 .catch(error => console.log(error))
 
