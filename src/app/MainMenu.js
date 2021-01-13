@@ -1,5 +1,5 @@
 const MENU = {
-            mainPage: {name: 'Main Page', link: ''},
+            mainPage: {name: 'Main Page', link: '/test.html'},
             randomRecipe: {name: 'Random Recipe', link: ''},
             nutritionGame: {name: 'Nutrition Game', link: ''},
             calculator: {name: 'Calculator', link: ''},
