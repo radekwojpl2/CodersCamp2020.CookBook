@@ -12,6 +12,15 @@ const getParams = () => {
 
 const param = getParams();
 
+//DOM elements 
+const title = document.querySelector('h1');
+const tagsBox = document.querySelector('#tags');
+const img = document.querySelector('img');
+const ingredientsBox = document.querySelector('#basicData div');
+const instructionBox = document.querySelector('#instruction')
+//tags to include on page if they exist in recipe
+const tags = ["dairyFree", "glutenFree", "vegetarian", "vegan"];
+
 //function to get data from spoon
 fetch(API.getRecipeInformation(param.id))
 .then(response => {
