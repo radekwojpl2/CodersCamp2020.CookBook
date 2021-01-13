@@ -1,12 +1,4 @@
-const MENU = {
-            mainPage: {name: 'Main Page', link: '/test.html'},
-            randomRecipe: {name: 'Random Recipe', link: ''},
-            nutritionGame: {name: 'Nutrition Game', link: ''},
-            calculator: {name: 'Calculator', link: ''},
-            shoppingList: {name: 'Shopping List', link: ''}
-          }
-
-import {API} from '../globalData.js';
+import {API, MENU} from '../globalData.js';
 
 //append children to element
 export const appendChildrenToElement = (element, ...children) => {
@@ -20,7 +12,8 @@ export const appendChildrenToElement = (element, ...children) => {
 export const createNavigationList = (activePage) => {
   const navList = createElementWithClasses('ul', 'navigationList'); 
   for (let listItem in MENU) {
-    if (MENU[listItem].name !== activePage ) {
+    console.log(MENU[listItem])
+    if (MENU[listItem] !== activePage ) {
       const listElement = document.createElement('li');
       listElement.innerHTML = `<a href=${MENU[listItem].link}>${MENU[listItem].name}</a>`
       navList.appendChild(listElement)
