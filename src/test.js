@@ -1,3 +1,4 @@
 import {MainMenu} from './app/MainMenu.js';
+import {MENU} from './globalData.js'
 
-MainMenu('Main Page');
+MainMenu(MENU.mainPage);
