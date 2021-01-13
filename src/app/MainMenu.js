@@ -187,6 +187,12 @@ export const MainMenu = (activePage) => {
     resultsSection.innerText = ''
   })
 
+  //redirect to recipe site
+  resultsSection.addEventListener('click', e => {
+    console.log(e.target.id)
+    window.location.pathname =`/recipe.html?id=${e.target.id}`
+  })
+
   //TOOGLE MENU
   const toggleBtn = document.querySelector('.navigationBtn');
   const navigationBox = document.querySelector('.navigationBox')
