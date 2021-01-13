@@ -21,6 +21,12 @@ const instructionBox = document.querySelector('#instruction')
 //tags to include on page if they exist in recipe
 const tags = ["dairyFree", "glutenFree", "vegetarian", "vegan"];
 
+const createElementAndAppendToParent = (element, parentElement, innerText) => {
+    const tagElement = document.createElement(element);
+    tagElement.innerText = innerText;
+    parentElement.appendChild(tagElement)
+}
+
 //function to get data from spoon
 fetch(API.getRecipeInformation(param.id))
 .then(response => {
@@ -29,6 +35,35 @@ fetch(API.getRecipeInformation(param.id))
     } 
     throw new Error ("Ups... We didn't receive any data for this recipe")
 })
-.then(recipe => console.log(recipe))
+.then(recipe => {
+    const data = recipe.results;
+
+    //add title to page
+    title.innerText = recipe.title;
+    console.log(recipe)
+
+    //add tags basing on dish type
+    for (let tag of recipe.dishTypes) {
+        createElementAndAppendToParent('span', tagsBox, tag)
+    }
+
+    //add tags basing on atributes of dish
+    for (let tag of tags) {
+        if (recipe[tag]) {
+            createElementAndAppendToParent('span', tagsBox, tag)
+        }
+    }
+
+    //add img
+    img.setAttribute('src', recipe.image);
+
+    //add instruction to prepare dish
+    instructionBox.innerText = recipe.instructions
+
+    //add ingredients 
+    for (let ingredient in recipe.extendedIngredients) {
+        createElementAndAppendToParent('p', ingredientsBox ,recipe.extendedIngredients[ingredient].original)
+    }
+})
 .catch(error => console.log(error))
 
