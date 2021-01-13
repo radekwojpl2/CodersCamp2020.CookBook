@@ -6,9 +6,7 @@ const MENU = {
             shoppingList: {name: 'Shopping List', link: ''}
           }
 
-//data to connect with spoonacular
-const API_KEY = 'a69c65ede3bb4ac3b262c5b425b4f835';
-const URL = `https://api.spoonacular.com/recipes/complexSearch?query=`
+import {API} from '../globalData.js';
 
 //append children to element
 export const appendChildrenToElement = (element, ...children) => {
@@ -70,7 +68,7 @@ export const createResultBox = (data, parentElement) => {
   //prepare search text to send request
   const textToSearch = value.value.trim().replace('', '%20');
 
-  fetch(URL + textToSearch + `&apiKey=${API_KEY}`)
+  fetch(API.searchFor(textToSearch))
   .then(response => {
     if (!response.ok) {
       throw new Error('Ups...  Something went wrong!');
