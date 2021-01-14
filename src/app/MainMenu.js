@@ -1,4 +1,6 @@
-import {API, MENU} from '../globalData.js';
+import {API, MENU} from '../GlobalData.js';
+
+const API_KEY = 'a69c65ede3bb4ac3b262c5b425b4f835';
 
 //append children to element
 export const appendChildrenToElement = (element, ...children) => {
@@ -31,11 +33,9 @@ export const createElementWithClasses = (element, ...classes) => {
 }
 
 //create DOM element with inner text
-export const createElementWithInnerText = (element, text, callback, ...classes) => {
+export const createElementWithInnerText = (element, text, ...classes) => {
   let newDOMElement = document.createElement(element);
-  if (callback) {
-    newDOMElement = callback(element, ...classes);
-  }
+  newDOMElement.classList.add(...classes);
   newDOMElement.innerText = text;
 
   return newDOMElement
@@ -61,7 +61,7 @@ export const createResultBox = (data, parentElement) => {
   //prepare search text to send request
   const textToSearch = value.value.trim().replace('', '%20');
 
-  fetch(API.searchFor(textToSearch))
+  fetch(API.searchFor(textToSearch, API_KEY))
   .then(response => {
     if (!response.ok) {
       throw new Error('Ups...  Something went wrong!');
@@ -87,9 +87,9 @@ export const MainMenu = (activePage) => {
   //CREATE MENU STRUCTURE
 
   const menu = createElementWithClasses('nav', 'menu')
-  const logo = createElementWithInnerText('div', 'CookBook', createElementWithClasses, 'logo')
+  const logo = createElementWithInnerText('div', 'CookBook', 'logo')
   //button to show and hide menu on mobile
-  const menuBtn = createElementWithInnerText('button', 'Click', createElementWithClasses, 'navigationBtn')
+  const menuBtn = createElementWithInnerText('button', 'Click', 'navigationBtn')
   //create box for navigation & search
   const navBox = createElementWithClasses('div', 'navigationBox', 'navigationBoxHidden')
   //create navigation list with items
@@ -99,7 +99,7 @@ export const MainMenu = (activePage) => {
   const search = createElementWithClasses('form', 'search')
   const searchInput = createElementWithClasses('input');
   const searchBtn = createElementWithInnerText('button', 'Search')
-  const searchInfo = createElementWithInnerText('span', 'Please, insert text!', createElementWithClasses, 'tooltip')
+  const searchInfo = createElementWithInnerText('span', 'Please, insert text!', 'tooltip')
   appendChildrenToElement(search, searchInput, searchBtn, searchInfo);
 
   appendChildrenToElement(navBox, navList, search)

@@ -1,5 +1,5 @@
 import {appendChildrenToElement, createElementWithClasses, createElementWithInnerText, createNavigationList, MainMenu} from '../src/app/MainMenu';
-import {MENU} from '../src/globalData.js';
+import {MENU} from '../src/GlobalData.js';
 
 describe('Test for global functions in Main Menu ', () => {
     describe('appendChildrenToElement function', () => {
@@ -41,26 +41,13 @@ describe('Test for global functions in Main Menu ', () => {
             expect(domElement.innerText).toEqual('Hello World!')
         });
         it('create DOM element with inner text and two classes using createElementWithClasses function', () => {
-            const domElement = createElementWithInnerText('p', 'hello world', createElementWithClasses, 'class1', 'class2');
+            const domElement = createElementWithInnerText('p', 'hello world', 'class1', 'class2');
 
             expect(domElement.tagName.toLowerCase()).toEqual('p');
             expect(domElement.innerText).toEqual('hello world');
             expect(domElement.classList.length).toEqual(2);
             expect(domElement.classList[0]).toEqual('class1');
             expect(domElement.classList[1]).toEqual('class2');
-        })
-        it('create DOM element with inner text and two classes using callback', () => {
-            const returnValueForMock = document.createElement('p');
-            returnValueForMock.classList.add('class1', 'class2');
-            const mockCallback = jest.fn().mockReturnValueOnce(returnValueForMock)
-            const domElement = createElementWithInnerText('p', 'hello world', mockCallback, 'class1', 'class2');
-
-            expect(domElement.tagName.toLowerCase()).toEqual('p');
-            expect(domElement.innerText).toEqual('hello world');
-            expect(domElement.classList.length).toEqual(2);
-            expect(domElement.classList[0]).toEqual('class1');
-            expect(domElement.classList[1]).toEqual('class2');
-            expect(mockCallback).toBeCalledTimes(1)
         })
     });
     describe('createNavigationList function', () => {
@@ -82,7 +69,4 @@ describe('Test for global functions in Main Menu ', () => {
     })
 });
 
-describe('Test for MainMenu', () => {
-
-})
 
