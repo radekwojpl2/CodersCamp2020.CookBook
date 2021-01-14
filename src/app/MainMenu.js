@@ -139,11 +139,11 @@ export const MainMenu = (activePage) => {
     infoForEmptySearch.classList.remove('active')
   }
 
-  inputForSearch.addEventListener('click', e => clearSearchInfo())
+  inputForSearch.addEventListener('click', event => clearSearchInfo())
 
   //send request and generate output 
-  buttonForSearch.addEventListener( 'click' , e => {
-    e.preventDefault();
+  buttonForSearch.addEventListener( 'click' , btnEvent => {
+    btnEvent.preventDefault();
 
     if (inputForSearch.value !== '') {
     clearSearchInfo();
@@ -167,8 +167,8 @@ export const MainMenu = (activePage) => {
   });
 
   //close search results
-  closeSearchResultBtn.addEventListener( 'click', e => {
-    e.preventDefault();
+  closeSearchResultBtn.addEventListener( 'click', closeEvent => {
+    closeEvent.preventDefault();
 
     //set backdrop hidden
     backdrop.style.opacity = 0;
@@ -179,8 +179,8 @@ export const MainMenu = (activePage) => {
   })
 
   //redirect to recipe site
-  resultsSection.addEventListener('click', e => {
-    window.location.replace(`/recipe.html?id=${e.target.id}`)
+  resultsSection.addEventListener('click', redirectEvent => {
+    window.location.replace(`/recipe.html?id=${redirectEvent.target.id}`)
   })
 
   //TOOGLE MENU
@@ -192,7 +192,7 @@ export const MainMenu = (activePage) => {
     navigationBox.classList.toggle('navigationBoxHidden');
   }
 
-  toggleBtn.addEventListener('click', e => {
+  toggleBtn.addEventListener('click', menuEvent => {
       changeVisibilityForMenu();
       clearSearchInfo();
   })
