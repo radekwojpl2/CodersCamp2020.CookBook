@@ -7,20 +7,14 @@ const toSelect = document.querySelector('.calculator__form__to');
 let fromSelectValue = fromSelect.value;
 let toSelectValue = toSelect.value;
 
-function calculate(sourceAmount, sourceUnit, targetUnit, outputDiv) {
+async function calculate(sourceAmount, sourceUnit, targetUnit) {
     if (isNaN(sourceAmount)) {
-        outputDiv.innerHTML = 'Please enter the correct number';
+        return 'Please enter the correct number';
     } else {
-        fetch(`https://api.spoonacular.com/recipes/convert?ingredientName=this&sourceAmount=${sourceAmount}&sourceUnit=${sourceUnit}&targetUnit=${targetUnit}&apiKey=${apiKey}`)
-            .then(res => res.json())
-            .then(data => {
-                data.answer !== undefined ?
-                    outputDiv.innerHTML = data.answer :
-                    outputDiv.innerHTML = 'Sorry, something went wrong, please try again'
-            })
-            .catch(() => {
-                outputDiv.innerHTML = 'Sorry, something went wrong, please try again';
-            })
+        const response = await fetch(`https://api.spoonacular.com/recipes/convert?ingredientName=this&sourceAmount=${sourceAmount}&sourceUnit=${sourceUnit}&targetUnit=${targetUnit}&apiKey=${apiKey}`)
+        const responseJSON = await response.json();
+        const responseAnswer = await responseJSON.answer;
+        return responseAnswer;
     }
 }
 fromSelect.addEventListener('change', (event) => {
@@ -29,9 +23,15 @@ fromSelect.addEventListener('change', (event) => {
 toSelect.addEventListener('change', (event) => {
     toSelectValue = event.target.value;
 })
-calculateButton.addEventListener('click', () => {
+calculateButton.addEventListener('click', async () => {
     let sourceValue = parseFloat(document.querySelector('.calculator__form__input').value);
-    calculate(sourceValue, fromSelectValue, toSelectValue, outputDiv);
+    try {
+        const response = await calculate(sourceValue, fromSelectValue, toSelectValue);
+        outputDiv.innerHTML = response;
+    } catch (event) {
+        outputDiv.innerHTML = "Sorry, something went wrong";
+        console.log(event);
+    }
 });
 clearButton.addEventListener('click', () => {
     outputDiv.innerHTML = 'answer goes here';
