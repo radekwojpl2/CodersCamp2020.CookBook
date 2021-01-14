@@ -1,3 +1,4 @@
+const { calculate } = require('./calculate')
 const apiKey = '7c1cea1c1c664db5a38edbf2dd21484e';
 const outputDiv = document.querySelector('.calculator__form__output');
 const calculateButton = document.querySelector('.calculator__form__calculate');
@@ -7,16 +8,6 @@ const toSelect = document.querySelector('.calculator__form__to');
 let fromSelectValue = fromSelect.value;
 let toSelectValue = toSelect.value;
 
-async function calculate(sourceAmount, sourceUnit, targetUnit) {
-    if (isNaN(sourceAmount)) {
-        return 'Please enter the correct number';
-    } else {
-        const response = await fetch(`https://api.spoonacular.com/recipes/convert?ingredientName=this&sourceAmount=${sourceAmount}&sourceUnit=${sourceUnit}&targetUnit=${targetUnit}&apiKey=${apiKey}`)
-        const responseJSON = await response.json();
-        const responseAnswer = await responseJSON.answer;
-        return responseAnswer;
-    }
-}
 fromSelect.addEventListener('change', (event) => {
     fromSelectValue = event.target.value;
 })
@@ -26,7 +17,7 @@ toSelect.addEventListener('change', (event) => {
 calculateButton.addEventListener('click', async () => {
     let sourceValue = parseFloat(document.querySelector('.calculator__form__input').value);
     try {
-        const response = await calculate(sourceValue, fromSelectValue, toSelectValue);
+        const response = await calculate(sourceValue, fromSelectValue, toSelectValue, apiKey);
         outputDiv.innerHTML = response;
     } catch (event) {
         outputDiv.innerHTML = "Sorry, something went wrong";
