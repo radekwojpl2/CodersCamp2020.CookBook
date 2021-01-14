@@ -1,5 +1,7 @@
 import {MainMenu} from './app/MainMenu.js'; 
-import {API} from './globalData.js';
+import {API} from './GlobalData.js';
+
+const API_KEY = 'a69c65ede3bb4ac3b262c5b425b4f835';
 
 //create navigation bar
 MainMenu();
@@ -11,6 +13,7 @@ const getParams = () => {
 }
 
 const param = getParams();
+console.log(param)
 
 //DOM elements 
 const title = document.querySelector('h1');
@@ -28,7 +31,7 @@ const createElementAndAppendToParent = (element, parentElement, innerText) => {
 }
 
 //function to get data from spoon
-fetch(API.getRecipeInformation(param.id))
+fetch(API.getRecipeInformation(param.id, API_KEY))
 .then(response => {
     if (response.ok) {
         return response.json()
@@ -36,8 +39,6 @@ fetch(API.getRecipeInformation(param.id))
     throw new Error ("Ups... We didn't receive any data for this recipe")
 })
 .then(recipe => {
-    const data = recipe.results;
-
     //add title to page
     title.innerText = recipe.title;
     console.log(recipe)
@@ -53,7 +54,6 @@ fetch(API.getRecipeInformation(param.id))
             createElementAndAppendToParent('span', tagsBox, tag)
         }
     }
-
     //add img
     img.setAttribute('src', recipe.image);
 
@@ -66,5 +66,5 @@ fetch(API.getRecipeInformation(param.id))
     }
 
 })
-.catch(error => console.log(error))
+.catch(error => title.innerText = error)
 
