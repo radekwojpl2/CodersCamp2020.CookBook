@@ -17,7 +17,7 @@ export const createNavigationList = (activePage) => {
     console.log(MENU[listItem])
     if (MENU[listItem] !== activePage ) {
       const listElement = document.createElement('li');
-      listElement.innerHTML = `<a href=${MENU[listItem].link} class='link'>${MENU[listItem].name}</a>`
+      listElement.innerHTML = `<a href=${MENU[listItem].link}>${MENU[listItem].name}</a>`
       navList.appendChild(listElement)
     }
   }
@@ -88,9 +88,9 @@ export const MainMenu = (activePage) => {
 
   const menu = createElementWithClasses('nav', 'menu', 'container')
   const logo = createElementWithClasses('div', 'logo')
-  logo.innerHTML =`<a href=${MENU.mainPage.link} class='link'>CookBook</a>`;
+  logo.innerHTML =`<a href=${MENU.mainPage.link}>CookBook</a>`;
   //button to show and hide menu on mobile
-  const menuBtn = createElementWithInnerText('button', 'Click', 'navigationBtn', 'btnStyle')
+  const menuBtn = createElementWithInnerText('button', 'Click', 'navigationBtn')
   //create box for navigation & search
   const navBox = createElementWithClasses('div', 'navigationBox', 'navigationBoxHidden')
   //create navigation list with items
@@ -98,8 +98,8 @@ export const MainMenu = (activePage) => {
 
   //create search
   const search = createElementWithClasses('form', 'search')
-  const searchInput = createElementWithClasses('input', 'inputStyle');
-  const searchBtn = createElementWithInnerText('button', 'Search', 'btnStyle')
+  const searchInput = createElementWithClasses('input',);
+  const searchBtn = createElementWithInnerText('button', 'Search')
   const searchInfo = createElementWithInnerText('span', 'Please, insert text!', 'tooltip')
   appendChildrenToElement(search, searchInput, searchBtn, searchInfo);
 
@@ -109,7 +109,7 @@ export const MainMenu = (activePage) => {
   //CREATE STRUCTURE FOR SEARCH OUTPUT
   const backdropForSearch = createElementWithClasses('div', 'backdrop');
   const modalForSearch = createElementWithClasses('div', 'modal', 'container');
-  const closeModalButton = createElementWithInnerText('button', 'x', 'btnStyle');
+  const closeModalButton = createElementWithInnerText('button', 'x');
   const boxForResults = document.createElement('section');
 
   appendChildrenToElement(modalForSearch, closeModalButton , boxForResults);
@@ -180,6 +180,17 @@ export const MainMenu = (activePage) => {
     resultsSection.innerText = ''
   })
 
+  //close search results by click on backdrop (use == instead of ===)
+  backdrop.addEventListener('click', backdropClick => {
+    
+    //set backdrop hidden
+    backdrop.style.opacity = 0;
+    backdrop.style.zIndex = -100;
+
+    //clear search results
+    resultsSection.innerText = ''
+  })
+
   //redirect to recipe site
   resultsSection.addEventListener('click', redirectEvent => {
     window.location.replace(`/recipe.html?id=${redirectEvent.target.id}`)
@@ -199,7 +210,7 @@ export const MainMenu = (activePage) => {
       clearSearchInfo();
   })
 
-  //add animation to logo
+  //AANIMATION FOR LOGO
   logoText.addEventListener( 'mouseenter', logoFocus => {
     console.log('hej')
     logoText.animate(
