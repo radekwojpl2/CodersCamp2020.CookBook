@@ -194,9 +194,9 @@ export const MainMenu = (activePage) => {
     clickOnModal.stopPropagation();
   })
 
-  //redirect to recipe site
+  //redirect to recipe site (implement '==' instead '===' on purpose!)
   resultsSection.addEventListener('click', redirectEvent => {
-    if(redirectEvent.target.id) {
+    if(Boolean(redirectEvent.target.id) == '1') {
       window.location.replace(`/recipe.html?id=${redirectEvent.target.id}`)
     }
   })
