@@ -180,9 +180,8 @@ export const MainMenu = (activePage) => {
     resultsSection.innerText = ''
   })
 
-  //close search results by click on backdrop (use == instead of ===)
+  //close search results by click on backdrop
   backdrop.addEventListener('click', backdropClick => {
-    
     //set backdrop hidden
     backdrop.style.opacity = 0;
     backdrop.style.zIndex = -100;
@@ -191,9 +190,15 @@ export const MainMenu = (activePage) => {
     resultsSection.innerText = ''
   })
 
+  backdrop.firstElementChild.addEventListener('click', clickOnModal => {
+    clickOnModal.stopPropagation();
+  })
+
   //redirect to recipe site
   resultsSection.addEventListener('click', redirectEvent => {
-    window.location.replace(`/recipe.html?id=${redirectEvent.target.id}`)
+    if(redirectEvent.target.id) {
+      window.location.replace(`/recipe.html?id=${redirectEvent.target.id}`)
+    }
   })
 
   //TOOGLE MENU
@@ -210,7 +215,7 @@ export const MainMenu = (activePage) => {
       clearSearchInfo();
   })
 
-  //AANIMATION FOR LOGO
+  //ANIMATION FOR LOGO
   logoText.addEventListener( 'mouseenter', logoFocus => {
     console.log('hej')
     logoText.animate(
