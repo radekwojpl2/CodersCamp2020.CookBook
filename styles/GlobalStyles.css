@@ -3,26 +3,36 @@
 :root {
     --mainColor: #4779e4ce;
     --btnColor: #4779e4ce;
-    --mobileFontSize: 16px;
-    --desktopFontSize: 20px;
+    --mobileFontSize: 14px;
+    --desktopFontSize: 18px;
     --fontFamily: 'Montserrat', sans-serif;
+    --bgColor: #ededed
 };
+
+body {
+    font-family: var(--fontFamily);
+}
 
 .container {
     width: 100%;
     font-family: var(--fontFamily);
+    background-color: var(--bgColor);
+    min-height: 80vh;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
-.container > * {
-    margin: 0.5rem 1rem;
-}
-
-.title {
+h1 {
     color: var(--mainColor);
     font-size: 1.5rem;
 }
 
-.btnStyle {
+h2 {
+    color: var(--mainColor);
+    font-size: 1.2rem; 
+}
+
+button {
     background-color: var(--btnColor);
     border: 1px solid transparent;
     color: #fff;
@@ -31,23 +41,23 @@
     padding: 0.1rem 0.3rem;
 }
 
-.btnStyle:hover {
+button:hover {
     background-color: #fff;
     border: 1px solid var(--mainColor);
     color: var(--mainColor)
 }
 
-.inputStyle {
+input {
     padding: 0.1rem 0.3rem;
     font-family: var(--fontFamily);
 }
 
-.inputStyle:focus {
+input:focus {
     outline-color: var(--mainColor);
     outline-style: solid;
 }
 
-.link {
+a {
     cursor: pointer;
     text-decoration: none;
     color: #000;
@@ -55,18 +65,24 @@
     padding: 0.5rem;
 }
 
-.link:hover {
+a:hover {
     color:  var(--mainColor);
     border: 1px solid var(--mainColor)
 }
 
 @media (min-width: 1200px) {
+
     .container {
         width: 80%;
         margin: 0 auto;
+        padding: 3rem
     }
 
-    .title {
+    h1 {
         font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
     }
 }
