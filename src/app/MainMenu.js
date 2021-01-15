@@ -86,7 +86,7 @@ export const MainMenu = (activePage) => {
 
   //CREATE MENU STRUCTURE
 
-  const menu = createElementWithClasses('nav', 'menu')
+  const menu = createElementWithClasses('nav', 'menu', 'container')
   const logo = createElementWithClasses('div', 'logo')
   logo.innerHTML =`<a href=${MENU.mainPage.link} class='link'>CookBook</a>`;
   //button to show and hide menu on mobile
@@ -98,7 +98,7 @@ export const MainMenu = (activePage) => {
 
   //create search
   const search = createElementWithClasses('form', 'search')
-  const searchInput = createElementWithClasses('input');
+  const searchInput = createElementWithClasses('input', 'inputStyle');
   const searchBtn = createElementWithInnerText('button', 'Search', 'btnStyle')
   const searchInfo = createElementWithInnerText('span', 'Please, insert text!', 'tooltip')
   appendChildrenToElement(search, searchInput, searchBtn, searchInfo);
@@ -108,8 +108,8 @@ export const MainMenu = (activePage) => {
 
   //CREATE STRUCTURE FOR SEARCH OUTPUT
   const backdropForSearch = createElementWithClasses('div', 'backdrop');
-  const modalForSearch = createElementWithClasses('div', 'modal');
-  const closeModalButton = createElementWithInnerText('button', 'x');
+  const modalForSearch = createElementWithClasses('div', 'modal', 'container');
+  const closeModalButton = createElementWithInnerText('button', 'x', 'btnStyle');
   const boxForResults = document.createElement('section');
 
   appendChildrenToElement(modalForSearch, closeModalButton , boxForResults);

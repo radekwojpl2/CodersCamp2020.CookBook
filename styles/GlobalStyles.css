@@ -1,12 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
     --mainColor: #4779e4ce;
-    --btnColor: #4779e4ce
-}
+    --btnColor: #4779e4ce;
+    --mobileFontSize: 16px;
+    --desktopFontSize: 20px;
+    --fontFamily: 'Montserrat', sans-serif;
+};
 
 .container {
     width: 100%;
-    padding: 1rem;
-    background-color: #cccccc;
+    font-family: var(--fontFamily);
+}
+
+.container > * {
+    margin: 0.5rem 1rem;
 }
 
 .title {
@@ -17,13 +25,26 @@
 .btnStyle {
     background-color: var(--btnColor);
     border: 1px solid transparent;
-    color: #fff
+    color: #fff;
+    font-size: 1rem;
+    font-family: var(--fontFamily);
+    padding: 0.1rem 0.3rem;
 }
 
 .btnStyle:hover {
     background-color: #fff;
     border: 1px solid var(--mainColor);
     color: var(--mainColor)
+}
+
+.inputStyle {
+    padding: 0.1rem 0.3rem;
+    font-family: var(--fontFamily);
+}
+
+.inputStyle:focus {
+    outline-color: var(--mainColor);
+    outline-style: solid;
 }
 
 .link {
@@ -42,7 +63,8 @@
 @media (min-width: 1200px) {
     .container {
         width: 80%;
-        margin: 0 auto;}
+        margin: 0 auto;
+    }
 
     .title {
         font-size: 2rem;
