@@ -1,6 +1,6 @@
-import {MainMenu} from './MainMenu.js';
+import { MainMenu } from './MainMenu.js';
 
-class Question {
+export class Question {
     constructor(questions) {
         this.currentQuestion;
         this.questions = questions
@@ -19,8 +19,7 @@ class Question {
                 this.currentQuestion.maxCalories = calories + 0.1 * calories
                 return this.currentQuestion
             })
-            .catch( error => {throw Error(error) })
-        
+            .catch( error => {throw Error(error) })   
     }
     
     checkAnswer(answer) {
@@ -32,6 +31,7 @@ class Question {
     }
 
     getPoints(answer) {
+        if (answer > this.currentQuestion.maxCalories || answer < this.currentQuestion.minCalories) return 0
         const differenceBetweenCaloriesAndMinCalories = Math.round(this.currentQuestion.calories - this.currentQuestion.minCalories)
         const differenceBetweenAnswerAndCalories = Math.abs(answer - this.currentQuestion.calories)
         const points = Math.abs(Math.round(differenceBetweenAnswerAndCalories / differenceBetweenCaloriesAndMinCalories * 100) - 100)
@@ -39,8 +39,7 @@ class Question {
     }
 }
 
-
-class Stats {
+export class Stats {
     constructor(points) {
         this.points = points
     }
@@ -48,15 +47,19 @@ class Stats {
     addPoints(newPoints) {
         let i = 0;
         const addingPoints = setInterval(() => {
-            if (i === newPoints - 1) clearInterval(addingPoints);
+            if (i >= newPoints - 1) {
+                clearInterval(addingPoints);
+            }
             i++;
             this.points++;
-            document.querySelector(".score span").textContent = this.points;  
+            document.querySelector(".score span").textContent = this.points; 
+            return this.points
         }, 15)
+        
     }
 }
 
-class Timer {
+export class Timer {
     constructor(time) {
         this.time = time
         this.timeLeft = this.time
@@ -69,11 +72,12 @@ class Timer {
             this.timeLeft -= 1
             if (this.timeLeft === 0) {
                 this.stopTimer()
-                game.getResult(question)
+                nutritionGame.getResult(question)
                 return true
             }
         }, 1000)
     }
+
     getTimeLeft() {
         return this.timeLeft
     }
@@ -84,7 +88,7 @@ class Timer {
     }
 }
 
-class Game {
+export class Game {
     constructor() {    
         this.questions = [
             {"name":"Banana bread","imgSrc":"/static/assets/img/banana-bread.jpg","apiTitle":"banana+bread"},
@@ -111,7 +115,10 @@ class Game {
 
         this.stats = new Stats(0)
         
-        this.startBtn.addEventListener("click", this.startRound.bind(this), {once: true})
+        document.addEventListener('DOMContentLoaded', () => {
+            this.startBtn.addEventListener("click", this.startRound.bind(this), {once: true})
+            this.checkBtn.addEventListener("click", (e) => e.preventDefault())
+        })
     }
 
     showQuestionSection() {
@@ -129,6 +136,7 @@ class Game {
         this.imgInput.alt = await currentQuestion.name
         this.dishNameInput.textContent = await currentQuestion.name
         timer.startTimer(await question)
+        
         this.sumUpRoundFunction = this.sumUpRound.bind(this, question, timer)
         this.checkBtn.addEventListener("click", this.sumUpRoundFunction, {once: true})  
     }
@@ -149,12 +157,12 @@ class Game {
             const points = question.getPoints(+this.answerInput.value)
             this.stats.addPoints(points)
             if (this.questions.length < 1) setTimeout(this.endGame.bind(this), points * 15)
-            else setTimeout(this.startRound.bind(this), points * 15)
+            else setTimeout(this.startRound.bind(this), points * 15 + 500)
         } else {
             this.imgInput.classList.add("false")
             this.correctAnswer.textContent = `Correct answer is: ${question.currentQuestion.calories}.`
             if (this.questions.length < 1) this.endGame()
-            else this.startRound()
+            else setTimeout(this.startRound.bind(this), 500)
         }
     }
 
@@ -167,6 +175,7 @@ class Game {
 
     endGame() {
         setTimeout(() => {
+            console.log("Koniec gry!")
             this.reset()
             this.gameOverBlock.classList.add("active")
             this.finalScoreInput.textContent = this.stats.points
@@ -175,4 +184,4 @@ class Game {
 }
 
 MainMenu()
-const game = new Game() 
+const nutritionGame = new Game() 
