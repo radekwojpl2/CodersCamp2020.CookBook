@@ -128,6 +128,7 @@ export const MainMenu = (activePage) => {
   const backdrop = document.querySelector('.backdrop');
   const closeSearchResultBtn = backdrop.firstElementChild.firstElementChild;
   const resultsSection = backdrop.firstElementChild.lastElementChild;
+  const logoText = document.querySelector('.logo');
 
   //clear input value
   const clearInput = () => {
@@ -195,5 +196,17 @@ export const MainMenu = (activePage) => {
   toggleBtn.addEventListener('click', menuEvent => {
       changeVisibilityForMenu();
       clearSearchInfo();
+  })
+
+  //add animation to logo
+  logoText.addEventListener( 'mouseenter', logoFocus => {
+    console.log('hej')
+    logoText.animate(
+      [{ transform: 'rotateY(0deg)'},
+      { transform: 'rotateY(360deg)' }],
+      {duration: 500,
+      }
+
+    )
   })
 }
