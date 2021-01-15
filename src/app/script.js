@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 const API_KEY = 'f1d4678ea9644e0e856f7c3901def1a7'
 const URL = 'https://api.spoonacular.com/recipes/findByIngredients';
 
@@ -14,6 +14,7 @@ function searchRecipesByIngredient() {
             recipes.forEach(recipe => createRecipeCard(recipe))
         });
 };
+document.getElementById("searchButton").addEventListener("click", searchRecipesByIngredient);
 
 function createRecipeCard(recipe) {
     let newCardDiv = document.createElement("div");
