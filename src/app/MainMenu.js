@@ -17,7 +17,7 @@ export const createNavigationList = (activePage) => {
     console.log(MENU[listItem])
     if (MENU[listItem] !== activePage ) {
       const listElement = document.createElement('li');
-      listElement.innerHTML = `<a href=${MENU[listItem].link}>${MENU[listItem].name}</a>`
+      listElement.innerHTML = `<a href=${MENU[listItem].link} class='link'>${MENU[listItem].name}</a>`
       navList.appendChild(listElement)
     }
   }
@@ -88,9 +88,9 @@ export const MainMenu = (activePage) => {
 
   const menu = createElementWithClasses('nav', 'menu')
   const logo = createElementWithClasses('div', 'logo')
-  logo.innerHTML =`<a href=${MENU.mainPage.link}>CookBook</a>`;
+  logo.innerHTML =`<a href=${MENU.mainPage.link} class='link'>CookBook</a>`;
   //button to show and hide menu on mobile
-  const menuBtn = createElementWithInnerText('button', 'Click', 'navigationBtn')
+  const menuBtn = createElementWithInnerText('button', 'Click', 'navigationBtn', 'btnStyle')
   //create box for navigation & search
   const navBox = createElementWithClasses('div', 'navigationBox', 'navigationBoxHidden')
   //create navigation list with items
@@ -99,7 +99,7 @@ export const MainMenu = (activePage) => {
   //create search
   const search = createElementWithClasses('form', 'search')
   const searchInput = createElementWithClasses('input');
-  const searchBtn = createElementWithInnerText('button', 'Search')
+  const searchBtn = createElementWithInnerText('button', 'Search', 'btnStyle')
   const searchInfo = createElementWithInnerText('span', 'Please, insert text!', 'tooltip')
   appendChildrenToElement(search, searchInput, searchBtn, searchInfo);
 

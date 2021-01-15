@@ -1,0 +1,50 @@
+:root {
+    --mainColor: #4779e4ce;
+    --btnColor: #4779e4ce
+}
+
+.container {
+    width: 100%;
+    padding: 1rem;
+    background-color: #cccccc;
+}
+
+.title {
+    color: var(--mainColor);
+    font-size: 1.5rem;
+}
+
+.btnStyle {
+    background-color: var(--btnColor);
+    border: 1px solid transparent;
+    color: #fff
+}
+
+.btnStyle:hover {
+    background-color: #fff;
+    border: 1px solid var(--mainColor);
+    color: var(--mainColor)
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+    border: 1px solid transparent;
+    padding: 0.5rem;
+}
+
+.link:hover {
+    color:  var(--mainColor);
+    border: 1px solid var(--mainColor)
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 80%;
+        margin: 0 auto;}
+
+    .title {
+        font-size: 2rem;
+    }
+}
