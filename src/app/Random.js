@@ -1,5 +1,19 @@
+import {MainMenu} from './MainMenu.js';
+
+MainMenu();
+
 document.getElementById("recipiesRandom").style.background = "#e7e7e7";
 const recipe = document.querySelector("#recipiesRandom");
+const navigationButton = document.querySelector('.navigationBtn')
+
+
+navigationButton.addEventListener("click", toggleMenuOpened);
+
+
+
+function toggleMenuOpened() {
+    document.querySelector("#contentRandom").classList.toggle("menuOpened");
+}
 
 
 const apiKey = 'fa79327224724e9da0b733fdcc9720d4';
@@ -10,6 +24,7 @@ function getRandomRecipes() {
     fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`)
         .then(response => response.json())
         .then(data => {
+            console.log('Data from API:', data);
             const img = document.createElement("img");
             img.setAttribute("src", data.recipes[0].image);
             recipe.appendChild(img);
@@ -19,7 +34,7 @@ function getRandomRecipes() {
             function ingeredientsName() {
 
                 let ingredientsArray = [];
-                for (i = 0; i < data.recipes[0].extendedIngredients.length; i++) {
+                for (let i = 0; i < data.recipes[0].extendedIngredients.length; i++) {
 
                     ingredientsArray.push(data.recipes[0].extendedIngredients[i].name);
 
