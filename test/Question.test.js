@@ -1,4 +1,4 @@
-import { Question, Timer } from '../src/app/Game.js'
+import { Question } from '../src/app/Question.js';
 
 describe("question", () => {
     const question = new Question([
@@ -32,26 +32,5 @@ describe("question", () => {
         expect(question.getPoints(400)).toBe(100)
         expect(question.getPoints(425)).toBe(50)
         expect(question.getPoints(500)).toBe(0)
-    })
-})
-
-describe("timer", () => {
-    document.body.innerHTML = `
-    <button class="start">Start game</button>
-    <div class="timeline">
-        <div class="timer"></div>
-    </div>
-    `
-    const timerDiv = document.querySelector(".timer")
-    const timer = new Timer(15)  
-
-    test('adds class active', () => {
-        timer.startTimer()
-        expect(timerDiv.classList.contains("active")).toBeTruthy()   
-    })
-
-    test('removes class active', () => {
-        timer.stopTimer()
-        expect(timerDiv.classList.contains("active")).toBeFalsy()
     })
 })

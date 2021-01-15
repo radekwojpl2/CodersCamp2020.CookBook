@@ -1,92 +1,6 @@
-import { MainMenu } from './MainMenu.js';
-
-export class Question {
-    constructor(questions) {
-        this.currentQuestion;
-        this.questions = questions
-    }
-
-    getQuestion() {
-        const index = Math.floor(Math.random() * this.questions.length)
-        this.currentQuestion = this.questions[index];
-        this.questions.splice(index, 1);
-        return fetch(`https://api.spoonacular.com/recipes/guessNutrition?title=${this.currentQuestion.apiTitle}&apiKey=08dba6e965974fdb9c6a8cc7b0f8f4f0`)
-            .then( res => res.json() )
-            .then ( data => {
-                const calories = data.calories.value
-                this.currentQuestion.calories = calories
-                this.currentQuestion.minCalories = calories - 0.1 * calories
-                this.currentQuestion.maxCalories = calories + 0.1 * calories
-                return this.currentQuestion
-            })
-            .catch( error => {throw Error(error) })   
-    }
-    
-    checkAnswer(answer) {
-        answer = parseInt(answer)
-        const minCalories = this.currentQuestion.minCalories
-        const maxCalories = this.currentQuestion.maxCalories
-        if (answer > minCalories && answer < maxCalories) return true
-        else return false
-    }
-
-    getPoints(answer) {
-        if (answer > this.currentQuestion.maxCalories || answer < this.currentQuestion.minCalories) return 0
-        const differenceBetweenCaloriesAndMinCalories = Math.round(this.currentQuestion.calories - this.currentQuestion.minCalories)
-        const differenceBetweenAnswerAndCalories = Math.abs(answer - this.currentQuestion.calories)
-        const points = Math.abs(Math.round(differenceBetweenAnswerAndCalories / differenceBetweenCaloriesAndMinCalories * 100) - 100)
-        return points
-    }
-}
-
-export class Stats {
-    constructor(points) {
-        this.points = points
-    }
-
-    addPoints(newPoints) {
-        let i = 0;
-        const addingPoints = setInterval(() => {
-            if (i >= newPoints - 1) {
-                clearInterval(addingPoints);
-            }
-            i++;
-            this.points++;
-            document.querySelector(".score span").textContent = this.points; 
-            return this.points
-        }, 15)
-        
-    }
-}
-
-export class Timer {
-    constructor(time) {
-        this.time = time
-        this.timeLeft = this.time
-        this.timer
-    }
-
-    startTimer(question) {
-        document.querySelector(".timer").classList.add("active")
-        this.timer = setInterval( () => {
-            this.timeLeft -= 1
-            if (this.timeLeft === 0) {
-                this.stopTimer()
-                nutritionGame.getResult(question)
-                return true
-            }
-        }, 1000)
-    }
-
-    getTimeLeft() {
-        return this.timeLeft
-    }
-
-    stopTimer() {
-        clearInterval(this.timer)
-        document.querySelector(".timer").classList.remove("active")
-    }
-}
+import { Question } from './Question.js';
+import { Timer } from './Timer.js';
+import { Stats } from './Stats.js';
 
 export class Game {
     constructor() {    
@@ -135,7 +49,7 @@ export class Game {
         this.imgInput.src = await currentQuestion.imgSrc
         this.imgInput.alt = await currentQuestion.name
         this.dishNameInput.textContent = await currentQuestion.name
-        timer.startTimer(await question)
+        timer.startTimer(await question, this)
         
         this.sumUpRoundFunction = this.sumUpRound.bind(this, question, timer)
         this.checkBtn.addEventListener("click", this.sumUpRoundFunction, {once: true})  
@@ -182,6 +96,3 @@ export class Game {
         }, 1000)
     }
 }
-
-MainMenu()
-const nutritionGame = new Game() 
