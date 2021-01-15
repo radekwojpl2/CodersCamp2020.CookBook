@@ -87,7 +87,8 @@ export const MainMenu = (activePage) => {
   //CREATE MENU STRUCTURE
 
   const menu = createElementWithClasses('nav', 'menu')
-  const logo = createElementWithInnerText('div', 'CookBook', 'logo')
+  const logo = createElementWithClasses('div', 'logo')
+  logo.innerHTML =`<a href=${MENU.mainPage.link}>CookBook</a>`;
   //button to show and hide menu on mobile
   const menuBtn = createElementWithInnerText('button', 'Click', 'navigationBtn')
   //create box for navigation & search
@@ -205,6 +206,7 @@ export const MainMenu = (activePage) => {
       [{ transform: 'rotateY(0deg)'},
       { transform: 'rotateY(360deg)' }],
       {duration: 500,
+        iteration: 1
       }
 
     )
