@@ -1,22 +1,18 @@
-import {MainMenu} from './MainMenu.js';
+import { MainMenu } from './MainMenu.js';
 
 MainMenu();
 
-document.getElementById("recipiesRandom").style.background = "#e7e7e7";
 const recipe = document.querySelector("#recipiesRandom");
 const navigationButton = document.querySelector('.navigationBtn')
 
+const apiKey = 'fa79327224724e9da0b733fdcc9720d4';
+let sInt;
+let id;
 
-navigationButton.addEventListener("click", toggleMenuOpened);
-
-
-
-function toggleMenuOpened() {
+export function toggleMenuOpened() {
     document.querySelector("#contentRandom").classList.toggle("menuOpened");
 }
 
-
-const apiKey = 'fa79327224724e9da0b733fdcc9720d4';
 function getRandomRecipes() {
 
     recipe.replaceChildren();
@@ -56,7 +52,9 @@ function getRandomRecipes() {
 
 
 function getRandomRecipesClicked() {
-    if (btnRandomInt.innerText === 'Stop show random in interval') {
+    let btnRandomInt = document.getElementById("randomIntervalBtn");
+
+    if (btnRandomInt.textContent === 'Stop show random in interval') {
         replace();
         clearInterval(sInt);
         clearInterval(id);
@@ -65,26 +63,25 @@ function getRandomRecipesClicked() {
     }
     getRandomRecipes();
 }
-function replace() {
+
+export function replace() {
+    let btnRandomInt = document.getElementById("randomIntervalBtn");
     let doreplace = 'Start show random in interval';
     let replaced = 'Stop show random in interval';
-
     let stop = btnRandomInt.innerHTML.replace(doreplace, replaced);
     let start = btnRandomInt.innerHTML.replace(replaced, doreplace);
-    if (btnRandomInt.innerText === 'Start show random in interval') {
-        btnRandomInt.innerHTML = stop;
+    if (btnRandomInt.textContent === 'Start show random in interval') {
+    btnRandomInt.innerHTML = stop;
     } else {
-        btnRandomInt.innerHTML = start;
+    btnRandomInt.innerHTML = start;
     }
 }
 
-let btnRandomInt = document.getElementById("randomIntervalBtn");
-
-let sInt;
 function getRandomRecipesInterval() {
+    let btnRandomInt = document.getElementById("randomIntervalBtn");
 
 
-    if (btnRandomInt.innerText === 'Start show random in interval') {
+    if (btnRandomInt.textContent === 'Start show random in interval') {
         replace();
         getRandomRecipes();
         doAnimation();
@@ -101,9 +98,8 @@ function getRandomRecipesInterval() {
         elem.style.left = 0;
     }
 }
-let id;
 
-function doAnimation() {
+export function doAnimation() {
     let elem = document.getElementById("myAnimation");
     let position = 0;
     id = setInterval(frame, 50);
@@ -118,13 +114,17 @@ function doAnimation() {
 
 }
 
+// all code that changes / uses html elements moved to this function for easier testing
+export function Random() {
+    document.getElementById("recipiesRandom").style.background = "#e7e7e7";
+    navigationButton.addEventListener("click", toggleMenuOpened);
 
-document.getElementById("randomBtn").addEventListener("click", getRandomRecipesClicked);
-document.getElementById("randomIntervalBtn").addEventListener("click", getRandomRecipesInterval);
-window.addEventListener('beforeunload', function (closeWindow) {
-    closeWindow.preventDefault();
-    closeWindow.clearInterval(sInt);
-    closeWindow.clearInterval(id);
+    document.getElementById("randomBtn").addEventListener("click", getRandomRecipesClicked);
+    document.getElementById("randomIntervalBtn").addEventListener("click", getRandomRecipesInterval);
+    window.addEventListener('beforeunload', function (closeWindow) {
+        closeWindow.preventDefault();
+        closeWindow.clearInterval(sInt);
+        closeWindow.clearInterval(id);
 
-});
-; 
+    });
+};
