@@ -119,7 +119,7 @@ form {
 
 .tooltip {
     position: absolute;
-    top: 100%;
+    top: 70%;
     background-color: rgba(255, 0, 0, 0.349);
     padding: 0.3rem 0.5rem;
     border-radius: 0.5rem;
