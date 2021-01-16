@@ -197,7 +197,7 @@ export const MainMenu = (activePage) => {
   //redirect to recipe site (implement '==' instead '===' on purpose!)
   resultsSection.addEventListener('click', redirectEvent => {
     if(Boolean(redirectEvent.target.id) == '1') {
-      window.location.replace(`/recipe.html?id=${redirectEvent.target.id}`)
+      window.location.replace(`/CodersCamp2020.CookBook/recipe.html?id=${redirectEvent.target.id}`)
     }
   })
 
