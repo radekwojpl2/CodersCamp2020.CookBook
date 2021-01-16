@@ -1,3 +1,5 @@
+@import './MainMenu.css';
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -142,8 +144,7 @@ h2 {
 }
 
 .game-over h2,
-.game-over h3,
-a {
+.game-over h3 {
   width: 100%;
   padding: 1%;
 }
