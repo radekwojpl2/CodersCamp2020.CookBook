@@ -31,7 +31,7 @@ export class Game {
         
         document.addEventListener('DOMContentLoaded', () => {
             this.startBtn.addEventListener("click", this.startRound.bind(this), {once: true})
-            this.checkBtn.addEventListener("click", (e) => e.preventDefault())
+            this.checkBtn.addEventListener("click", (event) => event.preventDefault())
         })
     }
 
@@ -55,8 +55,8 @@ export class Game {
         this.checkBtn.addEventListener("click", this.sumUpRoundFunction, {once: true})  
     }
 
-    sumUpRound(question, timer, e) {
-        e.preventDefault();
+    sumUpRound(question, timer, event) {
+        event.preventDefault();
         timer.stopTimer();
         const result = question.checkAnswer(this.answerInput.value)
         const timeLeft = timer.getTimeLeft()
