@@ -8,7 +8,7 @@
     "prebuild": "rimraf dist",
     "build": "parcel build index.html --public-url ./",
     "format": "prettier --write \"src/**/*.js\" \"src/**/*.ts\" \"test/**/*.js\" \"test/**/*.ts\"",
-    "start:dev": "parcel -p 8765 watch index.html recipe.html nutritionGame.html calculator.html",
+    "start:dev": "parcel -p 8765 watch index.html recipe.html nutritionGame.html list.html calculator.html",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage"
@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/CodersCamp2020/CodersCamp2020.Project.JavaScript.StarWarsQuiz#readme",
   "dependencies": {
+    "fs-js": "^1.0.6",
     "parcel-bundler": "^1.12.4",
     "regenerator-runtime": "^0.13.7",
     "uuid": "^8.3.0"

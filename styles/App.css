@@ -1,5 +1,6 @@
+
 @import './MainMenu.css';
-@import './GlobalStyles.css'; 
+@import './ShoppingList.css';
 
 body {
   font-family: 'Montserrat', sans-serif;
