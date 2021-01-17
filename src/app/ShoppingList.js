@@ -1,5 +1,5 @@
 function getDishName(dishName) {
-    fetch(`https://api.spoonacular.com/recipes/autocomplete?number=3&query=${dishName}&apiKey=6c277b159b164fb98a15d47c81519fd4`)
+    fetch(`https://api.spoonacular.com/recipes/autocomplete?number=3&query=${dishName}&apiKey=ac3797baed0045729f81999b1814cd6d`)
         .then(response => response.json())
         .then(data => {
 
@@ -31,7 +31,7 @@ document.querySelector('#dishName').addEventListener('keyup', function() {
 let res = [];
 
 function getProducts(id){
-fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=6c277b159b164fb98a15d47c81519fd4`)
+fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=ac3797baed0045729f81999b1814cd6d`)
         .then(response => response.json())
         .then(data => {
             console.log(data);  
