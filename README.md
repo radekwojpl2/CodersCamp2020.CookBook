@@ -8,358 +8,182 @@ Funkcjonalności
         4. Gra w ile wartości odżywczych jest w danym produkcie, możliwość błędu +- jakaś wartość -> Guess Nutrition by Dish Name lub Quick Answer
         6. Lista zakupów, po wyjściu ze strony nie musi to być nigdzie zapisane, ewntualnie sesja, ciasteczka -> Search Grocery Products
         7. Kalkulator na przeliczanie miar gramy na kilogramy i takie tam. -> Convert Amounts
+
 ### Przykładowe uzycia api
-1) Search Recipes  
-                a. https://api.spoonacular.com/recipes/complexSearch&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa). 
-                
-      b. W celu dodania parametru trzeba po 'complexSearch' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
-https://api.spoonacular.com/recipes/complexSearch?query=rice&apiKey=YOUR_API_KEY  <-- To zapytanie do API zwróci maksymalnie 10 obiektów, które w parametrze 'query' mają słowo 'rice'.
 
-   c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
-https://api.spoonacular.com/recipes/complexSearch?query=rice&cuisine=japanese&number=5&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 5 obiektów, które w parametrze 'query' mają słowo 'rice', w parametrze 'cuisine' słowo 'japanese', a w parametrze 'number' liczbę '5'.
-                
-   d. Cała dokumnetacja z wszytkimi parametrami znajduje się tutaj (jest ich mnóstwo) https://spoonacular.com/food-api/docs#Search-Recipes-Complex
+1.  Search Recipes  
+     a. https://api.spoonacular.com/recipes/complexSearch&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
+          b. W celu dodania parametru trzeba po 'complexSearch' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 
-2) Search Recipes by Ingredients
+    https://api.spoonacular.com/recipes/complexSearch?query=rice&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 10 obiektów, które w parametrze 'query' mają słowo 'rice'.
 
-      a. https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+    c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
+    https://api.spoonacular.com/recipes/complexSearch?query=rice&cuisine=japanese&number=5&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 5 obiektów, które w parametrze 'query' mają słowo 'rice', w parametrze 'cuisine' słowo 'japanese', a w parametrze 'number' liczbę '5'.
 
-      b. W celu dodania parametru trzeba po 'findByIngredients' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
-https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 10 obiektów, które w parametrze 'ingredients' mają słowo 'pumpkin'.
+    d. Cała dokumnetacja z wszytkimi parametrami znajduje się tutaj (jest ich mnóstwo) https://spoonacular.com/food-api/docs#Search-Recipes-Complex
 
-   c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
-https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&number=3&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 3 obiekty, które w parametrze 'ingredients' mają słowo 'pumpkin', w parametrze, a w parametrze 'number' liczbę '3'.
+2.  Search Recipes by Ingredients
 
-   d. Cała dokumnetacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients
+          a. https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
+          b. W celu dodania parametru trzeba po 'findByIngredients' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 
-3) Get Random Recipes
+    https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 10 obiektów, które w parametrze 'ingredients' mają słowo 'pumpkin'.
 
-      a. https://api.spoonacular.com/recipes/random&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
-      
-      b. W celu dodania parametru trzeba po ' random ' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='. 
-https://api.spoonacular.com/recipes/random?number=43&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 43 obiekty, które w parametrze 'number' posiada wartość 43.
+    c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
+    https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&number=3&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 3 obiekty, które w parametrze 'ingredients' mają słowo 'pumpkin', w parametrze, a w parametrze 'number' liczbę '3'.
 
+    d. Cała dokumnetacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients
 
-   c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&' 
-https://api.spoonacular.com/recipes/random?number=2&tags=vegetarian&apiKey=YOUR_API_KEY  <-- To zapytanie do API zwróci 2 obiekty, które w parametrze ‘number’ mają wartość 2, w parametrze 'tags' wartość 'vegetarian'
+3.  Get Random Recipes
 
+          a. https://api.spoonacular.com/recipes/random&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
-   d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj  https://spoonacular.com/food-api/docs#Get-Random-Recipes
- 
- Guess Nutrition by Dish Name i Quick Answer należą do podpunktu 4.
-   
-4) Guess Nutrition by Dish Name
+          b. W celu dodania parametru trzeba po ' random ' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 
-   a. https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
-      
-   b. W celu dodania parametru trzeba po ' guessNutrition ' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.  https://api.spoonacular.com/recipes/guessNutrition?title=Spaghetti+Aglio+et+Olio&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 5 obiektów, które w parametrze 'title' posiada wartość ‘Spaghetti+Aglio+et+Olio’.
+    https://api.spoonacular.com/recipes/random?number=43&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 43 obiekty, które w parametrze 'number' posiada wartość 43.
 
-   c. Jedyny parametr jaki występuje to „title”
-   
-   d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Guess-Nutrition-by-Dish-Name
-   
-5) Quick Answer
+    c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
+    https://api.spoonacular.com/recipes/random?number=2&tags=vegetarian&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 2 obiekty, które w parametrze ‘number’ mają wartość 2, w parametrze 'tags' wartość 'vegetarian'
 
-   a. https://api.spoonacular.com/recipes/quickAnswer&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
-      
-   b. W celu dodania parametru trzeba po ' quickAnswer' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='. https://api.spoonacular.com/recipes/quickAnswer?q=How+much+vitamin+c+is+in+2+apples&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 3 obiekty, które w parametrze 'q’ posiada wartość ‘How+much+vitamin+c+is+in+2+apples’.
+    d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Get-Random-Recipes
 
-   c. Jedyny parametr  jaki występuje to „q”
-   
-   d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Quick-Answer
-   
-6) Search Grocery Products
-   
-   a. https://api.spoonacular.com/food/products/search&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
-      
-   b. W celu dodania parametru trzeba po 'search' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
-https://api.spoonacular.com/food/products/search?query=pizza&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 8 obiektów, które w parametrze 'query’ posiada wartość ‘pizza’.
+Guess Nutrition by Dish Name i Quick Answer należą do podpunktu 4.
 
-   c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&' 
-https://api.spoonacular.com/food/products/search?query=pizza&number=2&apiKey=YOUR_API_KEY
-<-- To zapytanie do API zwróci 2 obiekty, które w parametrze ‘query’ mają wartość „pizza”, w parametrze 'number' wartość 2
+4.  Guess Nutrition by Dish Name
 
-   
-   d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Grocery-Products
-   
-   
-7) <- to jest 7 (github jakieś dziwne rzeczy robi) Convert Amounts
+    a. https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
-      a. https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać parametry 'ingredientName', 'sourceAmount', 'sourceUnit' i 'targetUnit' (bez parametrów nie działa).
+    b. W celu dodania parametru trzeba po ' guessNutrition ' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='. https://api.spoonacular.com/recipes/guessNutrition?title=Spaghetti+Aglio+et+Olio&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 5 obiektów, które w parametrze 'title' posiada wartość ‘Spaghetti+Aglio+et+Olio’.
 
-      b. W celu dodania parametru trzeba po 'convert' wpisać '?', a następnie nazwę danego parametru. Przed każdym kolejnym parametrem należy wpisać '&'. 
-https://api.spoonacular.com/recipes/convert?ingredientName=water&sourceAmount=3.5&sourceUnit=cups&targetUnit=liters&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci obiekt z przekonwertowaną jednostką.
+    c. Jedyny parametr jaki występuje to „title”
 
-   c. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Convert-Amounts
+    d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Guess-Nutrition-by-Dish-Name
 
-**UWAGA! Zaczynając pracę nad projektem — nie róbcie forka.
-Jedna osoba z zespołu (np. Mentor) powinna użyć przycisku `Use this template` i dodać innych członków zespołu jako Collaborators do tego repozytorium.**
+5.  Quick Answer
 
-# CodersCamp 2020 - Projekt JavaScript
-**CodersCamp (coderscamp.edu.pl) - Największy otwarty kurs programowania webowego** 
+    a. https://api.spoonacular.com/recipes/quickAnswer&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
-Wykorzystanie asynchronicznego JavaScript oraz korzystanie z REST API.
+    b. W celu dodania parametru trzeba po ' quickAnswer' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='. https://api.spoonacular.com/recipes/quickAnswer?q=How+much+vitamin+c+is+in+2+apples&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 3 obiekty, które w parametrze 'q’ posiada wartość ‘How+much+vitamin+c+is+in+2+apples’.
 
-![Star Wars Quiz - Ekrany](./.github/images/StarWarsQuizEkrany.png)
-Proponowany projekt — Quiz Star Wars (opis poniżej).
+    c. Jedyny parametr jaki występuje to „q”
 
-### Zasady wykonywania projektu (wspólne dla wszystkich grup i mentorów): 
+    d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Quick-Answer
 
-##### W projekcie każdy z uczestników powinien zaprezentować praktyczną znajomość poniższych zagadnień związanych z JavaScript:
-- zmienne
-- operatory porównania
-- pętle
-- obiekty, atrybuty
-- warunki
-- funkcje
-- operatory logiczne
-- tablice
-- iteracja i/lub rekurencja
-- console
-- return
-- "===" vs "=="
-- integracja z zewnętrznym REST API
-- interakcja z domem
-- odwoływanie się do elementów DOM z JavaScript
-- zmiana stylów z poziomu JSa
-- zmiana zawartości HTML z poziomu JSa
-- animacje
-- zewnętrzne biblioteki
-- async await i/lub Promise
-- funkcje callback
-- metody HTTP
-- pisanie testów jednostkowych 
+6.  Search Grocery Products
 
-Do implementacji nie używajcie React (tego nauczycie się w dalszej części kursu), czy takich frameworków jak Angular.
-Najlepiej odstawcie też na bok biblioteki stylów takie jak Bootstrap — na upraszczanie życia przyjdzie jeszcze czas.
-Ważne, żeby opanować, to co, jest pod spodem gotowych już bibliotek i budować na solidnym fundamencie.
-Skupcie się na wykorzystaniu w praktyce tego, co nauczyliście się dzięki materiałom w przerabianym dziale.
- 
+    a. https://api.spoonacular.com/food/products/search&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
-##### W trakcie trwania projektu należy wyznaczyć w zespole odpowiednie funkcje
-Aby zespół pracował efektywnie, ważne jest, żeby było wiadomo, kto odpowiada, za jaką kwestię.
-Powstało wiele różnych metodyk wspomagające działanie zespołu, które stosuje się także przy pracy programisty.
+    b. W celu dodania parametru trzeba po 'search' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
+    https://api.spoonacular.com/food/products/search?query=pizza&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 8 obiektów, które w parametrze 'query’ posiada wartość ‘pizza’.
 
-W trakcie trwania kursu CodersCamp spróbujemy przemycić Wam o nich jak najwięcej w praktyce.
-Niestety forma kursu znacznie ogranicza możliwości — zazwyczaj programiści na swoją pracę i jej organizację poświęcają cały etat. 
-Tutaj nie mamy tyle czasu na pełne zastosowanie np. Scruma, czy też innych technik.
-Mamy jednak nadzieję, że po kursie nie będą one dla Was już wielką niewiadomą.
-Mentorzy z pewnością postarają się zorganizować Wam pracę tak, aby w jak największym stopniu odzwierciedlała realia ich codzienności.
+    c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
+    https://api.spoonacular.com/food/products/search?query=pizza&number=2&apiKey=YOUR_API_KEY
+    <-- To zapytanie do API zwróci 2 obiekty, które w parametrze ‘query’ mają wartość „pizza”, w parametrze 'number' wartość 2
 
-Pierwszym krokiem do lepszej organizacji Waszego zespołu będzie wyznaczenie w nim kilku funkcji, które są typowe dla projektów IT.
-Z pewnością spotkanie się z nimi w praktyce zawodowej.
-Najlepiej, gdyby uczestnicy po prostu się zgłosili. 
-W przypadku braku chętnych mentor wyznacza „ochotników".
-Oczywiście każda z ról wykonuje prace programistyczne (w przypadku CodersCamp, w rzeczywistości jest to różnie), dodatkowo zajmując się wspomnianymi dla danej roli obowiązkami.
-Role należy zmieniać następnie co projekt, aby każdy miał szansę się sprawdzić w którejś z nich.
-Szczególnie w pierwszym projekcie poproście mentora o pomoc w spełnianiu swoich ról i podzieleniu się zadaniami.
-Wasz mentor może oczywiście pokierować pracą trochę inaczej i zaproponować inny podział lub dodać też jakąś funkcję w zespole.
-Warto zorganizować spotkanie rozpoczynające prace, na którym wykonacie i/lub omówicie podstawowy setup projektu.
+    d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Grocery-Products
 
-###### Klient
-Zawsze jest to **Mentor**. Uważajcie! 
-Ten klient ma też zdolności techniczne i lepiej z nim nie dyskutować, jeśli coś „zaproponuje”.
-Dodatkowe testy czy zmiana sposobu implementacji to uwagi jak najbardziej na miejscu. 
-Pamiętajcie też, że jedyną stałą w projektach informatycznych jest zmiana.
-Wszelkie zmiany w projekcie, jakie zaproponuje Klient, powinny jak najbardziej zostać wzięte pod uwagę :) 
-W sytuacjach krytycznych można też poprosić go o posłużenie radą. Będzie też przeglądał każdy wasz wykonany kod.
+7.  <- to jest 7 (github jakieś dziwne rzeczy robi) Convert Amounts
 
-###### Tech Lead
-Ma ostateczne zdanie w kwestiach związanych z technologią, ale dobrze, jeśli radzi się zespołu.
-Np. jak dzielimy moduły projektu, w jaki sposób testujemy, której biblioteki użyć.
-Powinien też respektować zdanie klienta.
-Jeśli Tech Lead będzie przeprowadzał Code Review zadań, jest to jak najbardziej na plus. 
-Chociaż zachęcamy do tego wszystkich członków zespołu.
+          a. https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać parametry 'ingredientName', 'sourceAmount', 'sourceUnit' i 'targetUnit' (bez parametrów nie działa).
 
-###### Product Owner
-Odpowiada za wizję produktu i kwestie związane z funkcjonalnościami. 
-Powinien podejmować ostateczne decyzje odnośnie do wątpliwości związanych z wymaganiami i wyjaśniać je z klientem.
-Bardzo pożądane jest, aby często konsultował się z klientem i starał się, aby reszta zespołu mogła się skupić na swoich zadaniach zamiast doprecyzowywaniu wymagań.
+          b. W celu dodania parametru trzeba po 'convert' wpisać '?', a następnie nazwę danego parametru. Przed każdym kolejnym parametrem należy wpisać '&'.
 
-###### Development Manager
-Oczywiście Klientowi zależy najbardziej na tym, aby projekt zakończył się na czas. 
-Dlatego zespół będzie nieustannie przez niego kontrolowany.
-Jednakże, w trakcie pracy ważne jest, aby uzyskać zaufanie klienta i te kontrole nie były w ogóle potrzebne.
-Development Manager będzie dbał odpowiednio o terminy, podział zadań, a także wywiązywanie się z obowiązków innych członków zespołu.
-Powinien też kontrolować jakoś pracy — np. poprzez pilnowanie regularnych Code Review lub organizowanie programowania w parach (jeśli Wasz mentor jest za takimi praktykami).
-Jeśli spełni odpowiednio swoją funkcję, to duża szansa, że uda wam się uformować efektywny i zgrany zespół, a klienci nie będą wypatrywali tylko na wasze potknięcia :)
-W gestii Development Managera leży też organizowanie codziennych daily. Najlepiej, aby przyjęły formę wiadomości na Discord. 
-W ciągu dnia każda osoba z zespołu powinna odpowiedzieć na 3 pytania:
-- Co zrobiła od ostatniego daily?
-- Co planuje zrobić do kolejnego daily?
-- Czy są jakieś problemy przy wykonywaniu zadań?
-Oczywiście poprawną odpowiedzią w przypadku CodersCamp jest też: 
+    https://api.spoonacular.com/recipes/convert?ingredientName=water&sourceAmount=3.5&sourceUnit=cups&targetUnit=liters&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci obiekt z przekonwertowaną jednostką.
+
+    c. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Convert-Amounts
+
+### Menu z globalnym wyszukaniem receptury na danie
+
+![menu snipped](/static/assets/img/menu.jpg)
+
+#### Instrukcja użycia
+
+Menu zostało stworzone w formie komponentu, z wyszystkimi elementami wygenerowanymi za pomocą JavaScript, dzięki czemu z łatwością może zostać zaimplementowane na dowolnej stronie. Wywołując go należy podać zmienną odpowiadającą aktywnej stronie dzięki czemu wygenerowane zostaną wyłącznie ścieżki do pozostałych podstron bez ścieżki aktualnej strony.
+W celu wprowadzenia go na stronę internetową należy:
+
+- zaimportować { MENU } z pliku GlobalData.js , który dostarcza informacji o podstronach aplikacji wraz z odpowiadającymi im ścieżkami;
+- zaimportować { MainMenu } z pliku MainMenu.js;
+- wywołać komponent MainManu wraz z adekwatną zmienną z GlobalData
+
+##### Przykład
+
+GlobalData.js
+
 ```
-1. Od ostatniego daily zaimplementował zadanie. Wystawiłem Pull Request (TUTAJ), proszę Was o code review.
-2. Do kolejnego nic nie zrobię - całą środę pracuję. Zamierzam posiedzieć nad projektem dopiero od czwartku. 
-3. Mam problem z połączeniem z SWApi, czy ktoś mógłby zerknąć, błąd opisałem w issue na GitHub.
+export const MENU = {
+   mainPage: {name: 'Main Page', link: '/index.html'},
+   randomRecipe: {name: 'Random Recipe', link: '/random.html'},
+   nutritionGame: {name: 'Nutrition Game', link: '/nutritionGame.html'},
+   calculator: {name: 'Calculator', link: '/calculator.html'},
+   shoppingList: {name: 'Shopping List', link: '/list.html'}
+}
+
 ```
-Mogą być takie dni, że nie uda nam się zrobić nic albo po prostu nie planowaliście poświęcać czasu na CodersCamp, czy byliście cały dzień w pracy. 
-Najważniejsza jest komunikacja, aby wiedzieć, jaki jest status projektu.
-Warto też organizować co tydzień zdzwonki, aby nie tylko pisać, ale też porozmawiać jak idzie projekt i ewentualnie poprosić mentora o pomoc / wyjaśnienia itp. 
-Pamiętajcie, że mentor jest ciągle do waszej dyspozycji, więc nie musicie specjalnie czekać, żeby się z nim skomunikować.
 
+Plik js danej podstrony
 
-##### Sposób oceny projektu (i wszystkich kolejnych projektów na CodersCamp)
-Zapewne interesuje Was, w jaki sposób projekt zostanie „zaliczony” i oceniony.
-Ocenianie będzie miało kilka etapów i trochę różni się od projektu pierwszego.
-Wynika to z tego, że teraz realizujecie projekt zespołowo i jesteście oceniani jako zespół.
+```
+import { MENU } from './app/MainMenu.js;
 
-- Kiedy skończycie pracę nad projektem, odnotujcie ten fakt w specjalnie przygotowanym formularzu — dostępnym [TUTAJ](https://docs.google.com/forms/d/e/1FAIpQLScAFLQ2KHcOhS9mlZd_2ngq46hkXKkFOb8HjiILvMciGM35nw/viewform).
-Powinno to nastąpić najpóźniej o godzinie 23:59 dnia poprzedzającego prezentację projektu (data dostępna w harmonogramie kursu).
-Zgłosić projekt do oceny jest obowiązkiem osoby pełniącej funkcję Development Managera. 
-Powinna ona zadbać, aby do tego czasu wszystko było już dopięte na ostatni guzik.
-- Spotkajcie się w wyznaczonym dniu jeszcze z 2 innymi zespołami i ich mentorami (np. za pomocą Google Meet). 
-W trakcie spotkania każdy zespół prezentuje wykonany projekt. 
-Dlatego zdecydujcie, kto to zrobi z Waszego zespołu. 
-Liczba osób jest dowolna, ale nie powinien tego robić mentor.
-W przygotowanie prezentacji powinni zaangażować się wszyscy uczestnicy.
-Forma prezentacji pozostaje dowolna (musi zmieścić się w 10 minutach + 5 minut na pytania). 
-Filmik, odegranie scenki, prezentacja multimedialna. Dozwolone jest wszystko, co wam przyjdzie na myśl (oczywiście w granicach dobrego smaku).
-Na pewno musi zostać pokazana działająca aplikacja, reszta wg Waszego uznania. 
-Celem prezentacji jest „sprzedanie” (pokazanie, że to, co zrobiliście, spełnia założenia) Waszej aplikacji osobom obecnym na spotkaniu.
-- Po prezentacji mentor Waszego zespołu oceni projekt wg kryteriów opisanych w specjalnym arkuszu — przykład takiego arkusza możecie zobaczyć [TUTAJ](https://docs.google.com/spreadsheets/d/1mjCi-oDXILKoCReqJlhGYP4NW-HVMCzvdcIy6ntnsog/edit?usp=sharing). Na dole wybierzcie zakładkę odpowiedniego projektu, np. "Projekt 2". 
-Dokładnie taką samą ocenę przeprowadzi jeden z mentorów obecnych na spotkaniu — tzw. mentor recenzent.
-Mentor Waszego zespołu dodatkowo określi też, jakie było zaangażowanie każdej osoby w projekt — więc postarajcie się dać z siebie 100 w trakcie pracy!
-Składa się na to między innymi: terminowość, spełnianie funkcji w projekcie, pomoc innym.
-Pamiętajcie też odpowiednio opracować README.md Waszego projektu, tak aby prezentowało kto, co, jak i dlaczego zostało wykonane.
-Zawartość tego pliku możecie przenieść gdzieś indziej albo jedynie zostawić link prowadzący do używanego repozytorium szablonowego. 
-README.md waszego repozytorium powinno być wizytówką aplikacji. Koniecznie musi się w nim znaleźć link do działającego DEMO.
-Dotyczy to tego i wszystkich kolejnych projektów. 
-- Po zrecenzowaniu waszych projektów mentor powinien przekazać każdemu jego ocenę zaangażowania i feedback jako uzasadnienie.
-Ocena projektu jest wspólna dla całego zespołu i jest równa średniej z ocen obu mentorów.
-- Ostateczna punktacja dla uczestnika to procent jego zaangażowania z oceny projektu.
-Pamiętajcie, że ocena nie jest najważniejsza — im więcej pracy wykonacie, tym więcej praktycznych umiejętności opanujecie.
-Zachęcamy mentorów do uzasadniania przydzielonych punktów, tak abyście mogli wyciągnąć z nich, jak najwięcej na przyszłość.
-Mentorzy mają różne doświadczenie zawodowe i będą z pewnością właśnie oceniać projekty przez jego pryzmat. 
-Dzięki zmianom mentorów recenzentów zobaczycie z pewnością różne spojrzenia na podobne kwestie.
+MainMenu(MENU.mainPage)
 
+```
 
-## Quiz Gwiezdne Wojny
-Teraz przechodzimy do przykładowego projektu, który został przygotowany przez organizatorów kursu.
-Proponowany projekt pozwala na zastosowania większości umiejętności, jakie powinniście posiąść w trakcie przerabiania działu.
-Jednakże jeśli macie pomysł na projekt podobnej skali, który spełni opisane na górze wymagania i czujecie się na siłach
-w zdefiniowaniu funkcjonalności, przygotowaniu ekranów i podzieleniu go na zadania — to nic nie stoi na przeszkodzie,
-aby wykonać np. coś związanego z zainteresowaniami Waszej grupy :) 
-W trakcie Coders Camp będą do wykonania jeszcze 2 kolejne aplikacje, więc jeśli teraz zdecydujecie się na projekt proponowany, zawsze w kolejnych możecie wykonać aplikacje wg. własnego pomysłu.
-**Ostateczną decyzję, jaką aplikację realizować podejmuje mentor — to on zawsze wie najlepiej, co będzie z największą korzyścią dla Was i przy czym najwięcej się nauczycie.**
-Powodzenia!
- 
-Czas porzucić narrację CodersCamp i wcielić się w członka zespołu projektowego...
+Wygenerowane zostanie menu z pominięciem odnośnika do strony głównej.
 
-### Założenia projektowe
-Jedna ze znanych marek płatków śniadaniowych prowadzi wieloletnią współpracę z wytwórnią filmów Disney, do której od niedawna należą także Gwiezdne Wojny.
-W ramach kolejnej akcji promocyjnej wasz zespół został poproszony o przygotowanie Proof of Concept aplikacji związanej ze Star Wars.
-Po wstępnym rozpoznaniu i analizie biznesowej podjęto decyzję o przygotowaniu quizu sprawdzającego znajomość uniwersum Gwiezdnych Wojen.
-Ma to być aplikacja webowa działająca w przeglądarce, bez potrzeby instalacji.
+#### Wyszukiwarka
 
-Klient dostarczył prototyp interfejsu użytkownika dostosowany pod Desktop ([TUTAJ](https://www.figma.com/proto/4HOOjnEYjb7W7xEh2Vb4lx/CodersCamp2020.Project.JavaScript.StarWarsQuiz?node-id=256%3A127&scaling=min-zoom)).
-Pokazany został tylko jeden tryb i jedno pytanie. Cała reszta działa analogicznie.
-Projekt: https://www.figma.com/file/4HOOjnEYjb7W7xEh2Vb4lx/CodersCamp2020.Project.JavaScript.StarWarsQuiz?node-id=256%3A107
-Może się przydać do odczytania np. cieni i kolorów. Nie zwracajcie uwagi na jednostki w px, należy użyć jednostek responsywnych.
+Wyszukiwarka zadziała w momencie wprowadzenia wartości do wyszukiwania. W przypadku, gdy nic nie zostanie wprowadzone to wyświetli się tooltip z informacją o konieczności wprowadzenia tekstu. Wyniki wyszukiwania otwarte zostaną na aktywnej stronie w postaci nakładki na stronę.
+Po kliknięciu w wynik wyszukiwania użytkownik zostanie przeniesiony do strony ze szczegółowymi informacjami.
 
+##### API do pobrania wyników dla wyszukiwanego zapytania
 
-Dostarczona została także lista funkcjonalności. 
-1. Wybór trybu quizu (People, Vehicles, Spaceships)
-2. Opis zasad dla quizu. Obok zasad pokazuje się losowe zdjęcie z danego trybu (dostosowany opis, jeśli np. imię osoby ze zdjęcia jest w opisie zasad).
-3. Po rozpoczęciu gry rozpoczyna się odliczanie czasu (2 minuty).
-4. Zadaniem gracza jest odpowiedzieć na jak najwięcej pytań w ciągu ustalonego czasu (dodatkowo gracz konkuruje także z komputerem! Komputer tak samo jak gracz próbuje rozpoznać co jest na grafice). 
-5. W trakcie trwania quizu miecz świetlny pokazuje, ile jeszcze czasu zostało. Po wybraniu odpowiedzi zostaje ukazane przez sekundę czy odpowiedź była dobra czy zła. Następnie pytanie zostaje zmienione na kolejne (prototyp pokazuje jedynie 1 pytanie) i tak do końca czasu.
-5. Pytania są generowane w następujący sposób: 
-    - zostaje pobrany losowy zasób z danego trybu (np people o id 5)
-    - zostanie pobrane dla wylosowanego zasobu zdjęcie
-    - losowane są 3 odpowiedzi z zapytania do StarWars API. Dla trybu "People" będzie to: https://swapi.co/api/people (jedna brana jest z wcześniej wylosowanego, musi być poprawna)
-6. Po ukończeniu czasu wynik gracza zapisywany jest w rankingu dla danej przeglądarki (LocalStorage) i pokazywany jest ranking 3 najlepszych wyników.
+Do pobrania danych wykorzystane zostało API: https://api.spoonacular.com/recipes/complexSearch?number=NUMBER&apiKey=YOUR_API_KEY.
+API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
 
-Jedno z wcześniejszych wykonań działającej aplikacji możecie zobaczyć [TUTAJ](https://nowakprojects.github.io/CodersCamp2020.Project.JavaScript.StarWarsQuiz.SampleSolution/index.html). 
-Jednakże nie należy się na nim 100% wzorować.
-Niektóre wymagania mogły ulec zmianie, a przedstawiana aplikacja nie jest responsywna.
-**Jeśli macie w swoim zespole osobę chętną na przygotowanie designów, to także możecie UI zrobić kompletnie inaczej.**
+##### Zamykanie okna z wynikami wyszukiwania
 
-Waszym zadaniem będzie zaimplementować aplikację, aby działała wg wymagań klienta, a także przygotować i wykonać
-wersję responsywną aplikacji (dostosowaną do wyświetlania na Tabletach i Telefonach — możecie przygotować najpierw projekt interfejsu, lub od razu przejść do implementacji).
-W celu zaprezentowania działania aplikacja musi być możliwa do odwiedzenia w internecie.
-Klient nie chce ponosić za to żadnych dodatkowych kosztów, dlatego należy wykorzystać jedną z usług oferujących darmowe
-uruchomienie takiej aplikacji (np. GitHub Pages).
-Klient wymaga także, aby aplikacja nie tylko działała, ale była odpowiednio pokryta testami.
-Naprawdę macie szczęście co do klienta! Wielu uważa testy za niepotrzebne i jedynie stratę pieniędzy.
-A co znaczy „odpowiednio pokryta”? To już należy właśnie ustalić z samym Klientem :) 
-Wszelkie nieścisłości w wymaganiach powinien wyjaśniać Product Owner wraz z Klientem.
+Zamykanie okna z wynikami wyszukiwania może odbyć się na dwa sposoby - kliknięcie na przycisk albo kliknięcie na backdrop znajdujący się za modalem. Aby zadziała metoda z zamknięciem wyników wyszukiwania po kliknieciu w backdrop konieczne było użycie metody stopPropagation() na elemencie modal będącym dzieckiem elementu backdrop.
 
-### EventModeling
-Działanie aplikacji zostało także zamodelowane za pomocą techniki EventModeling.
-Jeżeli chcecie, to możecie skorzystać z poniższego diagramu. Zapoznać się z tą techniką możecie na [blogu autora tej metodologi](https://eventmodeling.org/posts/what-is-event-modeling/).
-Aktualny diagram jest też dostępny w lepszej jakości na [tablicy MIRO](https://miro.com/app/board/o9J_kg8fTO4=/?moveToWidget=3074457351245562568&cot=12).
-![StarWarsQuizEventModeling](.github/images/StarWarsQuizEventModeling.png)
+##### Przekierowywanie do strony ze szczegółowymi danymi wybranego przepisu
 
-### Kod startowy projektu
-Nad aplikacją pracę wcześniej zaczęli też inni programiści, po których otrzymujecie mały kawałek kodu.
-Oto co zostało już przygotowane (możecie oczywiście dowolnie to zmieniać i konfigurować zgodnie z potrzebami zespołu):
+W celu przekierowania do adekwatnej strony do każdego elementu przechowującego jeden wynik wyszukiwania został przypisany numer id tego przepisu. W momencie kliknięcia na przepis pobierane jest to id i przekazywane do linku za pomocą metody
 
-1. Zostały skonfigurowane GitHub Actions. W podobny sposób jak w pierwszym projekcie. Po wykonaniu kroków opisanych poprzednio 
-Wasza aplikacja powinna zostać wdrożona na GitHub Pages.
-1. Aplikacja jest budowana przy pomocy narzędzia Parcel, z którym mieliście okazję się zapoznać w materiałach.
-1. Został dodany framework do testów — Jest w sposób opisany [TUTAJ](https://ryankubik.com/blog/parcel-and-jest/).
-    - Testy powinny zostać umieszczone w katalogu `test`. Kod produkcyjny (testowany) w katalogu `src`.
-1. SWApi, z którego będziecie korzystać, ma ograniczenie do 1000 zapytań z jednego adresu IP na dzień. 
-Dlatego, jeśli przekroczycie tę liczbę w trakcie developmentu, przydatne możecie się okazać użycie JSON SERVER z katalogu `swapi-json-server`.
-1. SWApi nie zwraca wam obrazków dla poszczególnych zasobów, dlatego w katalogu `static/assets/img` znajdziecie obrazy odpowiadające konkretnym zasobom.
-1. W katalogu `static/images/ui` znajdziecie wszystkie grafiki, jakie będą Wam potrzebne do wykonania interfejsu użytkownika wg projektu.
-Jednakże jeśli jesteście w stanie zaproponować lepszy Interfejs Użytkownika, może zaproponować i wykonać alternatywny widok oraz zrezygnować z wcześniej przygotowanego.
+```
+window.location.replace(`/CodersCamp2020.CookBook/recipe.html?id=ID_PRZEPISU`
 
-#### Uruchomienie projektu
-Aby uruchomić aplikację na lokalnej maszynie, wykonaj następujące kroki:
-1. Zainstaluj zależności za pomocą komendy: `npm install`
-2. Wystartuj serwer developerski `npm run start:dev`
+```
 
-Aplikacja będzie dostępna pod adresem [localhost:8765/index.html](localhost:8765/index.html)
+Szczegółowe dane dla przepisu są pobierane na podstawie id pobranego z linku wygenerowanego za pomocą powyższej metody.
 
-Kod produkcyjny aplikacji umieszczamy w katalogu `src`.
+```
+const getParams = () => {
+ const param = window.location.href.slice(window.location.href.indexOf('?') +1).split('=');
+ return {'id':param[1]}
+}
+```
 
-#### Uruchomienie testów
-Dodając swoje 5 groszy do naszej aplikacji, pamiętaj o pokryciu kodu testami.
-Aby uruchomić testy aplikacji, wykonaj następujące kroki:
-1. Zainstaluj zależności za pomocą komendy: `npm install` (jeśli nie zrobiłeś już tego wcześniej).
-1. Uruchom testy, wykonując komendę: `npm run test`. Testy z raportem pokrycia uruchomisz za pomocą: `npm run test:cov`.
+Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/ID_NUMBER/information?apiKey=API_KEY`
 
-Kod testów umieszczamy w katalogu `test`.
+### Gra w zgadywanie ilości kalorii w daniu
 
-## Możliwe usprawnienia i dodatkowe funkcjonalności:
-- Wykorzystanie Speech Recognition API i wyszukiwanie odpowiedzi, jaką gracz wypowiedział zamiast klikania w przycisk z odpowiedzią.
-- Rozbudowanie ustawień gry o możliwość wyboru czasu na rozgrywkę. 
+![menu snipped](/static/assets/img/nutritionGame.jpg)
 
-## Dodatkowe zadania (wykraczające poza zakres kursu):
-Jeśli starczy Wam czasu, zachęcamy do wykonania chociaż jednego z wymienionych poniżej. 
-Możliwe jest też dodanie zaprojektowanej przez Was funkcjonalności. 
-Wszelkie inne dodane przez Was funkcjonalności czy usprawnienia infrastrukturalne należy przedstawić w README.md projektu :)
+#### Opis
 
-Rozszerzenia, które my proponujemy do wykonania, to:
+Gra została zbudowana z trzech osobnych kontenerów. Pierwszy zawiera instrukcję z podstawowymi wytycznymi odnośnie gry. Drugi obejmuje właściwą część, czyli pytania, które są losowo wybierane z bazy 10 przygotowanych dań. Ostatni wyświetla się po zakończeniu rozgrywki. Pokazuje ostateczną ilość punktów i umożliwia ponowne włączenie gry poprzez przeładowanie strony.
 
-- Ograniczenie liczby requestów po zewnętrze zasoby poprzez zastosowanie wybranego przez zespół sposobu cache.
-- Utworzenie z aplikacji pliku wykonywalnego, który mógłby działać jako aplikacja Desktop dołączana do płatków śniadaniowy. 
-    Możecie do tego użyć [Electron](https://www.electronjs.org/docs/tutorial/first-app). Należy wtedy dodać w aplikacji przycisk: „POBIERZ WERSJĘ OFFLINE".
-- Wykonanie testów E2E, przy użyciu odpowiedniego narzędzia. Proponujemy np. Cypress.
-- **Wykonanie tego punktu, jak i wszystkich dodatkowych jest w pełni opcjonalne.** Aby nie narazić się na koszty, pamiętajcie, że Google Cloud Platform Free Trial obowiązuje tylko dla nowych kont. Firmy programistyczne bardzo rzadko piszą swoje systemu od zera, bardzo często korzysta się z dostarczonych już rozwiązań. Szczególnie poprzez wykorzystanie technologi w chmurach, takich jak AWS, Google Cloud czy Azure. Bardzo pożądane jest, aby mieć jakieś doświadczenie w tych kwestiach. Dlatego w tym punkcie proponujemy, aby odpowiedź komputera generowana była przy pomocy [Google Vision API](https://cloud.google.com/vision/docs). Jesto to usuługa dostępna w Google Cloud Platform. Aby było możliwe wykonanie zapytania, konieczne jest wygenerowanie ApiKey, umożliwiające dostęp do Google Vision API. Powinno ono być definiowane w ustawieniach gry, tak jak pokazano na projekcie w Figma. W przypadku nie zdefiniowania API Key używany będzie poprzednio zaimplentowany algorytm komputera. API Key przetrzymywać należy jedynie w pamięci  aplikacji. Generowanie odpowiedzi przebiega w następujący sposób:
-    - zdjęcie jest przesyłane do GoogleVision API, z którego bierze się najwyższy wynik prawdopodobieństwa rozpoznania (albo kilka z nich, algorytm trzeba ustalić)
-    - przeszukiwane są wyniki działania GoogleVision dla zdjęcia, czy któryś z nich pokrywa się z odpowiedzią (ustalić stopień podobieństwa, np. odpowiedź to może być Jabba, a Google API zwróci "Jabba The Hutt")
-    - Skorzystanie z Google Vision API wymaga założenia konta w usłudzie Google Cloud Platform. Dla nowych użytkowników Google oferuje tzw. [Google Cloud Free Program](https://cloud.google.com/free/docs/gcp-free-tier), dzięki któremu po założeniu konta, nie zostaniesz obciążony żadnymi kosztami przez 90 dni korzystania z usługi. To z pewnością wystarczy na realizację tego projektu. Wymagane jest podłączenie karty płatniczej, ale dopóki na to nie pozwolisz, nie powinieneś zostać obciążony kosztami. Tak jak mówi treść przywołanej strony:
- ```
-To complete your Free Trial signup, you must provide a credit card or other payment method to set up a Cloud Billing account and verify your identity. Don't    worry, setting up a Cloud Billing account does not enable us to charge you. You are not charged unless you explicitly enable billing by upgrading your Cloud Billing account to a paid account. You can upgrade to a paid account at any time during the trial. After you have upgraded, you can still use any remaining credits (within the 90-day period).
- ```
- Tutaj dostępna jest polska instrukcja zakładania konta: https://flyonthecloud.com/pl/blog/konto-gcp-rejestracja-konfiguracja/#Zakladanie_konta_Google_Cloud_Platform
-    
+Logika gry została oparta na czterech klasach: Question, Timer, Stats oraz Game. Klasa Question odpowiada za pobieranie pytań, sprawdzanie poprawności odpowiedzi i obliczanie ilości punktów. Klasa Timer tworzy, uruchamia i zatrzymuje czasomierz. Klasa Stats zajmuje się dodawaniem punktów za poprawne odpowiedzi. Klasa Game zawiera połączenie z DOM oraz funkcje rozpoczynające kolejne etapy gry.
 
-## Technologie do wykorzystania:
-- JavaScript
-- HTML
-- CSS
-- Star Wars API
-- opcjonalnie: Google Vision API / Electron.js / Cypress
+#### Instrukcja gry
 
-**Uwaga:** Każda inna technologia / Biblioteka jak najbardziej mile widziana, jeśli pomoże Ci osiągnąć zamierzony cel — zgodnie z opisanymi na początku zasadami :) 
+Celem gry jest odgadnięcie, ile kalorii znajduje się w podanym daniu. Po zapoznaniu się z instrukcją gracz klika w przycisk "Start game". Przy każdym pytaniu gra wysyła zapytanie do API odnośnie ilości kalorii znajdującej się w wylosowanym daniu. Po otrzymaniu odpowiedzi pokazuje się nazwa, zdjęcie i włącza się czasomierz. Na każdą odpowiedź jest przewidziane 15 sekund. Po upływie czasu odpowiedź zostaje automatycznie uznana za niepoprawną. W grze wybierane jest 5 pytań, które są losowane z dostępnej bazy 10.
 
+Zadaniem gracza jest oszacowanie, ile kalorii może znajdować się w daniu i wpisanie odpowiedzi w odpowiednie pole. Dopuszczalny jest margines błędu 10%. Po kliknięciu przyciku "Check answer" pojawia się poprawna odpowiedź, a zdjęcie jest podświetlane na kolor zielony lub czerwony w zależności od tego, czy odpowiedź była poprawna. Jeśli gracz odpowiedział dobrze, naliczane są punkty. Ich ilość zależy od tego, jak blisko od poprawnej odpowiedzi była odpowiedź podana przez gracza. W każdej rundzie można zdobyć maksymalnie 100 punktów.
 
-## Porady odnośnie do projektu
-- Dzięki testing-library, elementy widoku (DOM) można testować wg Guide: https://testing-library.com/docs/dom-testing-library/example-intro
+##### API do pobrania wyników dla wyszukiwanego zapytania
+
+Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY`
+API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().

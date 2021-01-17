@@ -1,18 +1,29 @@
+@import './GlobalStyles.css';
+
 .menu {
-    padding: 1rem 2rem;
+    padding: 1rem 0;
     display: flex;
     justify-content: space-between;
     position: relative;
+    background-color: #fff;
+    min-height: max-content;
 }
 
 .logo {
     align-self: center;
+    font-size: 1.5rem;
+    margin-left: 0
+}
+
+.logo a {
+    color: var(--mainColor) !important;
+    font-weight: bold;
 }
 
 .navigationBox {
     position: absolute;
     width: 100%;
-    top: 110%;
+    top: 100%;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -20,6 +31,8 @@
     transition: opacity 0.3s ease-in-out;
     opacity: 1;
     background-color: #fff;
+    margin: 0;
+    padding: 1rem 0;
 }
 
 .navigationBoxHidden {
@@ -30,24 +43,16 @@
 .navigationList {
     list-style-type: none;
     padding: 0;
-    margin: 0;
+    margin: 0 !important;
     text-align: center;
-    width: 100%;
+    width: 100% !important;
 }
 
 .navigationList li {
-    padding: 0.5rem 0;
+    padding: 0.8rem 0;
     display: block;
     cursor: pointer;
-}
-
-.navigationList a {
-    color: inherit;
-    text-decoration: none;
-}
-
-.navigationList a:hover {
-    color: blue
+    font-size: 1rem;
 }
 
 .search {
@@ -62,17 +67,18 @@
     width: 100%;
     height: 100vh;
     top: 0;
+    left: 0;
     z-index: -100;
     opacity: 0;
 }
 
 .modal {
-    width: calc(100% - 2rem);
     height: calc(100vh - 4rem);
-    margin: 3rem 1rem 1rem 1rem;
+    margin: 3rem auto;
     background-color: #fff;
     display: flex;
     flex-direction: column;
+    width: 95%;
 }
 
 .modal button {
@@ -82,7 +88,6 @@
 
 .modal section {
     overflow-y: scroll;
-    padding: 0 1rem;
     box-sizing: border-box;
 }
 
@@ -114,7 +119,7 @@ form {
 
 .tooltip {
     position: absolute;
-    top: 100%;
+    top: 70%;
     background-color: rgba(255, 0, 0, 0.349);
     padding: 0.3rem 0.5rem;
     border-radius: 0.5rem;
@@ -155,7 +160,7 @@ form {
     
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1200px) {
 
     .menu {
         justify-content: space-between;
@@ -182,7 +187,8 @@ form {
     }
     
     .navigationList li {
-        padding: 0 1rem;
+        padding: 0 0.2rem;
+        font-size: 1rem;
     }
     
     .search {
