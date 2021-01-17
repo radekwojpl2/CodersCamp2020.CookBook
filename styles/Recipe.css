@@ -1,60 +1,60 @@
 @import './MainMenu.css';
 
 .recipe article {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
 }
 
 h1 {
-  text-align: center;
+    text-align: center;
 }
 
 #basicData {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 img {
-  width: 80%;
-  align-self: center;
+    width: 80%;
+    align-self: center;
 }
 
 #ingredients p {
-  text-align: left;
+    text-align: left;
 }
 
 #instruction ol {
-  padding: 1rem;
-  text-align: justify;
+    padding: 1rem;
+    text-align: justify;
 }
 
 #tags {
-  text-align: center;
+    text-align: center;
 }
 
-#tags span {
-  background-color: var(--mainColor);
-  padding: 0.2rem;
-  box-sizing: border-box;
-  margin: 0.3rem 0.5rem;
-  display: inline-block;
+#tags span{
+    background-color: var(--mainColor);
+    padding: 0.2rem;
+    box-sizing: border-box;
+    margin: 0.3rem 0.5rem;
+    display: inline-block;
 }
 
-@media (min-width: 1200px) {
-  #basicData {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, max-content);
-  }
+@media(min-width:1200px) {
+    #basicData {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, max-content);
+    }
 
-  #instruction {
-    grid-column: span 2;
-  }
+    #instruction {
+        grid-column: span 2;
+    }
 
-  img {
-    margin-left: 0;
-  }
+    img {
+        margin-left: 0
+    }
 }
