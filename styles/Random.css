@@ -1,3 +1,6 @@
+@import './MainMenu.css';
+@import './GlobalStyles.css'; 
+
 #contentRandom {
     display: flex;
     align-items: stretch;
@@ -6,34 +9,30 @@
     transition: margin 1s cubic-bezier(.17,.67,.06,1.61);
 }
 
-#contentRandom.menuOpened {
-    margin-top: 200px;
+@media (max-width: 1199px) {
+    #contentRandom.menuOpened {
+        margin-top: 265px;
+    }
 }
 
-
 #contentRandom > * {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #ededed;
-    color: black;
-    border: 2px solid  #ededed;
     font-size: 1.5em;
     margin-top: 30px;
 }
 
-#contentRandom button {
+ #contentRandom button {
     float: left;
     flex-basis: 50% ;
-    position: relative
-}
+    position: relative;
+} 
 
-#contentRandom button:hover {
-    background-color: #ededed;
+#contentRandom div{
+    color: black;
 }
 
 #recipiesRandom {
     flex: 1;
 }
-
 
 #myAnimation {
     width: 10px;
@@ -42,9 +41,13 @@
     top: 0;
     left: 0;
     background-color: #4779e4ce;
-  }
 
-  h3, h4 {
+}
+
+h3, h4 {
       color: #4779e4ce;
-  }
+}
 
+ img {
+    max-width: 100%;
+ }

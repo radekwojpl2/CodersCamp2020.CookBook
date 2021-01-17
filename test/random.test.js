@@ -37,7 +37,7 @@ describe('doAnimation function', () => {
         jest.advanceTimersByTime(5000);
         expect(document.body.querySelector("#myAnimation").style.left).toEqual("50%");
         jest.advanceTimersByTime(5000);
-        expect(document.body.querySelector("#myAnimation").style.left).toEqual("99%");
+        expect(document.body.querySelector("#myAnimation").style.left).toEqual("98%");
     });
 });
 

@@ -1,5 +1,5 @@
 import {appendChildrenToElement, createElementWithClasses, createElementWithInnerText, createNavigationList, MainMenu} from '../src/app/MainMenu';
-import {MENU} from '../src/GlobalData';
+import {MENU} from '../src/GlobalData.js';
 
 describe('Test for global functions in Main Menu ', () => {
     describe('appendChildrenToElement function', () => {

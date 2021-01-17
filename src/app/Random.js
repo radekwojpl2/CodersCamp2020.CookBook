@@ -8,6 +8,9 @@ const navigationButton = document.querySelector('.navigationBtn')
 const apiKey = 'fa79327224724e9da0b733fdcc9720d4';
 let sInt;
 let id;
+const buttonForSearch = document.querySelector('form button');
+const inputForSearch = document.querySelector('form input');
+const backdrop = document.querySelector('.backdrop');
 
 export function toggleMenuOpened() {
     document.querySelector("#contentRandom").classList.toggle("menuOpened");
@@ -112,7 +115,7 @@ export function doAnimation() {
     let position = 0;
     id = setInterval(frame, 50);
     function frame() {
-        if (position == 99) {
+        if (position == 98) {
             clearInterval(id);
         } else {
             position += 0.5;
@@ -127,6 +130,17 @@ export function Random() {
     document.getElementById("recipiesRandom").style.background = "#ededed";
     navigationButton.addEventListener("click", toggleMenuOpened);
 
+    const closeSearchResultBtn = backdrop.firstElementChild.firstElementChild;
+
+    closeSearchResultBtn.addEventListener('click', closeEvent => {
+        closeEvent.preventDefault();
+        toggleMenuOpened();
+
+    })
+    backdrop.addEventListener('click', ()  => {
+        toggleMenuOpened();
+
+    })
     document.getElementById("randomBtn").addEventListener("click", getRandomRecipesClicked);
     document.getElementById("randomIntervalBtn").addEventListener("click", getRandomRecipesInterval);
     window.addEventListener('beforeunload', function (closeWindow) {
