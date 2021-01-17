@@ -124,7 +124,7 @@ export function doAnimation() {
 
 // all code that changes / uses html elements moved to this function for easier testing
 export function Random() {
-    document.getElementById("recipiesRandom").style.background = "#e7e7e7";
+    document.getElementById("recipiesRandom").style.background = "#ededed";
     navigationButton.addEventListener("click", toggleMenuOpened);
 
     document.getElementById("randomBtn").addEventListener("click", getRandomRecipesClicked);
