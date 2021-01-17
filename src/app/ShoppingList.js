@@ -1,5 +1,7 @@
 import { MainMenu } from './MainMenu.js';
-MainMenu();
+import { MENU } from '../GlobalData.js'
+
+MainMenu(MENU.shoppingList);
 
 function getDishName(dishName) {
     fetch(`https://api.spoonacular.com/recipes/autocomplete?number=3&query=${dishName}&apiKey=82b93f78e7ca49cfa0aed375729b37ce`)
