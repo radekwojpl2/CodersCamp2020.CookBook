@@ -14,11 +14,16 @@
 </head>
 
 <body>
-
     <div id="swquiz-app">
+
+    </div>
+
+    <div class="container">
         <div class="calculator">
             <form class="calculator__form">
+                <label class="calculator__form__label">Please enter the number</label>
                 <input type="textarea" class="calculator__form__input">
+                <label class="calculator__form__label">From unit</label>
                 <select class="calculator__form__from">
                     <option value="teaspoon" class="calculator__form__from__option">Teaspoon</option>
                     <option value="tablespoon" class="calculator__form__from__option">Tablespoon</option>
@@ -30,6 +35,7 @@
                     <option value="grams" class="calculator__form__from__option">Gram</option>
                     <option value="kilogram" class="calculator__form__from__option">Kilogram</option>
                 </select>
+                <label class="calculator__form__label">To unit</label>
                 <select class="calculator__form__to">
                     <option value="teaspoon" class="calculator__form__to__option">Teaspoon</option>
                     <option value="tablespoon" class="calculator__form__to__option">Tablespoon</option>
@@ -41,9 +47,9 @@
                     <option value="grams" class="calculator__form__to__option">Gram</option>
                     <option value="kilogram" class="calculator__form__to__option">Kilogram</option>
                 </select>
-                <button type="button" class="calculator__form__calculate">clcik</button>
-                <button type="button" class="calculator__form__clear">clear</button>
-                <div class="calculator__form__output">answer goes here</div>
+                <button type="button" class="calculator__form__calculate">Calculate</button>
+                <button type="button" class="calculator__form__clear">Clear the output</button>
+                <div class="calculator__form__output">Answer goes here</div>
             </form>
         </div>
     </div>
