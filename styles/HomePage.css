@@ -3,8 +3,8 @@ body {
     margin: 0;
 }
 
-#cookBook {
-    width: 90%;
+#swquiz-app {
+    width: 100%;
     max-width: 1900px;
     height: auto;
     margin-left: auto;
@@ -17,12 +17,18 @@ body {
 .searchSection {
     background-color: rgba(230, 230, 230, 0.76);
     width: 100%;
-    height: 150px;
     display: flex;
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
-    padding: 50px;
+}
+
+.searchDescription {
+    background-color: rgba(230, 230, 230, 0.76);
+    width: 100%;
+    text-align: right;
+    padding: 10px;
+    font-size: 14px;
 }
 
 .inputWrapper {
@@ -38,29 +44,36 @@ body {
     justify-content: space-around;
 }
 
+#tags {
+    display: flex;
+}
+
 .tagLabel {
-    background-color: rgb(255, 255, 255);
-    width: 150px;
-    height: 30px;
+    background-color: rgb(165, 165, 165);
+    padding: 5px 10px 5px 10px;
+    margin: 15px 0px 15px 15px;
+    border-radius: 5px;
+    border: 1px solid grey;
 }
 
 .recipeCard {
     background-color: rgb(224, 224, 224);
-    width: 31%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     text-align: center;
-    /* padding: 12px; */
-    /* border-radius: 5px; */
     margin: 1%;
+}
+
+.wrapper {
+    height: 100%;
+    width: 31%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-decoration: none;
+    color: currentColor;
 }
-
-
-/* .searchSection .searchField {
-    /* float: right; */
 
 .searchSection button:hover {
     background: #ccc;
@@ -73,11 +86,9 @@ body {
 }
 
 .cardTitle {
-    /* width: 100%; */
     text-align: center;
     padding: 10px;
     border-radius: 5px;
-    /* margin: 5px auto 5px auto; */
     font-size: 2vh;
     font-weight: bold;
 }
@@ -86,17 +97,11 @@ body {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    /* padding: 10 px; */
     background-repeat: no-repeat;
     background-size: cover;
+    height: 35%;
     width: 100%;
-    height: 100%;
     background-position: center center;
-}
-
-.wrapper {
-    height: 100%;
-    width: 100%;
 }
 
 .cardIngredients {
@@ -111,4 +116,16 @@ h4 {
     padding: 0%;
     margin: 0%;
     font-size: 2vh;
+}
+
+#ingredient {
+    width: 100%;
+}
+
+#title {
+    background-color: rgba(230, 230, 230, 0.76);
+    width: 100%;
+    height: 10%;
+    padding: 50px;
+    text-align: center;
 }
