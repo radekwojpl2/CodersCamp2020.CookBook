@@ -28,13 +28,13 @@ document.querySelector('#dishName').addEventListener('keyup', function() {
     getDishName(inp.value);
 
 });
-let res = [];
+
+let resultShoppingList = [];
 
 function getProducts(id){
 fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=ac3797baed0045729f81999b1814cd6d`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);  
             let output = ``;
 
             data.ingredients.forEach(element => {
@@ -43,24 +43,28 @@ fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=ac
             document.querySelector('.ingredients').innerHTML = output;
 
             const arrayIngredients = document.querySelectorAll('.ingredients li');
-            const arrayIngredientsBtn = document.querySelectorAll('.ingredients li button');
             console.log(arrayIngredients);
             
             let temp=1;
-            arrayIngredients.forEach((e) =>{
-                e.children[0].addEventListener('click', function(){
-                    res.push(`<li class='ingredients ingredient${temp}'>${e.textContent} <button><i class="fa fa-times-circle"></i></button></li>`);
+
+            arrayIngredients.forEach((ingredient) =>{
+                ingredient.children[0].addEventListener('click', function(){
+                    resultShoppingList.push(`<li class='ingredients ingredient${temp}'>${ingredient.textContent} <button><i class="fa fa-times-circle"></i></button></li>`);
                     temp++;
-                    document.querySelector('.shoppinglist').innerHTML = res.join("</li>");
+
+                    document.querySelector('.shoppinglist').innerHTML = resultShoppingList.join("</li>");
+                   
+                    
 
                     const removeIngredients = document.querySelectorAll('.shoppinglist');
                     const removeIngredientsArray = Array.from(removeIngredients);
                     const arr = Array.prototype.slice.call( removeIngredientsArray[0].children );
-
-                    clearSingleIngedient(res, arr);
+                    clearSingleIngedient(resultShoppingList, arr);
                     clearShoppingList();
                 })
+
             })
+            
         });      
 }
 
@@ -75,7 +79,7 @@ function clearSingleIngedient(arr1, arr2) {
                 newOutput += element.outerHTML;
             })
             document.querySelector('.shoppinglist').innerHTML = newOutput;
-            clearSingleIngedient(arr1, arr2)
+            
         })
     })
 }
@@ -83,6 +87,7 @@ function clearSingleIngedient(arr1, arr2) {
 function clearShoppingList(){
     document.querySelector('h3 button').addEventListener('click', function() {
         document.querySelector('.shoppinglist').innerHTML = "";
-        res=[];
+        resultShoppingList=[];
+   
     })
 }
