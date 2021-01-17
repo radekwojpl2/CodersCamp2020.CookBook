@@ -69,7 +69,57 @@ Guess Nutrition by Dish Name i Quick Answer należą do podpunktu 4.
 
     c. Jedyny parametr jaki występuje to „q”
 
+<<<<<<< HEAD
     d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Quick-Answer
+=======
+   d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj  https://spoonacular.com/food-api/docs#Get-Random-Recipes
+ 
+ Guess Nutrition by Dish Name i Quick Answer należą do podpunktu 4.
+   
+4) Guess Nutrition by Dish Name
+
+   a. https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+      
+   b. W celu dodania parametru trzeba po ' guessNutrition ' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.  https://api.spoonacular.com/recipes/guessNutrition?title=Spaghetti+Aglio+et+Olio&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 5 obiektów, które w parametrze 'title' posiada wartość ‘Spaghetti+Aglio+et+Olio’.
+
+   c. Jedyny parametr jaki występuje to „title”
+   
+   d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Guess-Nutrition-by-Dish-Name
+   
+5) Quick Answer
+
+   a. https://api.spoonacular.com/recipes/quickAnswer&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+      
+   b. W celu dodania parametru trzeba po ' quickAnswer' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='. https://api.spoonacular.com/recipes/quickAnswer?q=How+much+vitamin+c+is+in+2+apples&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 3 obiekty, które w parametrze 'q’ posiada wartość ‘How+much+vitamin+c+is+in+2+apples’.
+
+   c. Jedyny parametr  jaki występuje to „q”
+   
+   d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Quick-Answer
+   
+6) Search Grocery Products
+   
+   a. https://api.spoonacular.com/food/products/search&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+      
+   b. W celu dodania parametru trzeba po 'search' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
+https://api.spoonacular.com/food/products/search?query=pizza&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 8 obiektów, które w parametrze 'query’ posiada wartość ‘pizza’.
+
+   c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&' 
+https://api.spoonacular.com/food/products/search?query=pizza&number=2&apiKey=YOUR_API_KEY
+<-- To zapytanie do API zwróci 2 obiekty, które w parametrze ‘query’ mają wartość „pizza”, w parametrze 'number' wartość 2
+
+   
+   d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Grocery-Products
+   
+   
+7) <- to jest 7 (github jakieś dziwne rzeczy robi) Convert Amounts
+
+      a. https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać parametry 'ingredientName', 'sourceAmount', 'sourceUnit' i 'targetUnit' (bez parametrów nie działa).
+
+      b. W celu dodania parametru trzeba po 'convert' wpisać '?', a następnie nazwę danego parametru. Przed każdym kolejnym parametrem należy wpisać '&'. 
+https://api.spoonacular.com/recipes/convert?ingredientName=water&sourceAmount=3.5&sourceUnit=cups&targetUnit=liters&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci obiekt z przekonwertowaną jednostką.
+
+   c. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Convert-Amounts
+>>>>>>> feature/main-menu-animation
 
 6.  Search Grocery Products
 
@@ -139,9 +189,14 @@ Wyszukiwarka zadziała w momencie wprowadzenia wartości do wyszukiwania. W przy
 Po kliknięciu w wynik wyszukiwania użytkownik zostanie przeniesiony do strony ze szczegółowymi informacjami.
 
 ##### API do pobrania wyników dla wyszukiwanego zapytania
+<<<<<<< HEAD
 
 Do pobrania danych wykorzystane zostało API: https://api.spoonacular.com/recipes/complexSearch?number=NUMBER&apiKey=YOUR_API_KEY.
 API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
+=======
+Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/complexSearch?query=VALUE&number=9&apiKey=YOUR_API`
+API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch(). 
+>>>>>>> feature/main-menu-animation
 
 ##### Zamykanie okna z wynikami wyszukiwania
 
