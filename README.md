@@ -151,21 +151,20 @@ Zamykanie okna z wynikami wyszukiwania może odbyć się na dwa sposoby - klikni
 
 W celu przekierowania do adekwatnej strony do każdego elementu przechowującego jeden wynik wyszukiwania został przypisany numer id tego przepisu. W momencie kliknięcia na przepis pobierane jest to id i przekazywane do linku za pomocą metody
 
-```
-window.location.replace(`/CodersCamp2020.CookBook/recipe.html?id=ID_PRZEPISU`
+   ```
+   window.location.replace(`/CodersCamp2020.CookBook/recipe.html?id=ID_PRZEPISU`
 
-```
+   ```
+Szczegółowe dane dla przepisu są pobierane na podstawie id pobranego z linku wygenerowanego za pomocą powyższej metody. 
 
-Szczegółowe dane dla przepisu są pobierane na podstawie id pobranego z linku wygenerowanego za pomocą powyższej metody.
+   ```
+   const getParams = () => {
+    const param = window.location.href.slice(window.location.href.indexOf('?') +1).split('=');
+    return {'id':param[1]}
+   }
+   ```
 
-```
-const getParams = () => {
- const param = window.location.href.slice(window.location.href.indexOf('?') +1).split('=');
- return {'id':param[1]}
-}
-```
-
-Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/ID_NUMBER/information?apiKey=API_KEY`
+Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/ID_NUMBER/information?apiKey=API_KEY` 
 
 ### Gra w zgadywanie ilości kalorii w daniu
 
@@ -185,5 +184,5 @@ Zadaniem gracza jest oszacowanie, ile kalorii może znajdować się w daniu i wp
 
 ##### API do pobrania wyników dla wyszukiwanego zapytania
 
-Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/complexSearch?query=VALUE&number=9&apiKey=YOUR_API`
+Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY`
 API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
