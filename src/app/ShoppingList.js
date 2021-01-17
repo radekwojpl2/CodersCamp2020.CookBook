@@ -16,7 +16,6 @@ function getDishName(dishName) {
             
             document.querySelectorAll('.dish li button').forEach((e) => {
                 e.addEventListener('click', function() {
-                    console.log(e.textContent);
 
                     document.querySelector('#dishName').value=e.textContent;
                     let dataItem = e.getAttribute('data-id');
