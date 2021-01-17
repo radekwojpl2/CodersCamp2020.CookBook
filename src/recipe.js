@@ -1,3 +1,4 @@
+// import 'regenerator-runtime/runtime'; //async/await with Parcel
 import {MainMenu} from './app/MainMenu.js'; 
 import {API} from './GlobalData.js';
 
@@ -41,7 +42,7 @@ fetch(API.getRecipeInformation(param.id, API_KEY))
 .then(recipe => {
     //add title to page
     title.innerText = recipe.title;
-    console.log(recipe)
+    console.log(recipe.title)
 
     //add tags basing on dish type
     for (let tag of recipe.dishTypes) {
@@ -56,11 +57,13 @@ fetch(API.getRecipeInformation(param.id, API_KEY))
     }
     //add img
     img.setAttribute('src', recipe.image);
+    img.setAttribute('alt', 'Ups... Something went wrong.')
 
     //add instruction to prepare dish
-    instructionBox.innerHTML = recipe.instructions
+    instructionBox.innerHTML = '<h2>Instructions:</h2>' + recipe.instructions
 
     //add ingredients 
+    ingredientsBox.innerHTML = '<h2>Ingredients:</h2>'
     for (let ingredient in recipe.extendedIngredients) {
         createElementAndAppendToParent('p', ingredientsBox ,recipe.extendedIngredients[ingredient].original)
     }

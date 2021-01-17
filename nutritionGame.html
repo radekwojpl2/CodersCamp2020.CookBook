@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition game</title>
+    <link rel="stylesheet" href="./styles/Game.css">
+</head>
+<body>
+    <div id="swquiz-app">
+    </div>
+    <div class="wrapper container">
+        <h1>How many calories are in your dish?</h1>
+
+        <section class="instruction active">
+            <p class="instruction-p">1. In this game you have to guess how many calories are in given dish.</p>
+            <p class="instruction-p">2. You can go wrong by 10%.</p>
+            <p class="instruction-p">3. You have 15 seconds for each guess.</p>
+            <p class="instruction-p">4. Your points depend on how close were you to the actual answer.</p>
+
+            <button class="start">Start game</button>
+        </section>
+        
+        <section class="game">
+            <h2 class="dish-name"></h2>
+            <div class="dish-img-container">
+                <img src="" alt="" class="dish-img" >
+            </div>
+            <div class="answer-section">
+                <form class="answer-form">
+                    <input type="number" min="0" class="answer">
+                    <button class="submit">Check answer</button>
+                </form>
+                <div class="correct-answer">...</div>
+            </div>
+            <div class="score">Your points: <span>0</span></div>
+            <div class="timeline">
+                <div class="timer"></div>
+            </div>
+        </section>
+
+        <section class="game-over">
+            <h2>Game over</h2>
+            <h3 class="score">Your score: <span></span></h3>
+            <a href="nutritionGame.html"><button class="play-again">Play again</button></a>
+        </section>
+        
+    </div>
+
+    <script src="./src/nutritionGame.js" type="module"></script>
+</body>
+</html>

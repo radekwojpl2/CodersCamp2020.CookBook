@@ -1,4 +1,4 @@
-async function calculate(sourceAmount, sourceUnit, targetUnit, apiKey) {
+export async function calculate(sourceAmount, sourceUnit, targetUnit, apiKey) {
     if (isNaN(sourceAmount)) {
         return 'Please enter the correct number';
     } else {
@@ -8,5 +8,3 @@ async function calculate(sourceAmount, sourceUnit, targetUnit, apiKey) {
         return responseAnswer;
     }
 }
-
-exports.calculate = calculate;
