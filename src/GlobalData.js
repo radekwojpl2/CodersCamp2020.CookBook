@@ -1,6 +1,6 @@
 export const API = {
     getRecipeInformation: (id, api) => `https://api.spoonacular.com/recipes/${id}/information?apiKey=${api}`,
-    searchFor: (value, api) => `https://api.spoonacular.com/recipes/complexSearch?query=${value}&apiKey=${api}`,
+    searchFor: (value, api) => `https://api.spoonacular.com/recipes/complexSearch?query=${value}&number=9&apiKey=${api}`,
 }
 
 export const MENU = {

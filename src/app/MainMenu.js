@@ -86,8 +86,9 @@ export const MainMenu = (activePage) => {
 
   //CREATE MENU STRUCTURE
 
-  const menu = createElementWithClasses('nav', 'menu')
-  const logo = createElementWithInnerText('div', 'CookBook', 'logo')
+  const menu = createElementWithClasses('nav', 'menu', 'container')
+  const logo = createElementWithClasses('div', 'logo')
+  logo.innerHTML =`<a href=${MENU.mainPage.link}>CookBook</a>`;
   //button to show and hide menu on mobile
   const menuBtn = createElementWithInnerText('button', 'Click', 'navigationBtn')
   //create box for navigation & search
@@ -97,7 +98,7 @@ export const MainMenu = (activePage) => {
 
   //create search
   const search = createElementWithClasses('form', 'search')
-  const searchInput = createElementWithClasses('input');
+  const searchInput = createElementWithClasses('input',);
   const searchBtn = createElementWithInnerText('button', 'Search')
   const searchInfo = createElementWithInnerText('span', 'Please, insert text!', 'tooltip')
   appendChildrenToElement(search, searchInput, searchBtn, searchInfo);
@@ -107,7 +108,7 @@ export const MainMenu = (activePage) => {
 
   //CREATE STRUCTURE FOR SEARCH OUTPUT
   const backdropForSearch = createElementWithClasses('div', 'backdrop');
-  const modalForSearch = createElementWithClasses('div', 'modal');
+  const modalForSearch = createElementWithClasses('div', 'modal', 'container');
   const closeModalButton = createElementWithInnerText('button', 'x');
   const boxForResults = document.createElement('section');
 
@@ -128,6 +129,7 @@ export const MainMenu = (activePage) => {
   const backdrop = document.querySelector('.backdrop');
   const closeSearchResultBtn = backdrop.firstElementChild.firstElementChild;
   const resultsSection = backdrop.firstElementChild.lastElementChild;
+  const logoText = document.querySelector('.logo');
 
   //clear input value
   const clearInput = () => {
@@ -178,9 +180,25 @@ export const MainMenu = (activePage) => {
     resultsSection.innerText = ''
   })
 
-  //redirect to recipe site
+  //close search results by click on backdrop
+  backdrop.addEventListener('click', backdropClick => {
+    //set backdrop hidden
+    backdrop.style.opacity = 0;
+    backdrop.style.zIndex = -100;
+
+    //clear search results
+    resultsSection.innerText = ''
+  })
+
+  backdrop.firstElementChild.addEventListener('click', clickOnModal => {
+    clickOnModal.stopPropagation();
+  })
+
+  //redirect to recipe site (implement '==' instead '===' on purpose!)
   resultsSection.addEventListener('click', redirectEvent => {
-    window.location.replace(`/recipe.html?id=${redirectEvent.target.id}`)
+    if(Boolean(redirectEvent.target.id) == '1') {
+      window.location.replace(`/CodersCamp2020.CookBook/recipe.html?id=${redirectEvent.target.id}`)
+    }
   })
 
   //TOOGLE MENU
@@ -195,5 +213,18 @@ export const MainMenu = (activePage) => {
   toggleBtn.addEventListener('click', menuEvent => {
       changeVisibilityForMenu();
       clearSearchInfo();
+  })
+
+  //ANIMATION FOR LOGO
+  logoText.addEventListener( 'mouseenter', logoFocus => {
+    console.log('hej')
+    logoText.animate(
+      [{ transform: 'rotateY(0deg)'},
+      { transform: 'rotateY(360deg)' }],
+      {duration: 500,
+        iteration: 1
+      }
+
+    )
   })
 }
