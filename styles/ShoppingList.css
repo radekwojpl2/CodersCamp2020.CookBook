@@ -7,11 +7,12 @@
     clear: both;
     position: absolute;
 }
+h3{
+ font-weight: var(--fontFamily);
+}
 #ingredientsBox{
-    margin-top: 10vh;
     width:100%;
     height: 90vh;
-  
     background-color:  #d9d9d9;
 }
 .ingredientsBoxLeft, .ingredientsBoxRight{
@@ -41,6 +42,7 @@ h3{
     list-style-type:none;
 }
 .dish li button{
+    color:black;
     min-width: 25vh;
     height: 4vh;
     padding: 1vh;
@@ -49,7 +51,10 @@ h3{
     font-size: 1.9vh;
     border-bottom: 1px solid black;
 }
-ul.ingredients{
+.dish li button:hover{
+    color:var(--btnColor);
+}
+ul.ingredients, ul.shoppinglist{
     max-height: 25vw;
     overflow-y: scroll;
 }
@@ -65,6 +70,7 @@ ul.ingredients, .shoppinglist{
 
 }
 .ingredients li button, .shoppinglist li button{
+    color:var(--btnColor);
     background: none;
     border:none;
     float: right;
@@ -74,7 +80,7 @@ ul.ingredients, .shoppinglist{
 }
 
 @media (max-width: 670px) {
-    ul.ingredients {
+    ul.ingredients, ul.shoppinglist {
         overflow-y: hidden;
         min-height: auto;
         max-height: fit-content;

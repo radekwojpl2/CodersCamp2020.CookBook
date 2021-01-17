@@ -2,7 +2,7 @@ import { MainMenu } from './MainMenu.js';
 MainMenu();
 
 function getDishName(dishName) {
-    fetch(`https://api.spoonacular.com/recipes/autocomplete?number=3&query=${dishName}&apiKey=a9a22b5051244213b403d0913d67bf81`)
+    fetch(`https://api.spoonacular.com/recipes/autocomplete?number=3&query=${dishName}&apiKey=82b93f78e7ca49cfa0aed375729b37ce`)
         .then(response => response.json())
         .then(data => {
 
@@ -35,7 +35,7 @@ document.querySelector('#dishName').addEventListener('keyup', function() {
 let resultShoppingList = [];
 
 function getProducts(id){
-fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=a9a22b5051244213b403d0913d67bf81`)
+fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=82b93f78e7ca49cfa0aed375729b37ce`)
         .then(response => response.json())
         .then(data => {
             let output = ``;
