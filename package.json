@@ -8,7 +8,7 @@
     "prebuild": "rimraf dist",
     "build": "parcel build index.html --public-url ./",
     "format": "prettier --write \"src/**/*.js\" \"src/**/*.ts\" \"test/**/*.js\" \"test/**/*.ts\"",
-    "start:dev": "parcel -p 8765 watch index.html recipe.html nutritionGame.html list.html calculator.html",
+    "start:dev": "parcel -p 8765 watch index.html recipe.html nutritionGame.html list.html random.html calculator.html",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage"
