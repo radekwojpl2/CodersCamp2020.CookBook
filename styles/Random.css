@@ -13,9 +13,9 @@
 
 #contentRandom > * {
     font-family: 'Montserrat', sans-serif;
-    background-color: white;
+    background-color: #ededed;
     color: black;
-    border: 2px solid #e7e7e7;
+    border: 2px solid  #ededed;
     font-size: 1.5em;
     margin-top: 30px;
 }
@@ -23,11 +23,11 @@
 #contentRandom button {
     float: left;
     flex-basis: 50% ;
-    position: relative;
+    position: relative
 }
 
 #contentRandom button:hover {
-    background-color: #e7e7e7;
+    background-color: #ededed;
 }
 
 #recipiesRandom {
@@ -35,12 +35,16 @@
 }
 
 
-  #myAnimation {
+#myAnimation {
     width: 10px;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgb(116, 116, 116);
+    background-color: #4779e4ce;
+  }
+
+  h3, h4 {
+      color: #4779e4ce;
   }
 

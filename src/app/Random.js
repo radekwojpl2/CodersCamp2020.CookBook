@@ -18,7 +18,12 @@ function getRandomRecipes() {
     recipe.replaceChildren();
 
     fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Ups...  Something went wrong!');
+            }
+            return response.json()
+        })
         .then(data => {
             console.log('Data from API:', data);
             const img = document.createElement("img");
@@ -46,6 +51,10 @@ function getRandomRecipes() {
 
             recipe.appendChild(instructions);
 
+        })
+        .catch(error => {
+            recipe.innerHTML = `<p>${error}</p>`;
+            console.log(error)
         });
 
 }
@@ -54,7 +63,7 @@ function getRandomRecipes() {
 function getRandomRecipesClicked() {
     let btnRandomInt = document.getElementById("randomIntervalBtn");
 
-    if (btnRandomInt.textContent === 'Stop show random in interval') {
+    if (btnRandomInt.textContent.trim() === 'Stop show random in interval') {
         replace();
         clearInterval(sInt);
         clearInterval(id);
@@ -70,18 +79,17 @@ export function replace() {
     let replaced = 'Stop show random in interval';
     let stop = btnRandomInt.innerHTML.replace(doreplace, replaced);
     let start = btnRandomInt.innerHTML.replace(replaced, doreplace);
-    if (btnRandomInt.textContent === 'Start show random in interval') {
-    btnRandomInt.innerHTML = stop;
+    if (btnRandomInt.textContent.trim() === 'Start show random in interval') {
+        btnRandomInt.innerHTML = stop;
     } else {
-    btnRandomInt.innerHTML = start;
+        btnRandomInt.innerHTML = start;
     }
 }
 
 function getRandomRecipesInterval() {
     let btnRandomInt = document.getElementById("randomIntervalBtn");
 
-
-    if (btnRandomInt.textContent === 'Start show random in interval') {
+    if (btnRandomInt.textContent.trim() === 'Start show random in interval') {
         replace();
         getRandomRecipes();
         doAnimation();
