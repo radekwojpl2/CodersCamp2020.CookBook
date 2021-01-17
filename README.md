@@ -134,7 +134,7 @@ Wyszukiwarka zadziała w momencie wprowadzenia wartości do wyszukiwania. W przy
 Po kliknięciu w wynik wyszukiwania użytkownik zostanie przeniesiony do strony ze szczegółowymi informacjami.
 
 ##### API do pobrania wyników dla wyszukiwanego zapytania
-Do pobrania danych wykorzystane zostało API: https://api.spoonacular.com/recipes/complexSearch&number=NUMBER&apiKey=YOUR_API_KEY. 
+Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/complexSearch?query=VALUE&number=9&apiKey=YOUR_API`
 API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch(). 
 
 ##### Zamykanie okna z wynikami wyszukiwania

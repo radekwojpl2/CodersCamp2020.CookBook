@@ -1,6 +1,4 @@
 @import './MainMenu.css';
-@import './GlobalStyles.css';
-
 
 .recipe article {
     display: flex;
