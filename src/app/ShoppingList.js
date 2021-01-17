@@ -1,5 +1,8 @@
+import { MainMenu } from './MainMenu.js';
+MainMenu();
+
 function getDishName(dishName) {
-    fetch(`https://api.spoonacular.com/recipes/autocomplete?number=3&query=${dishName}&apiKey=ac3797baed0045729f81999b1814cd6d`)
+    fetch(`https://api.spoonacular.com/recipes/autocomplete?number=3&query=${dishName}&apiKey=a9a22b5051244213b403d0913d67bf81`)
         .then(response => response.json())
         .then(data => {
 
@@ -32,13 +35,13 @@ document.querySelector('#dishName').addEventListener('keyup', function() {
 let resultShoppingList = [];
 
 function getProducts(id){
-fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=ac3797baed0045729f81999b1814cd6d`)
+fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=a9a22b5051244213b403d0913d67bf81`)
         .then(response => response.json())
         .then(data => {
             let output = ``;
 
             data.ingredients.forEach(element => {
-                output += `<li>${element.name} <button><i class="fa fa-plus-circle"></i></button></li>`; 
+                output += `<li>${element.name} <button class="fa fa-plus-circle"></button></li>`; 
             });
             document.querySelector('.ingredients').innerHTML = output;
 
@@ -49,45 +52,37 @@ fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=ac
 
             arrayIngredients.forEach((ingredient) =>{
                 ingredient.children[0].addEventListener('click', function(){
-                    resultShoppingList.push(`<li class='ingredients ingredient${temp}'>${ingredient.textContent} <button><i class="fa fa-times-circle"></i></button></li>`);
+                    resultShoppingList.push(`<li class='ingredients ingredient${temp}'>${ingredient.textContent} <button class="fa fa-times-circle"></button></li>`);
                     temp++;
-
                     document.querySelector('.shoppinglist').innerHTML = resultShoppingList.join("</li>");
-                   
-                    
+                })
+            })
 
-                    const removeIngredients = document.querySelectorAll('.shoppinglist');
-                    const removeIngredientsArray = Array.from(removeIngredients);
-                    const arr = Array.prototype.slice.call( removeIngredientsArray[0].children );
-                    clearSingleIngedient(resultShoppingList, arr);
+
+            arrayIngredients.forEach((ingredient) =>{
+                ingredient.children[0].addEventListener('click', function(){
+
+                    const ingredientsDeleteButtons= document.querySelectorAll('.shoppinglist .ingredients button');
+                    ingredientsDeleteButtons.forEach(ingredient=>{
+                        ingredient.addEventListener('click', clearSingleIngredient);
+                        
+                    })
+
                     clearShoppingList();
                 })
-
             })
+
             
         });      
 }
 
-function clearSingleIngedient(arr1, arr2) {
-    arr2.forEach((el) => {
-        el.addEventListener('click', function () {
-            const index = arr2.indexOf(el);
-            arr2.splice(index, 1);
-            arr1.splice(index, 1);
-            let newOutput = "";
-            arr2.forEach((element) => {
-                newOutput += element.outerHTML;
-            })
-            document.querySelector('.shoppinglist').innerHTML = newOutput;
-            
-        })
-    })
+function clearSingleIngredient(element) {
+    element.target.parentElement.remove();
 }
 
 function clearShoppingList(){
     document.querySelector('h3 button').addEventListener('click', function() {
         document.querySelector('.shoppinglist').innerHTML = "";
         resultShoppingList=[];
-   
     })
 }
