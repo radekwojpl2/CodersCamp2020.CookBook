@@ -70,12 +70,12 @@ export class Game {
             this.imgInput.classList.add("true")
             const points = question.getPoints(+this.answerInput.value)
             this.stats.addPoints(points)
-            if (this.questions.length < 1) setTimeout(this.endGame.bind(this), points * 15)
+            if (this.questions.length < 6) setTimeout(this.endGame.bind(this), points * 15)
             else setTimeout(this.startRound.bind(this), points * 15 + 500)
         } else {
             this.imgInput.classList.add("false")
             this.correctAnswer.textContent = `Correct answer is: ${question.currentQuestion.calories}.`
-            if (this.questions.length < 1) this.endGame()
+            if (this.questions.length < 6) this.endGame()
             else setTimeout(this.startRound.bind(this), 500)
         }
     }

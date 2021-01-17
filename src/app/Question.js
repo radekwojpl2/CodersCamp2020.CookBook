@@ -9,7 +9,10 @@ export class Question {
         this.currentQuestion = this.questions[index];
         this.questions.splice(index, 1);
         return fetch(`https://api.spoonacular.com/recipes/guessNutrition?title=${this.currentQuestion.apiTitle}&apiKey=08dba6e965974fdb9c6a8cc7b0f8f4f0`)
-            .then( res => res.json() )
+            .then( res =>  {
+                if (!res.ok) throw new Error('Ups...  Something went wrong!')
+                return res.json() 
+            })
             .then ( data => {
                 const calories = data.calories.value
                 this.currentQuestion.calories = calories
