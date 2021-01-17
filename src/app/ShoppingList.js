@@ -52,32 +52,42 @@ fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=a9
 
             arrayIngredients.forEach((ingredient) =>{
                 ingredient.children[0].addEventListener('click', function(){
-                    resultShoppingList.push(`<li class='ingredients ingredient${temp}'>${ingredient.textContent} <button class="fa fa-times-circle"></button></li>`);
+                  
+                    const li= document.createElement("li");
+                    li.classList.add("ingredients");
+                    li.dataset.ingredient=temp;
+
+                    const button= document.createElement("button");
+                    button.classList.add('fa', 'fa-times-circle');
+
+                    li.innerText=ingredient.textContent;
+                    li.appendChild(button);
+                    resultShoppingList.push(li);                   
                     temp++;
-                    document.querySelector('.shoppinglist').innerHTML = resultShoppingList.join("</li>");
-                })
-            })
 
-
-            arrayIngredients.forEach((ingredient) =>{
-                ingredient.children[0].addEventListener('click', function(){
-
-                    const ingredientsDeleteButtons= document.querySelectorAll('.shoppinglist .ingredients button');
-                    ingredientsDeleteButtons.forEach(ingredient=>{
-                        ingredient.addEventListener('click', clearSingleIngredient);
-                        
+                    resultShoppingList.forEach((result)=>{
+                        document.querySelector('.shoppinglist').appendChild(result);
                     })
 
+                    const ingredientsDeleteButtons= document.querySelectorAll('.shoppinglist .ingredients button');
+                    ingredientsDeleteButtons.forEach(ingredientsDelete=>{
+                        ingredientsDelete.addEventListener('click', clearSingleIngredient);
+                    })
+                    
                     clearShoppingList();
                 })
             })
-
-            
+   
         });      
 }
 
-function clearSingleIngredient(element) {
-    element.target.parentElement.remove();
+function clearSingleIngredient(listElement) {
+    
+    listElement.target.parentElement.remove();
+
+    resultShoppingList = resultShoppingList.filter((resultElement)=>{
+        resultElement.dataset['ingredient'] !== listElement.target.parentElement.dataset['ingredient'];
+    })
 }
 
 function clearShoppingList(){
