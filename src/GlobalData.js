@@ -4,9 +4,9 @@ export const API = {
 }
 
 export const MENU = {
-    mainPage: {name: 'Main Page', link: '/index.html'},
-    randomRecipe: {name: 'Random Recipe', link: '/random.html'},
-    nutritionGame: {name: 'Nutrition Game', link: '/nutritionGame.html'},
-    calculator: {name: 'Calculator', link: '/calculator.html'},
-    shoppingList: {name: 'Shopping List', link: '/list.html'}
+    mainPage: {name: 'Main Page', link: 'CodersCamp2020.CookBook/index.html'},
+    randomRecipe: {name: 'Random Recipe', link: 'CodersCamp2020.CookBook/random.html'},
+    nutritionGame: {name: 'Nutrition Game', link: 'CodersCamp2020.CookBook/nutritionGame.html'},
+    calculator: {name: 'Calculator', link: 'CodersCamp2020.CookBook/calculator.html'},
+    shoppingList: {name: 'Shopping List', link: 'CodersCamp2020.CookBook/list.html'}
   }
