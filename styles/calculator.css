@@ -1,3 +1,6 @@
+@import './GlobalStyles.css';
+@import './MainMenu.css';
+
 .calculator {
     display: grid;
     place-items: center;

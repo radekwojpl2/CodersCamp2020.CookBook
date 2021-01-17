@@ -1,6 +1,8 @@
+import { MENU } from '../GlobalData.js';
 import { MainMenu } from './MainMenu.js';
 import { calculate } from './calculate.js';
-MainMenu()
+
+MainMenu(MENU.calculator);
 const apiKey = '7c1cea1c1c664db5a38edbf2dd21484e';
 const outputDiv = document.querySelector('.calculator__form__output');
 const calculateButton = document.querySelector('.calculator__form__calculate');
