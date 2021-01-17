@@ -12,7 +12,7 @@ h3{
 }
 #ingredientsBox{
     width:100%;
-    height: 90vh;
+    height: 85vh;
     background-color:  #d9d9d9;
 }
 .ingredientsBoxLeft, .ingredientsBoxRight{
@@ -63,6 +63,7 @@ ul.ingredients, .shoppinglist{
 }
 .ingredients li, .shoppinglist li{
     list-style-type:none;
+    color:red;
     min-width: 50vh;
     height: 3vh;
     padding-top:.7vh;
@@ -103,10 +104,7 @@ ul.ingredients, .shoppinglist{
     }
     .ingredients li, .shoppinglist li{
         font-size: 2vh;
-       
     }
-    .ingredients{
-        margin-bottom: 2vh;
-    }
+    
    
   }
