@@ -5,16 +5,16 @@ import { Stats } from './Stats.js';
 export class Game {
     constructor() {    
         this.questions = [
-            {"name":"Banana bread","imgSrc":"/static/assets/img/banana-bread.jpg","apiTitle":"banana+bread"},
-            {"name":"Spaghetti carbonara","imgSrc":"/static/assets/img/carbonara.jpg","apiTitle":"spaghetti+carbonara"},
-            {"name":"Cheesecake","imgSrc":"/static/assets/img/cheesecake.jpg","apiTitle":"cheesecake"},
-            {"name":"Chicken pad thai","imgSrc":"/static/assets/img/chicken-pad-thai.jpg","apiTitle":"chicken+pad+thai"},
-            {"name":"Chocolate brownie","imgSrc":"/static/assets/img/chocolate-brownie.jpg","apiTitle":"chocolate+brownie"},
-            {"name":"Hamburger","imgSrc":"/static/assets/img/hamburger.jpg","apiTitle":"Hamburger"},
-            {"name":"Spaghetti aglio et olio","imgSrc":"/static/assets/img/spaghetti-aglio-olio.jpg","apiTitle":"spaghetti+aglio+olio"},
-            {"name":"Spaghetti bolognese","imgSrc":"/static/assets/img/spaghetti-bolognese.jpg","apiTitle":"spaghetti+bolognese"},
-            {"name":"Strawberry shake","imgSrc":"/static/assets/img/strawberry-shake.jpg","apiTitle":"strawberry+shake"},
-            {"name":"Vanilla ice cream","imgSrc":"/static/assets/img/vanilla-ice-cream.jpg","apiTitle":"vanilla+ice+cream"},
+            {"name":"Banana bread","imgSrc":"/CodersCamp2020.CookBook/static/assets/img/banana-bread.jpg","apiTitle":"banana+bread"},
+            {"name":"Spaghetti carbonara","imgSrc":"/CodersCamp2020.CookBook/static/assets/img/carbonara.jpg","apiTitle":"spaghetti+carbonara"},
+            {"name":"Cheesecake","imgSrc":"/CodersCamp2020.CookBook/static/assets/img/cheesecake.jpg","apiTitle":"cheesecake"},
+            {"name":"Chicken pad thai","imgSrc":"/CodersCamp2020.CookBook/static/assets/img/chicken-pad-thai.jpg","apiTitle":"chicken+pad+thai"},
+            {"name":"Chocolate brownie","imgSrc":"/CodersCamp2020.CookBook/static/assets/img/chocolate-brownie.jpg","apiTitle":"chocolate+brownie"},
+            {"name":"Hamburger","imgSrc":"/CodersCamp2020.CookBook/static/assets/img/hamburger.jpg","apiTitle":"Hamburger"},
+            {"name":"Spaghetti aglio et olio","imgSrc":"/CodersCamp2020.CookBook/static/assets/img/spaghetti-aglio-olio.jpg","apiTitle":"spaghetti+aglio+olio"},
+            {"name":"Spaghetti bolognese","imgSrc":"/CodersCamp2020.CookBook/static/assets/img/spaghetti-bolognese.jpg","apiTitle":"spaghetti+bolognese"},
+            {"name":"Strawberry shake","imgSrc":"/CodersCamp2020.CookBook/static/assets/img/strawberry-shake.jpg","apiTitle":"strawberry+shake"},
+            {"name":"Vanilla ice cream","imgSrc":"/CodersCamp2020.CookBook/static/assets/img/vanilla-ice-cream.jpg","apiTitle":"vanilla+ice+cream"},
         ]
         this.startBtn = document.querySelector(".start")
         this.instructionSection = document.querySelector(".instruction")
