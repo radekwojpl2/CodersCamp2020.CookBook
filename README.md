@@ -13,7 +13,7 @@ Projekt jest dostępny pod adresem https://radekwojpl2.github.io/CodersCamp2020.
 1.  Search Recipes  
      a. https://api.spoonacular.com/recipes/complexSearch&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
-          b. W celu dodania parametru trzeba po 'complexSearch' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
+     b. W celu dodania parametru trzeba po 'complexSearch' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 
     https://api.spoonacular.com/recipes/complexSearch?query=rice&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 10 obiektów, które w parametrze 'query' mają słowo 'rice'.
 
@@ -24,9 +24,9 @@ Projekt jest dostępny pod adresem https://radekwojpl2.github.io/CodersCamp2020.
 
 2.  Search Recipes by Ingredients
 
-          a. https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+     a. https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
-          b. W celu dodania parametru trzeba po 'findByIngredients' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
+     b. W celu dodania parametru trzeba po 'findByIngredients' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 
     https://api.spoonacular.com/recipes/findByIngredients?ingredients=pumpkin&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci maksymalnie 10 obiektów, które w parametrze 'ingredients' mają słowo 'pumpkin'.
 
@@ -37,9 +37,9 @@ Projekt jest dostępny pod adresem https://radekwojpl2.github.io/CodersCamp2020.
 
 3.  Get Random Recipes
 
-          a. https://api.spoonacular.com/recipes/random&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+     a. https://api.spoonacular.com/recipes/random&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
-          b. W celu dodania parametru trzeba po ' random ' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
+     b. W celu dodania parametru trzeba po ' random ' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
 
     https://api.spoonacular.com/recipes/random?number=43&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 43 obiekty, które w parametrze 'number' posiada wartość 43.
 
@@ -58,28 +58,36 @@ Projekt jest dostępny pod adresem https://radekwojpl2.github.io/CodersCamp2020.
 
     d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Guess-Nutrition-by-Dish-Name
 
-5.  Search Grocery Products
+5.  Autocomplete Recipe Search & Get Recipe Ingredients by ID
 
-    a. https://api.spoonacular.com/food/products/search&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+     Autocomplete Recipe Search
 
-    b. W celu dodania parametru trzeba po 'search' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
-    https://api.spoonacular.com/food/products/search?query=pizza&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 8 obiektów, które w parametrze 'query’ posiada wartość ‘pizza’.
+    a. https://api.spoonacular.com/recipes/autocomplete?apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
+
+    b. W celu dodania parametru trzeba po 'autocomplete' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='.
+    https://api.spoonacular.com/recipes/autocomplete?number=10&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 10 obiektów, które w parametrze 'number’ posiada wartość 10.
 
     c. W celu dodania kilku parametrów trzeba przed każdym nowym parametrem wpisać '&'
-    https://api.spoonacular.com/food/products/search?query=pizza&number=2&apiKey=YOUR_API_KEY
-    <-- To zapytanie do API zwróci 2 obiekty, które w parametrze ‘query’ mają wartość „pizza”, w parametrze 'number' wartość 2
+    https://api.spoonacular.com/recipes/autocomplete?number=10&query=chick&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 10 obiektów, które w parametrze ‘number’ mają wartość 10, w parametrze 'query' wartość "chick"
 
-    d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Grocery-Products
+    d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Autocomplete-Recipe-Search
+     
+     Get Recipe Ingredients by ID
+     
+    a. https://api.spoonacular.com/recipes/{id}/ingredientWidget.json?apiKey=YOUR_API_KEY <-- Musimy wpisać jakieś "id" by zwracało nam wartość. Jedynym parametrem jaki przyjmuje to API jest "{id}"
 
-6.  <- to jest 7 (github jakieś dziwne rzeczy robi) Convert Amounts
+    b. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Get-Recipe-Ingredients-by-ID
+     
 
-          a. https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać parametry 'ingredientName', 'sourceAmount', 'sourceUnit' i 'targetUnit' (bez parametrów nie działa).
+6. Convert Amounts
 
-          b. W celu dodania parametru trzeba po 'convert' wpisać '?', a następnie nazwę danego parametru. Przed każdym kolejnym parametrem należy wpisać '&'.
+    a. https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać parametry 'ingredientName', 'sourceAmount', 'sourceUnit' i 'targetUnit' (bez parametrów nie działa).
 
-    https://api.spoonacular.com/recipes/convert?ingredientName=water&sourceAmount=3.5&sourceUnit=cups&targetUnit=liters&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci obiekt z przekonwertowaną jednostką.
+    b. W celu dodania parametru trzeba po 'convert' wpisać '?', a następnie nazwę danego parametru. Przed każdym kolejnym parametrem należy wpisać '&'.
 
-    c. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Convert-Amounts
+    c. https://api.spoonacular.com/recipes/convert?ingredientName=water&sourceAmount=3.5&sourceUnit=cups&targetUnit=liters&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci obiekt z przekonwertowaną jednostką.
+
+    d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Convert-Amounts
 
 ## Funkcjonalności
 
@@ -87,8 +95,8 @@ Projekt jest dostępny pod adresem https://radekwojpl2.github.io/CodersCamp2020.
         2. Strona główna z przykładowymi daniami -> Search Recipes by Ingredients
         3. Strona z randomowym daniem -> Get Random Recipes
         4. Gra w ile wartości odżywczych jest w danym produkcie -> Guess Nutrition by Dish Name
-        6. Lista zakupów -> Search Grocery Products
-        7. Kalkulator na przeliczanie miar -> Convert Amounts
+        5. Lista zakupów -> Autocomplete Recipe Search & Get Recipe Ingredients by ID
+        6. Kalkulator na przeliczanie miar -> Convert Amounts
 
 ### Menu z globalnym wyszukaniem receptury na danie
 
@@ -185,6 +193,23 @@ Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recip
 
 API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
 
+### Shopping List
+
+![mainShoppingList](/static/assets/img/mainShoppingList.jpg)
+
+#### Opis - Lista zakupów została zbudowana z 2 kontenerów.  
+
+W pierwszym z nich znajduje się wyszukiwarka dań. Wpisujemy do niej fraze a ona automatycznie podpowiada nam 3 dania na podstawie wpisanego tekstu. Następenie po kliknięciu w podane dane ukazuje nam sie lista skłaników które są potrzebne do danego dania. Po kliknięciu na przycisk - po prawej stronie składnika, do Shopping Listy zostanie dodany składnik.
+
+![ShoppingLeftContainer](/static/assets/img/ShoppingLeftContainer.jpg)
+
+W prawym kontenerze znajujde sie lista zakupów a w niej składniki, które dodalismy. Znajduje się również przycisk usuwania który czyści całą liste. Przy pojedyńczych składnikach również znajduję sie przycisk usuwania, dzięki któremu możemy usunąć niechciany składnik.
+
+![ShoppingRightContainer](/static/assets/img/ShoppingRightContainer.jpg)
+
+Do pobrania danych wykorzystane zostało API:
+https://api.spoonacular.com/recipes/autocomplete?apiKey=YOUR_API_KEY
+https://api.spoonacular.com/recipes/{id}/ingredientWidget.json?apiKey=YOUR_API_KEY
 
 ### Strona główna z przykładowymi daniami
 ##### Strona główna
@@ -234,3 +259,4 @@ Użytkownik ma możliwość wybrać losowy przepis, lub włączyć pokazywanie l
 ##### API do pobrania wyników dla wyszukiwanego zapytania
 Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/random?apiKey=YOUR_API_KEY`
 API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
+
