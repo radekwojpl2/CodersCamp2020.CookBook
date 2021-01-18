@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles/calculator.css" />
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="swquiz-app">
+
+    </div>
+
+    <div class="container">
+        <div class="calculator">
+            <form class="calculator__form">
+                <label class="calculator__form__label">Please enter the number</label>
+                <input type="textarea" class="calculator__form__input">
+                <label class="calculator__form__label">From unit</label>
+                <select class="calculator__form__from">
+                    <option value="teaspoon" class="calculator__form__from__option">Teaspoon</option>
+                    <option value="tablespoon" class="calculator__form__from__option">Tablespoon</option>
+                    <option value="cups" class="calculator__form__from__option">Cup</option>
+                    <option value="pint" class="calculator__form__from__option">Pint</option>
+                    <option value="ounce" class="calculator__form__from__option">Ounce</option>
+                    <option value="quart" class="calculator__form__from__option">Quart</option>
+                    <option value="gallon" class="calculator__form__from__option">Gallon</option>
+                    <option value="grams" class="calculator__form__from__option">Gram</option>
+                    <option value="kilogram" class="calculator__form__from__option">Kilogram</option>
+                </select>
+                <label class="calculator__form__label">To unit</label>
+                <select class="calculator__form__to">
+                    <option value="teaspoon" class="calculator__form__to__option">Teaspoon</option>
+                    <option value="tablespoon" class="calculator__form__to__option">Tablespoon</option>
+                    <option value="ounce" class="calculator__form__to__option">Ounce</option>
+                    <option value="cups" class="calculator__form__to__option">Cup</option>
+                    <option value="pint" class="calculator__form__to__option">Pint</option>
+                    <option value="quart" class="calculator__form__to__option">Quart</option>
+                    <option value="gallon" class="calculator__form__to__option">Gallon</option>
+                    <option value="grams" class="calculator__form__to__option">Gram</option>
+                    <option value="kilogram" class="calculator__form__to__option">Kilogram</option>
+                </select>
+                <button type="button" class="calculator__form__calculate">Calculate</button>
+                <button type="button" class="calculator__form__clear">Clear the output</button>
+                <div class="calculator__form__output">Answer goes here</div>
+            </form>
+        </div>
+    </div>
+
+    <script src="src/app/calculator.js" type="module"></script>
+</body>
