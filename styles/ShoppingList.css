@@ -63,7 +63,7 @@ ul.ingredients, .shoppinglist{
 }
 .ingredients li, .shoppinglist li{
     list-style-type:none;
-    color:red;
+    color:black;
     min-width: 50vh;
     height: 3vh;
     padding-top:.7vh;

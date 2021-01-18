@@ -1,4 +1,4 @@
-import { MainMenu } from './MainMenu.js';
+import { MainMenu } from '../app/MainMenu.js';
 import { MENU } from '../GlobalData.js'
 
 MainMenu(MENU.shoppingList);
