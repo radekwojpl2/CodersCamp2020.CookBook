@@ -204,3 +204,11 @@ https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY
 
 API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
 
+
+
+### Kalkulator jednostek
+
+Sercem kalkulatora jest formularz, do którego użytkownik podaje liczbę w systemie dziesiętnym, a następnie wybiera jednostki z dostępnej listy, które konwertuje. Po wciśnięciu przycisku w divie poniżej wyświetlana jest odpowiedź dla danego zapytania. Całą funkcjonalnością zarządza asynchroniczna funkcja calculate(), która za pomocą fetch() wysyła zapytanie do API. 
+
+Dane pochodzą z następującego API:
+https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY
