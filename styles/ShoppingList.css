@@ -4,11 +4,7 @@
     margin:0 auto;
     padding:0;
 }
-#mainContainer{
-    width:100%;
-    clear: both;
-    position: absolute;
-}
+
 h3{
  font-weight: var(--fontFamily);
 }
