@@ -1,0 +1,30 @@
+@import './GlobalStyles.css';
+@import './MainMenu.css';
+
+.calculator {
+    display: grid;
+    place-items: center;
+}
+
+.calculator__form {
+    display: grid;
+    grid-gap: 5px;
+    width: 75%;
+}
+
+@media (min-width: 800px) {
+    .calculator__form {
+        width: 50%;
+    }
+}
+
+.calculator__form__label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+.calculator__form__output {
+    padding-top: 2%;
+    font-size: 20px;
+    font-weight: 500;
+}

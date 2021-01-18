@@ -1,0 +1,52 @@
+@import './MainMenu.css';
+
+#contentRandom {
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    transition: margin 1s cubic-bezier(.17,.67,.06,1.61);
+}
+
+@media (max-width: 1199px) {
+    #contentRandom.menuOpened {
+        margin-top: 265px;
+    }
+}
+
+#contentRandom > * {
+    font-size: 1.5em;
+    margin-top: 30px;
+}
+
+ #contentRandom button {
+    float: left;
+    flex-basis: 50% ;
+    position: relative;
+} 
+
+#contentRandom div{
+    color: black;
+}
+
+#recipiesRandom {
+    flex: 1;
+}
+
+#myAnimation {
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #4779e4ce;
+
+}
+
+h3, h4 {
+      color: #4779e4ce;
+}
+
+ img {
+    max-width: 100%;
+ }
