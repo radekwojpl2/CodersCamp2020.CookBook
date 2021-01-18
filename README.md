@@ -1,15 +1,14 @@
 # CodersCamp2020.CookBook
 
-Funkcjonalności
+CookBook to innowacyjna wersja książki kucharskiej, która oprócz korzystania z przepisów oferuje dodatkowe możliwości.
 
-        1. Menu z globalnym wyszukaniem receptury na danie -> Search Recipes
-        2. Strona główna z przykładowymi daniami, około 7, jakiś domyślny filter(np. pasta), możliwość zmiany filtra na coś innego (user imput) -> Search Recipes by Ingredients
-        3. Strona z randomowym daniem, przycisk na pobranie nowego oraz przycisk na pobieranie nowego dania cały czas interwał co 10s -> Get Random Recipes
-        4. Gra w ile wartości odżywczych jest w danym produkcie, możliwość błędu +- jakaś wartość -> Guess Nutrition by Dish Name lub Quick Answer
-        6. Lista zakupów, po wyjściu ze strony nie musi to być nigdzie zapisane, ewntualnie sesja, ciasteczka -> Search Grocery Products
-        7. Kalkulator na przeliczanie miar gramy na kilogramy i takie tam. -> Convert Amounts
+W projekcie wykorzystano API https://spoonacular.com/food-api.
 
-### Przykładowe uzycia api
+## Demo projektu
+
+Projekt jest dostępny pod adresem https://radekwojpl2.github.io/CodersCamp2020.CookBook/.
+
+## Przykładowe użycia API
 
 1.  Search Recipes  
      a. https://api.spoonacular.com/recipes/complexSearch&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
@@ -49,8 +48,6 @@ Funkcjonalności
 
     d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Get-Random-Recipes
 
-Guess Nutrition by Dish Name i Quick Answer należą do podpunktu 4.
-
 4.  Guess Nutrition by Dish Name
 
     a. https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
@@ -61,17 +58,7 @@ Guess Nutrition by Dish Name i Quick Answer należą do podpunktu 4.
 
     d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Guess-Nutrition-by-Dish-Name
 
-5.  Quick Answer
-
-    a. https://api.spoonacular.com/recipes/quickAnswer&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
-
-    b. W celu dodania parametru trzeba po ' quickAnswer' wpisać '?', a następnie nazwę danego parametru i jego wartość po '='. https://api.spoonacular.com/recipes/quickAnswer?q=How+much+vitamin+c+is+in+2+apples&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci 3 obiekty, które w parametrze 'q’ posiada wartość ‘How+much+vitamin+c+is+in+2+apples’.
-
-    c. Jedyny parametr jaki występuje to „q”
-
-    d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Quick-Answer
-
-6.  Search Grocery Products
+5.  Search Grocery Products
 
     a. https://api.spoonacular.com/food/products/search&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
 
@@ -84,7 +71,7 @@ Guess Nutrition by Dish Name i Quick Answer należą do podpunktu 4.
 
     d. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Search-Grocery-Products
 
-7.  <- to jest 7 (github jakieś dziwne rzeczy robi) Convert Amounts
+6.  <- to jest 7 (github jakieś dziwne rzeczy robi) Convert Amounts
 
           a. https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać parametry 'ingredientName', 'sourceAmount', 'sourceUnit' i 'targetUnit' (bez parametrów nie działa).
 
@@ -93,6 +80,15 @@ Guess Nutrition by Dish Name i Quick Answer należą do podpunktu 4.
     https://api.spoonacular.com/recipes/convert?ingredientName=water&sourceAmount=3.5&sourceUnit=cups&targetUnit=liters&apiKey=YOUR_API_KEY <-- To zapytanie do API zwróci obiekt z przekonwertowaną jednostką.
 
     c. Cała dokumentacja z wszystkimi parametrami znajduje się tutaj https://spoonacular.com/food-api/docs#Convert-Amounts
+
+## Funkcjonalności
+
+        1. Menu z globalnym wyszukaniem receptury na danie -> Search Recipes
+        2. Strona główna z przykładowymi daniami -> Search Recipes by Ingredients
+        3. Strona z randomowym daniem -> Get Random Recipes
+        4. Gra w ile wartości odżywczych jest w danym produkcie -> Guess Nutrition by Dish Name
+        6. Lista zakupów -> Search Grocery Products
+        7. Kalkulator na przeliczanie miar -> Convert Amounts
 
 ### Menu z globalnym wyszukaniem receptury na danie
 
@@ -185,5 +181,6 @@ Zadaniem gracza jest oszacowanie, ile kalorii może znajdować się w daniu i wp
 
 ##### API do pobrania wyników dla wyszukiwanego zapytania
 
-Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY`
+Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY`.
+
 API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
