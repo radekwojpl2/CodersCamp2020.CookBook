@@ -67,46 +67,7 @@ describe('HomePage testing ', () => {
         createCardIngredients(undefined, "Title", parentElement)
         expect(parentElement.children.length).toEqual(0)
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //FIX ME
-    // expect(photo.style.backgroundImage).toEqual(`url("url"), url(/static/assets/img/no_image_available.png)`);
-
-    // expect(parentElement.children[0]).toEqual(photo);
 });
-
-// it('test', () => {
-//     const mock = document.createElement("i");
-//     mock.value = "pizza, pasta, tomato"
-//     jest.mock('../src/app/HomePage', () => ({
-//         ingredientsInput: mock
-//     }))
-
-//     const result = getInputValue()
-//     expect(result).toEqual("pizza,pasta,tomato");
-// });
-
-
 describe('getIngredientsNames function', () => {
     const ingredients = [
         { name: "red onion" },
