@@ -2,13 +2,13 @@
 
 CookBook to innowacyjna wersja książki kucharskiej, która oprócz korzystania z przepisów oferuje dodatkowe możliwości.
 
-W projekcie wykorzystano API https://spoonacular.com/food-api
+W projekcie wykorzystano API https://spoonacular.com/food-api.
 
 ## Demo projektu
 
-Projekt jest dostępny pod adresem https://radekwojpl2.github.io/CodersCamp2020.CookBook/
+Projekt jest dostępny pod adresem https://radekwojpl2.github.io/CodersCamp2020.CookBook/.
 
-## Przykładowe uzycia API
+## Przykładowe użycia API
 
 1.  Search Recipes  
      a. https://api.spoonacular.com/recipes/complexSearch&apiKey=YOUR_API_KEY <-- To jest pusty template, do którego trzeba dodać co najmniej jeden parametr (bez parametrów nie działa).
@@ -84,11 +84,11 @@ Projekt jest dostępny pod adresem https://radekwojpl2.github.io/CodersCamp2020.
 ## Funkcjonalności
 
         1. Menu z globalnym wyszukaniem receptury na danie -> Search Recipes
-        2. Strona główna z przykładowymi daniami, około 7, jakiś domyślny filter(np. pasta), możliwość zmiany filtra na coś innego (user imput) -> Search Recipes by Ingredients
-        3. Strona z randomowym daniem, przycisk na pobranie nowego oraz przycisk na pobieranie nowego dania cały czas interwał co 10s -> Get Random Recipes
-        4. Gra w ile wartości odżywczych jest w danym produkcie, możliwość błędu +- jakaś wartość -> Guess Nutrition by Dish Name lub Quick Answer
-        6. Lista zakupów, po wyjściu ze strony nie musi to być nigdzie zapisane, ewntualnie sesja, ciasteczka -> Search Grocery Products
-        7. Kalkulator na przeliczanie miar gramy na kilogramy i takie tam. -> Convert Amounts
+        2. Strona główna z przykładowymi daniami -> Search Recipes by Ingredients
+        3. Strona z randomowym daniem -> Get Random Recipes
+        4. Gra w ile wartości odżywczych jest w danym produkcie -> Guess Nutrition by Dish Name
+        6. Lista zakupów -> Search Grocery Products
+        7. Kalkulator na przeliczanie miar -> Convert Amounts
 
 ### Menu z globalnym wyszukaniem receptury na danie
 
