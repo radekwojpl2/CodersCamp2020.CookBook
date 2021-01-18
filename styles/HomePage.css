@@ -1,11 +1,12 @@
+@import './MainMenu.css';
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
 }
 
-#swquiz-app {
-    width: 100%;
-    max-width: 1900px;
+.homePageContaiiner {
+    width: 80%;
+    max-width: 100%;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -15,7 +16,6 @@ body {
 }
 
 .searchSection {
-    background-color: rgba(230, 230, 230, 0.76);
     width: 100%;
     display: flex;
     box-sizing: border-box;
@@ -24,10 +24,9 @@ body {
 }
 
 .searchDescription {
-    background-color: rgba(230, 230, 230, 0.76);
     width: 100%;
     text-align: right;
-    padding: 10px;
+    padding: 1rem 0px 1rem 0px;
     font-size: 14px;
 }
 
@@ -36,60 +35,33 @@ body {
 }
 
 #recipeSection {
-    background-color: rgba(230, 230, 230, 0.76);
     width: 100%;
-    height: 1000px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
 }
 
-#tags {
-    display: flex;
-}
-
-.tagLabel {
-    background-color: rgb(165, 165, 165);
-    padding: 5px 10px 5px 10px;
-    margin: 15px 0px 15px 15px;
-    border-radius: 5px;
-    border: 1px solid grey;
-}
-
 .recipeCard {
-    background-color: rgb(224, 224, 224);
     width: 100%;
     height: 100%;
-    text-align: center;
-    margin: 1%;
 }
 
 .wrapper {
-    height: 100%;
     width: 31%;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: currentColor;
-}
-
-.searchSection button:hover {
-    background: #ccc;
-}
-
-.selectButton {
-    float: left;
-    margin-top: 3px;
-    margin-bottom: 3px !important;
+    background-color: rgb(224, 224, 224);
+    height: 65vh;
+    text-align: center;
+    margin: 1%;
 }
 
 .cardTitle {
     text-align: center;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 2vh;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
@@ -99,33 +71,92 @@ body {
     margin-right: auto;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 35%;
+    height: 50%;
     width: 100%;
     background-position: center center;
+    background-color: rgb(224, 224, 224);
 }
 
 .cardIngredients {
-    width: 100%;
     text-align: center;
-    padding: 1px;
+    padding: 0.5rem;
     border-radius: 5px;
     margin: 1px auto 1px auto;
+    font-size: 0.9rem;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
 }
 
 h4 {
     padding: 0%;
     margin: 0%;
-    font-size: 2vh;
+    font-size: 0.9rem;
 }
 
-#ingredient {
-    width: 100%;
+#tags {
+    display: flex;
+}
+
+.tagLabel {
+    background-color: rgba(71, 121, 228, 0.808);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    margin: 1rem 0rem 1rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid grey;
+}
+
+.searchSection button:hover {
+    background: #ccc;
+}
+
+.selectButton {
+    float: left;
+    margin-top: 1rem;
+    margin-bottom: 1rem !important;
 }
 
 #title {
-    background-color: rgba(230, 230, 230, 0.76);
     width: 100%;
     height: 10%;
-    padding: 50px;
+    padding: 50px 0px 50px 0px;
     text-align: center;
+}
+
+#ingredient {
+    width: 320px;
+    ;
+}
+
+@media(max-width: 1199px) {
+    .wrapper {
+        width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: currentColor;
+    }
+    #recipeSection {
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+    .searchSection {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    #tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .searchDescription {
+        text-align: center;
+        padding: 1rem 0px 1rem 0px;
+        font-size: 14px;
+    }
 }

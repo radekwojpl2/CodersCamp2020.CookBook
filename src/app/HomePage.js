@@ -13,9 +13,10 @@ const tags = document.getElementById("tags");
 
 MainMenu();
 
+
 function getRecipesByIngredient(ingredients) {
 
-    fetch(URLSearchByIngredients + '?ingredients=' + ingredients.replace(/,/g, ",+") + '&ranking&number=7&apiKey=' + API_KEY)
+    fetch(URLSearchByIngredients + '?ingredients=' + ingredients.replace(/,/g, ",+") + '&ranking&number=6&apiKey=' + API_KEY)
         .then(response => {
             return response.json()
         })
@@ -28,11 +29,10 @@ function getRecipesByIngredient(ingredients) {
             ingredientsInput.value = "";
         })
 }
-searchButton.addEventListener("click", function() {
-    getRecipesByIngredient(getInputValue())
-});
 
-function clearElement(element) {
+
+export function clearElement(element) {
+    console.log(element)
     element.innerHTML = "";
 }
 
@@ -88,23 +88,25 @@ function createRecipeCard(recipe) {
     createCardIngredients(getIngredientsNames(recipe.extendedIngredients), "Ingredients: ", recipeCard)
 };
 
-function getInputValue() {
+export const getInputValue = () => {
     return ingredientsInput.value.replace(/\s/g, "");
 };
 
-function createCardTitle(recipeTitle, parentElement) {
-    let title = createElementWithClass("div", "cardTitle");
+export function createCardTitle(recipeTitle, parentElement) {
+    const title = createElementWithClass("div", "cardTitle");
     title.innerHTML = recipeTitle;
     parentElement.appendChild(title);
+    return title;
 }
 
-function createCardPhoto(photoPath, parentElement) {
+export function createCardPhoto(photoPath, parentElement) {
     let photo = createElementWithClass("div", "cardPhoto");
-    photo.setAttribute("style", `background-image: url("${photoPath}")`);
+    photo.setAttribute("style", `background-image: url("${photoPath}"), url(/static/assets/img/no_image_available.png)`);
     parentElement.appendChild(photo);
+    return photo;
 }
 
-function createCardIngredients(recipeIngredients, title, parentElement) {
+export function createCardIngredients(recipeIngredients, title, parentElement) {
     if (recipeIngredients !== undefined) {
         let ingredientsCard = createElementWithClass("div", "cardIngredients");
         let listTitle = document.createElement("h4")
@@ -123,20 +125,25 @@ function createCardIngredients(recipeIngredients, title, parentElement) {
     }
 }
 
-function getIngredientsNames(ingredients) {
+export function getIngredientsNames(ingredients) {
     if (ingredients !== undefined) {
         let ingredientsNames = []
-        ingredients.forEach(ingredient => {
-            ingredientsNames.push(ingredient.original);
-        });
+        for (let i = 0; i < 5 && i < ingredients.length; i++) {
+            ingredientsNames.push(ingredients[i].name);
+        }
         return ingredientsNames;
     }
 };
 
-function createElementWithClass(element, ...elementClass) {
+export function createElementWithClass(element, ...elementClass) {
     let newElement = document.createElement(element);
     newElement.classList.add(...elementClass);
     return newElement;
 }
 
-window.addEventListener('load', getRandomRecipes)
+window.addEventListener('load', function() {
+    getRandomRecipes();
+    searchButton.addEventListener("click", function() {
+        getRecipesByIngredient(getInputValue())
+    });
+})
