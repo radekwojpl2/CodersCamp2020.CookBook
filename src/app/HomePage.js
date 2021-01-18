@@ -1,7 +1,9 @@
 'use strict';
+import { MENU } from '../GlobalData.js';
 import { MainMenu } from './MainMenu.js';
 
-const API_KEY = 'f1d4678ea9644e0e856f7c3901def1a7'
+
+const API_KEY = '983626ba94294b26a4839fdab0bcc322'
 const URLSearchByIngredients = 'https://api.spoonacular.com/recipes/findByIngredients';
 const URLRandomRecipes = 'https://api.spoonacular.com/recipes/random';
 
@@ -11,7 +13,7 @@ const searchButton = document.getElementById("searchButton");
 const ingredientsInput = document.getElementById("ingredient");
 const tags = document.getElementById("tags");
 
-MainMenu();
+MainMenu(MENU.mainPage);
 
 
 function getRecipesByIngredient(ingredients) {
@@ -28,11 +30,16 @@ function getRecipesByIngredient(ingredients) {
             createTagLabels(ingredients);
             ingredientsInput.value = "";
         })
+        .catch(error => {
+            const p = document.createElement("p")
+            p.innerHTML = 'Ups...  Something went wrong!'
+            document.getElementById("recipeSection").appendChild(p)
+            console.log(error)
+        });
 }
 
 
 export function clearElement(element) {
-    console.log(element)
     element.innerHTML = "";
 }
 
@@ -47,6 +54,11 @@ function getRandomRecipes() {
         .then(recipes => {
             recipes.forEach(recipe => createRecipeCard(recipe))
         })
+        .catch(error => {
+            const p = document.createElement("p")
+            p.innerHTML = 'Ups...  Something went wrong!'
+            document.getElementById("recipeSection").appendChild(p)
+        });
 };
 
 function createTagLabels(ingredients) {
@@ -145,5 +157,6 @@ window.addEventListener('load', function() {
     getRandomRecipes();
     searchButton.addEventListener("click", function() {
         getRecipesByIngredient(getInputValue())
+        event.preventDefault()
     });
 })

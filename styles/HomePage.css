@@ -38,7 +38,7 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .recipeCard {
@@ -54,7 +54,7 @@ body {
     background-color: rgb(224, 224, 224);
     height: 65vh;
     text-align: center;
-    margin: 1%;
+    margin-bottom: 1%;
 }
 
 .cardTitle {
