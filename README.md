@@ -184,3 +184,20 @@ Zadaniem gracza jest oszacowanie, ile kalorii może znajdować się w daniu i wp
 Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY`.
 
 API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
+
+### Shopping List
+
+![mainShoppingList](/static/assets/img/mainShoppingList.png)
+
+#### Opis - Lista zakupów została zbudowana z 2 kontenerów.  
+
+W pierwszym z nich znajduje się wyszukiwarka dań. Wpisujemy do niej fraze a ona automatycznie podpowiada nam 3 dania na podstawie wpisanego tekstu. Następenie po kliknięciu w podane dane ukazuje nam sie lista skłaników które są potrzebne do danego dania. Po kliknięciu na przycisk - po prawej stronie składnika, do Shopping Listy zostanie dodany składnik.
+
+![ShoppingLeftContainer](/static/assets/img/ShoppingLeftContainer.png)
+
+W prawym kontenerze znajujde sie lista zakupów a w niej składniki, które dodalismy. Znajduje się również przycisk usuwania który czyści całą liste. Przy pojedyńczych składnikach również znajduję sie przycisk usuwania, dzięki któremu możemy usunąć niechciany składnik.
+
+![ShoppingRightContainer](/static/assets/img/ShoppingRightContainer.png)
+
+Do pobrania danych wykorzystane zostało API:
+
