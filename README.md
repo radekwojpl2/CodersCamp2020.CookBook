@@ -210,3 +210,53 @@ W prawym kontenerze znajujde sie lista zakupów a w niej składniki, które doda
 Do pobrania danych wykorzystane zostało API:
 https://api.spoonacular.com/recipes/autocomplete?apiKey=YOUR_API_KEY
 https://api.spoonacular.com/recipes/{id}/ingredientWidget.json?apiKey=YOUR_API_KEY
+
+### Strona główna z przykładowymi daniami
+##### Strona główna
+Strona główna wyświetla 6 losowych propozycji w formie kart zawierających zdjęcie, nazwę dania oraz potrzebne składniki. Cała karta jest hiperłączem, które przenosi użytkownika na stronę zawierającą wybrany przepis na danie. 
+
+Do pobrania danych wykorzystane zostało API:
+https://api.spoonacular.com/recipes/random&apiKey=YOUR_API_KEY
+
+API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
+
+##### Wyszukiwarka przepisów za pomocą składników
+W wyszukiwarkę należy wprowadzić, zgodnie z instrukcją zaprezentowaną na placeholderze, składniki wypisane jeden po drugim, odzielone przecinkiem. Wyniki wyszukiwania pojąwią się w postaci sześciu kart zawierających zdjęcie, nazwę dania, spis składników przekazanych przez użytkownika podczas wyszukiwania oraz spis składników, które należy uzupełnić. Cała karta jest hiperłączem, które przenosi użytkownika na stronę zawierającą przepis na danie.
+Jednocześnie wprowadzone w wyszukiwarce składniki wyświeltają się w formie tagów nad sekscją z kartami. Tagi pozawalją na manipulowanie ilością składników poprzez ich usuwanie. Następuje wtedy ponowne załadowanie, przepisów zawierających zakutualizowaną listę składników. 
+
+Do pobrania danych wykorzystane zostało API:
+https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY
+
+API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
+
+
+
+### Kalkulator jednostek
+
+Sercem kalkulatora jest formularz, do którego użytkownik podaje liczbę w systemie dziesiętnym, a następnie wybiera jednostki z dostępnej listy, które konwertuje. Po wciśnięciu przycisku w divie poniżej wyświetlana jest odpowiedź dla danego zapytania. Całą funkcjonalnością zarządza asynchroniczna funkcja calculate(), która za pomocą fetch() wysyła zapytanie do API. 
+
+Dane pochodzą z następującego API:
+https://api.spoonacular.com/recipes/convert&apiKey=YOUR_API_KEY
+
+
+### Strona z losowym daniem
+#### Opis
+Strona została zrobiona z użyciem flexa, na stronie widnieją dwa przyciski : 
+ * Random
+ * Start show random in interval
+ Na stronie znajuje się również div, do którego z poziomu js, dodawane są styl i elementy HTML zawierajace zdjęcie, składniki danego dania i przepis jak danie wykonać. 
+
+Button z napisem "Start show random in interval" ma w środku również animacje, oraz zamianę napisu ze "Start show random in interval" na "Stop show random in interval".
+Animacja na przycisku "Start show random", pokazuje poprzez przesuwanie się paska za ile zmieni się przepis na kolejny. 
+Na stronie została użyta również funkcja zsuwajaca całą zawartosc strony poniżej w momencie wysunięcia się menu na małych ekranach oraz obsługa zdażeń przy wyjściu z niego. 
+Do tej fukcji została dodana animacja.
+
+#### Instrukcja strony z losowym przepisem
+Celem strony jest pokazanie użytkownikowi losowego przepisu. 
+Użytkownik ma możliwość wybrać losowy przepis, lub włączyć pokazywanie losowych przepisów co 10 sekund. Jeśli użytkownik chce wyłaczyć pokazywanie losowych przepisów musi kliknąć w ten sam przycisk, lub przycisk "Random" 
+
+
+##### API do pobrania wyników dla wyszukiwanego zapytania
+Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/random?apiKey=YOUR_API_KEY`
+API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
+
