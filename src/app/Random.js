@@ -1,6 +1,8 @@
 import { MainMenu } from './MainMenu.js';
+import { MENU } from '../GlobalData.js'
 
-MainMenu();
+MainMenu(MENU.randomRecipe);
+
 
 const recipe = document.querySelector("#recipiesRandom");
 const navigationButton = document.querySelector('.navigationBtn')
