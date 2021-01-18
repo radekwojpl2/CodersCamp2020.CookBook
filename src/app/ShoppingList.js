@@ -2,24 +2,25 @@ import { MainMenu } from '../app/MainMenu.js';
 import { MENU } from '../GlobalData.js'
 
 MainMenu(MENU.shoppingList);
+window.onload = inputDishName;
+
 
 function getDishName(dishName) {
     fetch(`https://api.spoonacular.com/recipes/autocomplete?number=3&query=${dishName}&apiKey=82b93f78e7ca49cfa0aed375729b37ce`)
         .then(response => response.json())
         .then(data => {
-
             let output = ``;
             data.forEach(element => {
                 output += ` <li><button data-id='${element.id}'>${element.title}</li>`; 
             });
-            document.querySelector('.dish').innerHTML = output;
+            document.querySelector('.dish').innerHTML = output;         
             
             document.querySelectorAll('.dish li button').forEach((e) => {
                 e.addEventListener('click', function() {
 
                     document.querySelector('#dishName').value=e.textContent;
                     let dataItem = e.getAttribute('data-id');
-                    getProducts(dataItem);
+                    getProducts(dataItem, e.textContent);
                     document.querySelector('.dish').innerHTML = "";
                    
                 })
@@ -27,20 +28,30 @@ function getDishName(dishName) {
         });
 }
 
-document.querySelector('#dishName').addEventListener('keyup', function() {
-    let inp = document.querySelector('#dishName');
-    getDishName(inp.value);
+function inputDishName() {
+    document.querySelector('#dishName').addEventListener('keyup', function() {
+        let inp = document.querySelector('#dishName');
+        getDishName(inp.value);
 
-});
+    });
+}
 
 let resultShoppingList = [];
 
-function getProducts(id){
+
+export function getProductsOutput(productName){
+    return productName;
+}
+
+export function showLi(li) {
+    return li;
+}
+
+function getProducts(id, productName){
 fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=82b93f78e7ca49cfa0aed375729b37ce`)
         .then(response => response.json())
         .then(data => {
             let output = ``;
-
             data.ingredients.forEach(element => {
                 output += `<li>${element.name} <button class="fa fa-plus-circle"></button></li>`; 
             });
@@ -65,6 +76,8 @@ fetch(`https://api.spoonacular.com/recipes/${id}/ingredientWidget.json?apiKey=82
                     li.appendChild(button);
                     resultShoppingList.push(li);                   
                     temp++;
+
+                    console.log("<li>hing</li>")
 
                     resultShoppingList.forEach((result)=>{
                         document.querySelector('.shoppinglist').appendChild(result);
