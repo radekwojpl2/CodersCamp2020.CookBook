@@ -1,110 +1,114 @@
 @import './MainMenu.css';
 
-* {
-  padding: 0;
+*{
+    margin:0;
+    padding:0;
+}
+.container{
+    padding: 4vh;
+}
+h3{
+ font-weight: var(--fontFamily);
+}
+#ingredientsBox{
+    
+    width:100%;
+    height: 74vh;
+    background-color:  #d9d9d9;
+}
+.ingredientsBoxLeft, .ingredientsBoxRight{
+    padding-top: .5%;
+    text-align: center;
+    min-height:90%;
+    width:48%;
+    margin:1%;
+    float: left;
+    background-color:white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2vh;
 }
 
-h3 {
-  font-weight: var(--fontFamily);
+h3{
+    font-size: 5vh;
 }
-#ingredientsBox {
-  width: 100%;
-  height: 85vh;
-  background-color: #d9d9d9;
+#dishName{
+    margin: 1vh;
+    width: 25vh;
+    height: 2.3vh;
+    font-size: 1.9vh;
 }
-.ingredientsBoxLeft,
-.ingredientsBoxRight {
-  padding-top: 0.5%;
-  text-align: center;
-  min-height: 90%;
-  width: 48%;
-  margin: 1%;
-  float: left;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 2vh;
+.dish li{
+    list-style-type:none;
 }
+.dish li button{
+    color:black;
+    min-width: 25vh;
+    height: 4vh;
+    padding: 1vh;
+    background: none;
+    border:none;
+    font-size: 1.9vh;
+    border-bottom: 1px solid black;
+}
+.dish li button:hover{
+    color:var(--btnColor);
+}
+ul.ingredients, ul.shoppinglist{
+    max-height: 15vw;
+    overflow-y: scroll;
+}
+ul.ingredients, .shoppinglist{
+    margin-top: 1.7vh;
+}
+.ingredients li, .shoppinglist li{
+    list-style-type:none;
+    color:black;
+    min-width: 50vh;
+    height: 3vh;
+    padding-top:.7vh;
+    font-size: 2vh;
 
-h3 {
-  font-size: 5vh;
 }
-#dishName {
-  margin: 1vh;
-  width: 25vh;
-  height: 2.3vh;
-  font-size: 1.9vh;
-}
-.dish li {
-  list-style-type: none;
-}
-.dish li button {
-  color: black;
-  min-width: 25vh;
-  height: 4vh;
-  padding: 1vh;
-  background: none;
-  border: none;
-  font-size: 1.9vh;
-  border-bottom: 1px solid black;
-}
-.dish li button:hover {
-  color: var(--btnColor);
-}
-ul.ingredients,
-ul.shoppinglist {
-  max-height: 25vw;
-  overflow-y: scroll;
-}
-ul.ingredients,
-.shoppinglist {
-  margin-top: 1.7vh;
-}
-.ingredients li,
-.shoppinglist li {
-  list-style-type: none;
-  color: black;
-  min-width: 50vh;
-  height: 3vh;
-  padding-top: 0.7vh;
-  font-size: 2vh;
-}
-.ingredients li button,
-.shoppinglist li button {
-  color: var(--btnColor);
-  background: none;
-  border: none;
-  float: right;
-  width: 3vh;
-  height: 3vh;
+.ingredients li button, .shoppinglist li button{
+    color:var(--btnColor);
+    background: none;
+    border:none;
+    float: right;
+    width:3vh;
+    height: 3vh;
+    
 }
 
 @media (max-width: 670px) {
-  ul.ingredients,
-  ul.shoppinglist {
-    overflow-y: hidden;
-    min-height: auto;
-    max-height: fit-content;
+    ul.ingredients, ul.shoppinglist {
+        overflow-y: hidden;
+        min-height: auto;
+        max-height: fit-content;
+    }
+    #ingredientsBox{
+        height: 200vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .ingredientsBoxLeft, .ingredientsBoxRight{
+      
+        margin-top: 2%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        min-height:40%;
+    }
+    .ingredients li, .shoppinglist li{
+        font-size: 2vh;
+    }
+    ul.ingredients, ul.shoppinglist{
+        max-height: 50vw;
+        overflow-y: scroll;
+    }
+   
   }
-  #ingredientsBox {
-    height: 200vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  .ingredientsBoxLeft,
-  .ingredientsBoxRight {
-    margin-top: 2%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    min-height: 40%;
-  }
-  .ingredients li,
-  .shoppinglist li {
-    font-size: 2vh;
-  }
-}
