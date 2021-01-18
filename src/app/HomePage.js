@@ -88,7 +88,7 @@ function deleteTag(element) {
 
 function createRecipeCard(recipe) {
     let hyperLink = createElementWithClass("a", "wrapper");
-    hyperLink.href = `/recipe.html?id=${recipe.id}`
+    hyperLink.href = `/CodersCamp2020.CookBook/recipe.html?id=${recipe.id}`
     let recipeCard = createElementWithClass("div", "recipeCard");
     recipeCard.id = recipe.id;
     document.getElementById("recipeSection").appendChild(hyperLink);
