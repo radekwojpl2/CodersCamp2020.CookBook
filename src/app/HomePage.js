@@ -113,7 +113,7 @@ export function createCardTitle(recipeTitle, parentElement) {
 
 export function createCardPhoto(photoPath, parentElement) {
     let photo = createElementWithClass("div", "cardPhoto");
-    photo.setAttribute("style", `background-image: url("${photoPath}"), url(/static/assets/img/no_image_available.png)`);
+    photo.setAttribute("style", `background-image: url("${photoPath}"), url(/CodersCamp2020.CookBook/static/assets/img/no_image_available.png)`);
     parentElement.appendChild(photo);
     return photo;
 }
