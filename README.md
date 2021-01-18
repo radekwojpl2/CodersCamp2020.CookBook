@@ -184,3 +184,23 @@ Zadaniem gracza jest oszacowanie, ile kalorii może znajdować się w daniu i wp
 Do pobrania danych wykorzystane zostało API: `https://api.spoonacular.com/recipes/guessNutrition&apiKey=YOUR_API_KEY`.
 
 API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
+
+
+### Strona główna z przykładowymi daniami
+##### Strona główna
+Strona główna wyświetla 6 losowych propozycji w formie kart zawierających zdjęcie, nazwę dania oraz potrzebne składniki. Cała karta jest hiperłączem, które przenosi użytkownika na stronę zawierającą wybrany przepis na danie. 
+
+Do pobrania danych wykorzystane zostało API:
+https://api.spoonacular.com/recipes/random&apiKey=YOUR_API_KEY
+
+API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
+
+##### Wyszukiwarka przepisów za pomocą składników
+W wyszukiwarkę należy wprowadzić, zgodnie z instrukcją zaprezentowaną na placeholderze, składniki wypisane jeden po drugim, odzielone przecinkiem. Wyniki wyszukiwania pojąwią się w postaci sześciu kart zawierających zdjęcie, nazwę dania, spis składników przekazanych przez użytkownika podczas wyszukiwania oraz spis składników, które należy uzupełnić. Cała karta jest hiperłączem, które przenosi użytkownika na stronę zawierającą przepis na danie.
+Jednocześnie wprowadzone w wyszukiwarce składniki wyświeltają się w formie tagów nad sekscją z kartami. Tagi pozawalją na manipulowanie ilością składników poprzez ich usuwanie. Następuje wtedy ponowne załadowanie, przepisów zawierających zakutualizowaną listę składników. 
+
+Do pobrania danych wykorzystane zostało API:
+https://api.spoonacular.com/recipes/findByIngredients&apiKey=YOUR_API_KEY
+
+API pobierane jest przy użyciu fetch(), a jego obsługa odbywa się za pomocą then() i catch().
+
